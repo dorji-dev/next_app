@@ -13,7 +13,7 @@ const SiteHeader = () => {
         <div className="flex items-center w-full h-full">
           <DesktopNav />
           <MobileNav />
-          <nav className="ml-auto">
+          <nav className="ml-auto flex items-center space-x-[8px]">
             <Link href="/" target="_blank" rel="noreferrer">
               <div
                 className={cn(
