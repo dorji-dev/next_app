@@ -3,6 +3,7 @@ import { Noto_Sans } from "next/font/google";
 import "../styles/globals.css";
 import SiteHeader from "@/components/site-header";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import SiteFooter from "@/components/site-footer";
 
 const notoSans = Noto_Sans({
   subsets: ["latin"],
@@ -31,6 +32,7 @@ export default function RootLayout({
           <div className="relative flex min-h-screen flex-col bg-background">
             <SiteHeader />
             <main className="container flex-1">{children}</main>
+            <SiteFooter />
           </div>
         </ThemeProvider>
       </body>

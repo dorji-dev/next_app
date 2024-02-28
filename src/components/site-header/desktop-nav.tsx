@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { GiAbstract062 } from "react-icons/gi";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -16,7 +15,7 @@ import SiteLogo from "../logo";
 const DesktopNav = () => {
   return (
     <div className="hidden md:flex h-full">
-      <Link href="/" className="mr-6 flex items-center space-x-2">
+      <Link href="/" className="mr-6 flex items-center space-x-[4px]">
         <SiteLogo />
       </Link>
 

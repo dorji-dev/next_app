@@ -130,8 +130,8 @@ const NavigationMenuContentItem = React.forwardRef<
           )}
           {...props}
         >
-          <div className="font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-[12px] leading-snug text-muted-foreground">
+          <div className="font-medium leading-none mb-[8px]">{title}</div>
+          <p className="line-clamp-2 text-[12px] text-muted-foreground leading-[18px]">
             {children}
           </p>
         </a>
