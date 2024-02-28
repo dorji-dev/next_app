@@ -74,3 +74,13 @@
     @apply bg-background text-foreground;
   }
 }
+
+body {
+  @apply text-[13px];
+}
+
+@media (max-width: 640px) {
+  .container {
+      @apply px-[10px];
+  }
+}
