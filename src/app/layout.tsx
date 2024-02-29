@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Noto_Sans } from "next/font/google";
+import { DM_Sans } from "next/font/google";
 import "../styles/globals.css";
 import SiteHeader from "@/components/site-header";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import SiteFooter from "@/components/site-footer";
 import { ReactNode } from "react";
 
-const notoSans = Noto_Sans({
+const dmSans = DM_Sans({
   subsets: ["latin"],
   weight: ["200", "300", "400", "500", "600", "700"],
 });
@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={notoSans.className}>
+      <body className={dmSans.className}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

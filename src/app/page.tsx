@@ -1,10 +1,5 @@
 import { buttonVariants } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { heroFeatures } from "@/config/hero-features";
 import { cn } from "@/lib/utils";
@@ -39,12 +34,18 @@ export default function Home() {
       <section>
         <div className="flex flex-wrap justify-center gap-[40px]">
           {heroFeatures.map((feature) => (
-            <Link key={feature.title} href={feature.href} className="group min-w-full sm:min-w-[90%] sm:max-w-[400px] md:min-w-[70%] lg:min-w-[30%]">
-              <Card className="group-hover:border-foreground/50 transition-colors duration-300">
+            <Link
+              key={feature.title}
+              href={feature.href}
+              className="group min-w-full sm:min-w-[90%] sm:max-w-[400px] md:min-w-[70%] lg:min-w-[30%]"
+            >
+              <Card className="group-hover:border-input/60 transition-colors duration-300">
                 <CardHeader>
                   <CardTitle>{feature.title}</CardTitle>
                 </CardHeader>
-                <CardContent className="w-full text-foreground/60">{feature.content}</CardContent>
+                <CardContent className="w-full text-foreground/60">
+                  {feature.content}
+                </CardContent>
               </Card>
             </Link>
           ))}
