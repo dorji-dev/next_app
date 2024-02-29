@@ -1,10 +1,10 @@
-import { NavigationConfig } from "../types/navigation";
+import { NavigationConfig } from "@/lib/types/navigation";
 
 export const navConfig: NavigationConfig = {
   desktopNav: {
     withMenu: [
       {
-        title: "Data",
+        title: "Routing",
         subMenu: [
           {
             title: "Pagination",

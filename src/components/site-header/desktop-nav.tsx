@@ -9,7 +9,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "../ui/navigation-menu";
-import { navConfig } from "@/lib/constants/navigation";
+import { navConfig } from "@/config/navigation";
 import SiteLogo from "../logo";
 
 const DesktopNav = () => {

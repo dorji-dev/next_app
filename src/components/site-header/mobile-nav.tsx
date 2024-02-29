@@ -7,7 +7,7 @@ import { TbMenu } from "react-icons/tb";
 import { ScrollArea } from "../ui/scroll-area";
 import Link from "next/link";
 import SiteLogo from "../logo";
-import { navConfig } from "@/lib/constants/navigation";
+import { navConfig } from "@/config/navigation";
 import {
   Accordion,
   AccordionContent,
