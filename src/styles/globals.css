@@ -75,8 +75,8 @@
   }
 }
 
-body {
-  @apply text-[13px];
+html {
+  @apply text-[14px];
 }
 
 @media (max-width: 640px) {

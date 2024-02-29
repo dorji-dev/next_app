@@ -21,14 +21,14 @@ const MobileNav = () => {
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger
         asChild
-        className="mr-2 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
+        className="mr-[8px] px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
       >
         <Button variant="ghost" aria-label="Toggle menu">
           <TbMenu className="w-[24px] h-[24px]" />
         </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="pr-0">
-        <Link href="/" className="mr-6 flex items-center space-x-2">
+      <SheetContent side="left" className="pr-0 pt-[36px]">
+        <Link href="/" className="mr-[24px] flex items-center space-x-2">
           <SiteLogo />
         </Link>
         <ScrollArea className="my-[16px] h-[calc(100vh-8rem)] pb-[40px] pr-[20px]">
@@ -39,7 +39,7 @@ const MobileNav = () => {
                   <AccordionTrigger className="text-foreground/60">
                     {menu.title}
                   </AccordionTrigger>
-                  <AccordionContent className="flex flex-col pl-[8px] ml-[4px] mt-[12px] space-y-[8px] text-foreground/60 border-l border-dashed">
+                  <AccordionContent className="flex flex-col pl-[8px] ml-[4px] mt-[12px] space-y-[16px] text-foreground/60 border-l border-dashed">
                     {menu.subMenu.map((subMenu) => (
                       <Link href={subMenu.href} key={subMenu.title}>
                         {subMenu.title}

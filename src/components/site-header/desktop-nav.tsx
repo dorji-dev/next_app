@@ -16,17 +16,17 @@ const DesktopNav = () => {
   
   return (
     <div className="hidden md:flex h-full">
-      <Link href="/" className="mr-6 flex items-center space-x-[4px]">
+      <Link href="/" className="mr-[24px] flex items-center space-x-[4px]">
         <SiteLogo />
       </Link>
 
       <NavigationMenu>
         <NavigationMenuList>
           {navConfig.desktopNav.withMenu.map((menu) => (
-            <NavigationMenuItem key={menu.title} className="mr-[14px]">
+            <NavigationMenuItem key={menu.title} className="mr-[20px]">
               <NavigationMenuTrigger className="transition-color duration-300 h-[20px]">{menu.title}</NavigationMenuTrigger>
               <NavigationMenuContent>
-                <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                <ul className="grid gap-[12px] p-[16px] md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                   {menu.subMenu.map((subMenu) => (
                     <NavigationMenuContentItem
                       href={subMenu.href}

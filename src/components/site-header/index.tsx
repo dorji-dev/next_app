@@ -20,10 +20,10 @@ const SiteHeader = () => {
                   buttonVariants({
                     variant: "ghost",
                   }),
-                  "w-9 px-0"
+                  "w-[36px] px-0"
                 )}
               >
-                <FaGithub className="h-4 w-4" />
+                <FaGithub className="h-[16px] w-[16px]" />
                 <span className="sr-only">GitHub</span>
               </div>
             </Link>
