@@ -33,13 +33,13 @@ const MobileNav = () => {
         </Link>
         <ScrollArea className="my-[16px] h-[calc(100vh-8rem)] pb-[40px] pr-[20px]">
           <nav className="flex flex-col space-y-[16px]">
-            <Accordion type="single" collapsible className="space-y-[16px]">
+            <Accordion type="multiple" className="space-y-[16px]">
               {navConfig.mobileNav.withSubMenu.map((menu) => (
                 <AccordionItem key={menu.title} value={menu.title}>
                   <AccordionTrigger className="text-foreground/60">
                     {menu.title}
                   </AccordionTrigger>
-                  <AccordionContent className="flex flex-col pl-[8px] ml-[4px] mt-[12px] space-y-[8px] text-foreground/60 border-l border-dotted">
+                  <AccordionContent className="flex flex-col pl-[8px] ml-[4px] mt-[12px] space-y-[8px] text-foreground/60 border-l border-dashed">
                     {menu.subMenu.map((subMenu) => (
                       <Link href={subMenu.href} key={subMenu.title}>
                         {subMenu.title}

@@ -13,6 +13,7 @@ import { navConfig } from "@/config/navigation";
 import SiteLogo from "../logo";
 
 const DesktopNav = () => {
+  
   return (
     <div className="hidden md:flex h-full">
       <Link href="/" className="mr-6 flex items-center space-x-[4px]">

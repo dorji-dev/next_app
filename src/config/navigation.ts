@@ -7,44 +7,104 @@ export const navConfig: NavigationConfig = {
         title: "Routing",
         subMenu: [
           {
-            title: "Pagination",
+            title: "Parallel routing",
             href: "/",
             description:
-              "Offset API pagination is the most common form of API pagination, particularly if you’re using a SQL database. It’s also sometimes called page-based pagination.",
+              "Render more than one page in the same layout conditionally or simultaneously.",
           },
           {
-            title: "Infinite scrolling",
+            title: "Intercepting routes",
             href: "/",
-            description: `Infinite scrolling is a technique, which reveals more content as a user scrolls down the website. It's definitely cool, but serves its purpose beneficially only on particular types of pages. `,
+            description:
+              "Load another route from current layout or page without losing the context of the current page or layout. Also known as modal routing.",
+          },
+          {
+            title: "Route handlers",
+            href: "/",
+            description:
+              "Create custom api routes. Replacement for the API folder of pages router.",
+          },
+          {
+            title: "Middleware",
+            href: "/",
+            description: "Run code right before the request is completed.",
           },
         ],
       },
       {
-        title: "Routing",
+        title: "Rendering",
         subMenu: [
           {
-            title: "Parallel routing",
+            title: "Server component",
             href: "/",
             description:
-              "Offset API pagination is the most common form of API pagination, particularly if you’re using a SQL database. It’s also sometimes called page-based pagination.",
+              "Write UI that renders only on the server. No Javascript bundle of the component is sent to the client.",
           },
           {
-            title: "Route interception",
+            title: "Client component",
             href: "/",
-            description: `Infinite scrolling is a technique, which reveals more content as a user scrolls down the website. It's definitely cool, but serves its purpose beneficially only on particular types of pages. `,
+            description:
+              "Write UI that renders on the client and occasionally on the server based the type of request, i.e. full page reload or client side navigation.",
+          },
+          {
+            title: "Component composition",
+            href: "/",
+            description:
+              "Recommended pattern on when to use server or client component and how to weave them together.",
+          },
+          {
+            title: "Runtime",
+            href: "/",
+            description:
+              "Node vs Edge runtime for the execution of your application code.",
+          },
+        ],
+      },
+      {
+        title: "File conventions",
+        subMenu: [
+          {
+            title: "default.js",
+            href: "/",
+            description:
+              "Render fallback within parallel routes on hard reload.",
+          },
+          {
+            title: "error.js",
+            href: "/",
+            description:
+              "Handle runtime errors gracefully resulting from the route segment and its nested children.",
+          },
+          {
+            title: "loading.js",
+            href: "/",
+            description:
+              "Show an instant loading UI while your route segment is loading.",
+          },
+          {
+            title: "template.js",
+            href: "/",
+            description:
+              "Just like layout.js but unlike layout, it creates a new instance for each children on navigation.",
+          },
+          {
+            title: "not-found.js",
+            href: "/",
+            description:
+              "Render UI when notFound() is called withing a route segment.",
+          },
+          {
+            title: "Metadata",
+            href: "/",
+            description:
+              "Statically or dynamically generate your metadata files for each route segment.",
           },
         ],
       },
     ],
     withoutMenu: [
       {
-        title: "Error boundary",
-        href: "/",
-        description:
-          "Isolate errors to affected segments while keeping the rest of the application functional.",
-      },
-      {
-        title: "404",
+        title: "Internationalization",
         href: "/",
         description:
           "Isolate errors to affected segments while keeping the rest of the application functional.",
@@ -57,37 +117,69 @@ export const navConfig: NavigationConfig = {
         title: "Routing",
         subMenu: [
           {
-            title: "Parallel routing1",
+            title: "Parallel routing",
             href: "/",
           },
           {
-            title: "Data fetching2",
-            href: "/",
-          },
-        ],
-      },
-      {
-        title: "Parallel",
-        subMenu: [
-          {
-            title: "Parallel routing1",
+            title: "Intercepting routes",
             href: "/",
           },
           {
-            title: "Data fetching2",
+            title: "Route handlers",
+            href: "/",
+          },
+          {
+            title: "Middleware",
             href: "/",
           },
         ],
       },
       {
-        title: "Routing1",
+        title: "Rendering",
         subMenu: [
           {
-            title: "Parallel routing2",
+            title: "Server component",
             href: "/",
           },
           {
-            title: "Data fetching3",
+            title: "Client component",
+            href: "/",
+          },
+          {
+            title: "Component composition",
+            href: "/",
+          },
+          {
+            title: "Runtime",
+            href: "/",
+          },
+        ],
+      },
+      {
+        title: "File conventions",
+        subMenu: [
+          {
+            title: "default.js",
+            href: "/",
+          },
+          {
+            title: "error.js",
+            href: "/",
+          },
+          {
+            title: "loading.js",
+            href: "/",
+          },
+          {
+            title: "template.js",
+            href: "/",
+          },
+          {
+            title: "not-found.js",
+            href: "/",
+          },
+          {
+            title: "Metadata",
             href: "/",
           },
         ],
@@ -95,19 +187,7 @@ export const navConfig: NavigationConfig = {
     ],
     withoutSubMenu: [
       {
-        title: "Error boundary1",
-        href: "/",
-      },
-      {
-        title: "Error boundary2",
-        href: "/",
-      },
-      {
-        title: "Error boundary3",
-        href: "/",
-      },
-      {
-        title: "Error boundary4",
+        title: "Internationalization",
         href: "/",
       },
     ],
