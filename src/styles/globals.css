@@ -84,3 +84,9 @@ body {
       @apply px-[10px];
   }
 }
+
+@media (max-width: 280px) {
+  .container {
+    @apply min-w-[280px] overflow-auto;
+  }
+}
