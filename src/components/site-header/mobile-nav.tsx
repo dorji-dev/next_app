@@ -41,7 +41,11 @@ const MobileNav = () => {
                   </AccordionTrigger>
                   <AccordionContent className="flex flex-col pl-[8px] ml-[4px] mt-[12px] space-y-[16px] text-foreground/60 border-l border-dashed">
                     {menu.subMenu.map((subMenu) => (
-                      <Link href={subMenu.href} key={subMenu.title}>
+                      <Link
+                        href={subMenu.href}
+                        key={subMenu.title}
+                        onClick={() => setOpen(false)}
+                      >
                         {subMenu.title}
                       </Link>
                     ))}
@@ -51,6 +55,7 @@ const MobileNav = () => {
             </Accordion>
             {navConfig.mobileNav.withoutSubMenu.map((menu) => (
               <Link
+                onClick={() => setOpen(false)}
                 href={menu.href}
                 key={menu.title}
                 className="text-foreground/60"

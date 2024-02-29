@@ -4,6 +4,7 @@ import "../styles/globals.css";
 import SiteHeader from "@/components/site-header";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import SiteFooter from "@/components/site-footer";
+import { ReactNode } from "react";
 
 const notoSans = Noto_Sans({
   subsets: ["latin"],
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <html lang="en">

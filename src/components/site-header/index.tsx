@@ -14,7 +14,7 @@ const SiteHeader = () => {
           <DesktopNav />
           <MobileNav />
           <nav className="ml-auto flex items-center space-x-[8px]">
-            <Link href="/" target="_blank" rel="noreferrer">
+            <Link href="https://github.com/dorji-dev/next_app" target="_blank" rel="noreferrer">
               <div
                 className={cn(
                   buttonVariants({

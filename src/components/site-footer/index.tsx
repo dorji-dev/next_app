@@ -1,6 +1,6 @@
 const SiteFooter = () => {
   return (
-    <div className="container py-[20px] text-center">
+    <div className="container py-[20px] mt-[50px] text-[12px] text-center">
       Built with{" "}
       <a
         href="https://nextjs.org/"
@@ -14,7 +14,14 @@ const SiteFooter = () => {
         className="text-foreground/60 font-medium underline tracking-[2px]"
       >
         shadcn
-      </a>,
+      </a>{" "}
+      by{" "}
+      <a
+        href="https://github.com/dorji-dev"
+        className="text-foreground/50 font-medium"
+      >
+        dorji-dev
+      </a>.
     </div>
   );
 };
