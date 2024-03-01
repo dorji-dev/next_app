@@ -17,19 +17,23 @@ import {
 
 const MobileNav = () => {
   const [open, setOpen] = useState(false);
-  
+
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger
         asChild
         className="mr-[8px] px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
       >
-        <Button variant="ghost" aria-label="Toggle menu">
+        <Button variant="ghost" aria-label="Open navigation menu">
           <TbMenu className="w-[24px] h-[24px]" />
         </Button>
       </SheetTrigger>
       <SheetContent side="left" className="pr-0 pt-[36px]">
-        <Link href="/" className="mr-[24px] flex items-center space-x-2">
+        <Link
+          href="/"
+          className="mr-[24px] flex items-center space-x-2"
+          onClick={() => setOpen(false)}
+        >
           <SiteLogo />
         </Link>
         <ScrollArea className="my-[16px] h-[calc(100vh-8rem)] pb-[40px] pr-[20px]">

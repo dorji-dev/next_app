@@ -6,7 +6,7 @@ const SiteLogo = () => {
     <>
       <GiAbstract062 />
       <span className="font-bold flex items-center">
-        <span className="font-thin">NEXT</span>
+        <span className="font-[500]">NEXT</span>
         <Separator orientation="vertical" className="h-[12px] mx-[4px]"/>
         <span className="text-primary">app_router</span>
       </span>

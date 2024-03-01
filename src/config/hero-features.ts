@@ -4,7 +4,7 @@ export const heroFeatures: HeroFeatures = [
   {
     title: "Pagination",
     content: "Pagination with server component",
-    href: "/",
+    href: "/features/pagination",
   },
   {
     title: "Infinite scrolling",

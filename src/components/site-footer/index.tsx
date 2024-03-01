@@ -1,6 +1,6 @@
 const SiteFooter = () => {
   return (
-    <div className="container py-[20px] mt-[50px] text-[12px] text-center">
+    <div className="container py-[20px] mt-[50px] text-[12px] border-t border-t-border/40 text-center">
       Built with{" "}
       <a
         href="https://nextjs.org/"

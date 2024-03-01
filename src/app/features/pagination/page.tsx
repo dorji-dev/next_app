@@ -1,9 +1,14 @@
-import React from 'react'
+import FeatureImplementationTemplate from "@/components/templates/feature-implementation";
 
 const PaginationPage = () => {
   return (
-    <div>PaginationPage</div>
-  )
-}
+    <FeatureImplementationTemplate
+      resourceLink="/"
+      longFeatureTitle="Pagination with server component and query state"
+    >
+      Pagination
+    </FeatureImplementationTemplate>
+  );
+};
 
-export default PaginationPage
+export default PaginationPage;
