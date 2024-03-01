@@ -4,11 +4,11 @@ export const heroFeatures: HeroFeatures = [
   {
     title: "Pagination",
     content: "Pagination with server component",
-    href: "",
+    href: "/",
   },
   {
     title: "Infinite scrolling",
     content: "Infinite scrolling with server component",
-    href: "/",
+    href: "/features/infinite-scrolling",
   },
 ];

@@ -1,16 +1,18 @@
+import { Route } from "next";
+
 export type NavigationConfig = {
   desktopNav: {
     withMenu: {
       title: string;
       subMenu: {
         title: string;
-        href: string;
+        href: Route<string>;
         description: string;
       }[];
     }[];
     withoutMenu: {
       title: string;
-      href: string;
+      href: Route<string>;
       description: string;
     }[];
   };
@@ -19,12 +21,12 @@ export type NavigationConfig = {
       title: string;
       subMenu: {
         title: string;
-        href: string;
+        href: Route<string>;
       }[];
     }[];
     withoutSubMenu: {
       title: string;
-      href: string;
+      href: Route<string>;
     }[];
-  }
+  };
 };

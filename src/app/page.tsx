@@ -36,7 +36,7 @@ export default function Home() {
           {heroFeatures.map((feature) => (
             <Link
               key={feature.title}
-              href={feature.href}
+              href="/"
               className="group min-w-full sm:min-w-[90%] sm:max-w-[400px] md:min-w-[70%] lg:min-w-[30%]"
             >
               <Card className="group-hover:border-input/60 transition-colors duration-300">
