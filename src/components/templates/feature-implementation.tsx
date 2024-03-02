@@ -33,7 +33,7 @@ const FeatureImplementationTemplate = ({
         </Button>
         <Link
           href={resourceLink as Route}
-          className="flex items-center text-primary border border-border w-max py-[8px] px-[16px] rounded-[4px] hover:bg-accent"
+          className="flex items-center bg-foreground/5 w-max py-[8px] font-medium px-[16px] rounded-[4px] hover:bg-accent"
         >
           Github link <PiArrowLineUpRightThin className="ml-[4px]" />
         </Link>
@@ -43,7 +43,7 @@ const FeatureImplementationTemplate = ({
       </h2>
       <Link
         href={resourceLink as Route}
-        className="flex items-center md:hidden text-[12px] text-primary border border-border w-max py-[2px] px-[6px] rounded-[4px]"
+        className="flex items-center md:hidden text-[12px] bg-foreground/5 font-medium w-max py-[4px] px-[12px] rounded-[4px]"
       >
         Github link <PiArrowLineUpRightThin className="ml-[4px]" />
       </Link>
