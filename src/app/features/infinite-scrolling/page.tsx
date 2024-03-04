@@ -13,6 +13,11 @@ const InfiniteScrollingPage = ({
       longFeatureTitle={`Infinite scrolling implementation with server component and ${
         withServerAction ? "with" : "without"
       } server actions`}
+      inspirationLink={
+        withServerAction
+          ? "https://github.com/gabrielelpidio/next-infinite-scroll-server-actions"
+          : ""
+      }
     >
       {withServerAction ? <ISWSAImplementation /> : <ISWOSAImplementation />}
     </FeatureImplementationTemplate>

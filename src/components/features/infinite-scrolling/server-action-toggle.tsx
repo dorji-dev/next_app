@@ -36,6 +36,9 @@ const ServerActionToggle = ({
     >
       <span>With server action</span>
       <Switch
+        aria-label={
+          withServerAction ? "Without server action" : "With server action"
+        }
         checked={withServerAction}
         onCheckedChange={toggleWithServerAction}
       />

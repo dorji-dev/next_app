@@ -11,12 +11,14 @@ import React from "react";
 interface FeatureImplementationTemplateProps extends React.PropsWithChildren {
   longFeatureTitle: string;
   resourceLink: string;
+  inspirationLink?: string;
 }
 
 const FeatureImplementationTemplate = ({
   longFeatureTitle,
   children,
   resourceLink,
+  inspirationLink,
 }: FeatureImplementationTemplateProps) => {
   const router = useRouter();
 
@@ -31,24 +33,45 @@ const FeatureImplementationTemplate = ({
         >
           <IoMdArrowBack className="w-[20px] h-[24px]" />
         </Button>
-        <Link
-          href={resourceLink as Route}
-          target="_blank"
-          className="flex items-center bg-foreground/5 w-max py-[8px] font-medium px-[16px] rounded-[4px] hover:bg-accent"
-        >
-          Github link <PiArrowLineUpRightThin className="ml-[4px]" />
-        </Link>
+        <div className="flex space-x-[20px]">
+          {inspirationLink && (
+            <Link
+              href={inspirationLink as Route}
+              className="flex items-center bg-foreground/5 w-max py-[8px] font-medium px-[16px] rounded-[4px] hover:bg-accent"
+            >
+              Inspiration <PiArrowLineUpRightThin className="ml-[4px]" />
+            </Link>
+          )}
+          <Link
+            href={resourceLink as Route}
+            target="_blank"
+            className="flex items-center bg-foreground/5 w-max py-[8px] font-medium px-[16px] rounded-[4px] hover:bg-accent"
+          >
+            Github link <PiArrowLineUpRightThin className="ml-[4px]" />
+          </Link>
+        </div>
       </div>
       <h2 className="text-[24px] my-[18px] leading-[30px] font-[500]">
         {longFeatureTitle}
       </h2>
-      <Link
-        href={resourceLink as Route}
-        target="_blank"
-        className="flex items-center md:hidden text-[12px] bg-foreground/5 font-medium w-max py-[4px] px-[12px] rounded-[4px]"
-      >
-        Github link <PiArrowLineUpRightThin className="ml-[4px]" />
-      </Link>
+      <div className="flex md:hidden space-x-[20px]">
+        <Link
+          href={resourceLink as Route}
+          target="_blank"
+          className="flex items-center text-[12px] bg-foreground/5 font-medium w-max py-[4px] px-[12px] rounded-[4px]"
+        >
+          Github link <PiArrowLineUpRightThin className="ml-[4px]" />
+        </Link>
+        {inspirationLink && (
+          <Link
+            href={inspirationLink as Route}
+            target="_blank"
+            className="flex items-center text-[12px] bg-foreground/5 font-medium w-max py-[4px] px-[12px] rounded-[4px]"
+          >
+            Inspiration <PiArrowLineUpRightThin className="ml-[4px]" />
+          </Link>
+        )}
+      </div>
       <div className="mt-[20px]">{children}</div>
     </div>
   );

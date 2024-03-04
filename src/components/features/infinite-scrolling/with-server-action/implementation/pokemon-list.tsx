@@ -33,7 +33,7 @@ const PokemonList = ({ pokemons }: PokemonListProps) => {
           className="object-fit p-[20px]"
         />
       </div>
-      <p className="p-[15px] text-foreground/50">{toTitleCase(pokemon.name)}</p>
+      <p className="pb-[20px] text-foreground/50">{toTitleCase(pokemon.name)}</p>
     </div>
   ));
 };
