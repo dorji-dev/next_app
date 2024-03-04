@@ -1,5 +1,6 @@
 import { PokemonListResponse } from "@/lib/types/pokemon";
 import { toTitleCase } from "@/lib/utils/misc";
+import { rgbDataURL } from "@/lib/utils/rgb-data-url";
 import Image from "next/image";
 
 interface PokemonListProps {
@@ -18,12 +19,18 @@ const PokemonList = ({ pokemons }: PokemonListProps) => {
       key={pokemon.url}
       className="flex flex-col items-center border border-border rounded-[8px]"
     >
-      <div className="relative h-[200px] w-[200px]  xs:h-[150px] xs:w-[150px] sm:h-[200px] sm:w-[200px] p-[10px]">
+      <div className="relative h-[0px] w-full pb-[100%]">
         <Image
           src={getPokemonImageURL(pokemon.url)}
           alt={pokemon.name}
+          placeholder="blur"
+          blurDataURL={rgbDataURL(229, 228, 226)}
+          style={{
+            borderTopLeftRadius: 7,
+            borderTopRightRadius: 7,
+          }}
           fill
-          className="object-fit"
+          className="object-fit p-[20px]"
         />
       </div>
       <p className="p-[15px] text-foreground/50">{toTitleCase(pokemon.name)}</p>

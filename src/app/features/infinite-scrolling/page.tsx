@@ -9,7 +9,7 @@ const InfiniteScrollingPage = ({
   const withServerAction = searchParams.with_server_action !== "false";
   return (
     <FeatureImplementationTemplate
-      resourceLink="/"
+      resourceLink="https://github.com/dorji-dev/next_app/blob/main/src/app/features/infinite-scrolling/page.tsx"
       longFeatureTitle={`Infinite scrolling implementation with server component and ${
         withServerAction ? "with" : "without"
       } server actions`}
