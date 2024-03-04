@@ -12,7 +12,7 @@ const FeatureLayout = ({ children, explanation }: FeatureLayoutProps) => {
       <MobileFeatureLayoutHeader explanation={explanation} />
       {/* desktop left bar */}
       <div className="hidden md:block w-[250px] lg:w-[300px]">
-        <div className="sticky top-[107px] h-[calc(100vh-121px)]">
+        <div className="sticky top-[81px] h-[calc(100vh-121px)]">
           {explanation}
         </div>
       </div>
