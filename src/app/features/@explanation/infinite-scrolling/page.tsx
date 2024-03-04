@@ -9,7 +9,10 @@ const InfiniteScrollingExplanation = ({
 }: InfiniteScrollingPageSearchParams) => {
   const withServerAction = searchParams.with_server_action !== "false";
   return (
-    <FeatureExplanationTemplate featureTitle="Infinite loading">
+    <FeatureExplanationTemplate
+      featureTitle="Infinite loading"
+      disclaimer="In order to follow along the explanation, you are expected to go through the linked resource to understand it better."
+    >
       <ServerActionToggle className="mb-[20px]" />
       {withServerAction ? <ISWSAExplanation /> : <ISWOSAExplanation />}
     </FeatureExplanationTemplate>

@@ -30,7 +30,7 @@ const ServerActionToggle = ({
   return (
     <div
       className={cn(
-        "flex justify-between items-center border border-border/30 px-[8px] py-[4px] rounded-[4px]",
+        "flex justify-between items-center border border-border/30 px-[8px] py-[4px] rounded-[4px] text-foreground",
         className
       )}
     >

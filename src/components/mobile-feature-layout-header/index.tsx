@@ -31,7 +31,7 @@ const MobileFeatureLayoutHeader = ({
             View explanation
           </SheetTrigger>
         </div>
-        <SheetContent side="bottom" className="max-h-[calc(100vh-50px)]">
+        <SheetContent side="bottom" className="h-[calc(100vh-50px)]">
           {explanation}
         </SheetContent>
       </Sheet>

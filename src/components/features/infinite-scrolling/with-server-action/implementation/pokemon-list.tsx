@@ -30,10 +30,13 @@ const PokemonList = ({ pokemons }: PokemonListProps) => {
             borderTopRightRadius: 7,
           }}
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-fit p-[20px]"
         />
       </div>
-      <p className="pb-[20px] text-foreground/50">{toTitleCase(pokemon.name)}</p>
+      <p className="pb-[20px] pt-[10px] text-foreground/50">
+        {toTitleCase(pokemon.name)}
+      </p>
     </div>
   ));
 };
