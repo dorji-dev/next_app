@@ -8,8 +8,8 @@ import DesktopNav from "./desktop-nav";
 
 const SiteHeader = () => {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-[56px] max-w-screen-2xl items-center">
+    <header className="sticky container top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="flex h-[56px] max-w-screen-2xl items-center">
         <div className="flex items-center w-full h-full">
           <DesktopNav />
           <MobileNav />

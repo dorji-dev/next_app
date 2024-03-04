@@ -1,7 +1,7 @@
-import { ChildrenProp } from "@/lib/types/misc";
+import React from "react";
 import { ScrollArea } from "../ui/scroll-area";
 
-interface FeatureExplanationTemplateProps extends ChildrenProp {
+interface FeatureExplanationTemplateProps extends React.PropsWithChildren {
   featureTitle: string;
 }
 

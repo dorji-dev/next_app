@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import {
   TAILWIND_2XL,
   TAILWIND_LARGE,
@@ -8,9 +7,7 @@ import {
   TAILWIND_XSMALL,
 } from "../constants/tailwind-device-width";
 
-export interface ChildrenProp {
-  children: ReactNode;
-}
+export type FETCH_METHODS = "POST" | "GET" | "DELETE" | "PATCH" | "PUT";
 
 export type ClassNameProp = {
   className: string;
@@ -29,3 +26,18 @@ export type TailwindBreakPoints =
   | typeof TAILWIND_LARGE
   | typeof TAILWIND_XL
   | typeof TAILWIND_2XL;
+
+export type NextFetchTags = "";
+
+export type FetchArguments<BodyType> = {
+  url: string;
+  method: FETCH_METHODS;
+  body?: BodyType;
+  headers?: { [index: string]: string };
+  nextOptions?:
+    | (Omit<NextFetchRequestConfig, "tags"> & {
+        tags?: NextFetchTags[];
+      })
+    | undefined;
+  cache?: RequestCache;
+};

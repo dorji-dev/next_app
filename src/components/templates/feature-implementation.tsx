@@ -1,14 +1,14 @@
 "use client";
 
-import { ChildrenProp } from "@/lib/types/misc";
 import { Route } from "next";
 import Link from "next/link";
 import { PiArrowLineUpRightThin } from "react-icons/pi";
 import { Button } from "../ui/button";
 import { IoMdArrowBack } from "react-icons/io";
 import { useRouter } from "next/navigation";
+import React from "react";
 
-interface FeatureImplementationTemplateProps extends ChildrenProp {
+interface FeatureImplementationTemplateProps extends React.PropsWithChildren {
   longFeatureTitle: string;
   resourceLink: string;
 }

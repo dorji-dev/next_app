@@ -1,9 +1,8 @@
 import MobileFeatureLayoutHeader from "@/components/mobile-feature-layout-header";
 import { Separator } from "@/components/ui/separator";
-import { ChildrenProp } from "@/lib/types/misc";
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 
-interface FeatureLayoutProps extends ChildrenProp {
+interface FeatureLayoutProps extends React.PropsWithChildren {
   explanation: ReactNode;
 }
 
