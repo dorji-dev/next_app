@@ -1,31 +1,27 @@
 "use client";
 
+import { useQueryState } from "nuqs";
 import { Switch } from "@/components/ui/switch";
-import { useUpdateQueryString } from "@/hooks/use-update-query-string";
 import { ClassNameProp } from "@/lib/types/misc";
 import { cn } from "@/lib/utils";
-import { Route } from "next";
-import { useRouter, useSearchParams } from "next/navigation";
 
 const ServerActionToggle = ({
   className,
 }: { [Key in keyof ClassNameProp]?: ClassNameProp[Key] }) => {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const withServerAction = searchParams.get("with_server_action") !== "false";
-  const { updateQueryString } = useUpdateQueryString();
+  const [withServerActionQuery, setWithServerActionQuery] = useQueryState(
+    "with_server_action",
+    { shallow: false }
+  );
 
   const toggleWithServerAction = (checked: boolean) => {
     if (checked) {
-      router.push(
-        updateQueryString({ query: { with_server_action: "true" } }) as Route
-      );
+      setWithServerActionQuery("true");
     } else {
-      router.push(
-        updateQueryString({ query: { with_server_action: "false" } }) as Route
-      );
+      setWithServerActionQuery("false");
     }
   };
+
+  const withServerAction = withServerActionQuery !== "false";
 
   return (
     <div
@@ -34,7 +30,12 @@ const ServerActionToggle = ({
         className
       )}
     >
-      <span>With server action <span className="text-foreground/50">{withServerAction ? "(WSA)" : "(WOSA)"}</span></span>
+      <span>
+        With server action{" "}
+        <span className="text-foreground/50">
+          {withServerAction ? "(WSA)" : "(WOSA)"}
+        </span>
+      </span>
       <Switch
         aria-label={
           withServerAction ? "Without server action" : "With server action"
