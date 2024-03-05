@@ -1,0 +1,1 @@
+export const BASE_SEO_KEYWORDS = ['NextJs', 'App router', 'Server actions', 'Server component'];

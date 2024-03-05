@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import "../styles/globals.css";
 import SiteHeader from "@/components/site-header";
@@ -10,11 +9,6 @@ const dmSans = DM_Sans({
   subsets: ["latin"],
   weight: ["200", "300", "400", "500", "600", "700"],
 });
-
-export const metadata: Metadata = {
-  title: "Every day features",
-  description: "A demo of every day features using NextJs app router",
-};
 
 export default function RootLayout({
   children,

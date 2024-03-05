@@ -2,9 +2,17 @@ import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { heroFeatures } from "@/config/hero-features";
+import { BASE_SEO_KEYWORDS } from "@/lib/constants/metadata";
 import { cn } from "@/lib/utils";
+import { Metadata } from "next";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
+
+export const metadata: Metadata = {
+  title: "Every day features",
+  description: "A demo of every day features using NextJs app router",
+  keywords: BASE_SEO_KEYWORDS
+};
 
 export default function Home() {
   return (
