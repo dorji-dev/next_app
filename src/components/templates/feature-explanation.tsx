@@ -22,9 +22,11 @@ const FeatureExplanationTemplate = ({
             <Popover>
               <PopoverTrigger
                 asChild
-                className="absolute top-0 right-[8px] cursor-pointer h-full"
+                className="absolute top-[8px] right-[8px] cursor-pointer h-max"
               >
-                <BsInfoSquare className="mx-auto block text-foreground/60 hover:text-foreground/90" />
+                <button aria-label="Disclaimer">
+                  <BsInfoSquare className="mx-auto block text-foreground/60 hover:text-foreground/90" />
+                </button>
               </PopoverTrigger>
               <PopoverContent
                 collisionPadding={24}

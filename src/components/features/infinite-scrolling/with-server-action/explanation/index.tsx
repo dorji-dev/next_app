@@ -49,6 +49,16 @@ const ISWSAExplanation = () => {
         ensures faster initial load times.
       </p>
       <p>
+        As the user goes on scrolling, the newly added{" "}
+        <TextHighlight text="pokemonListNodes" /> from the server action does
+        not cause unnecessary re-render of the previously rendered pokemon lists. This is because of the
+        fact that we are passing a{" "}
+        <TextHighlight
+          text="key"
+          textLink="https://react.dev/learn/rendering-lists#keeping-list-items-in-order-with-key"
+        /> prop to the list node returned from the server action. Fantastic.
+      </p>
+      <p>
         We haven&apos;t used any client side data fetching library and used only
         one state to get one of the much loved content listing feature. Feel
         free to explore your way around{" "}

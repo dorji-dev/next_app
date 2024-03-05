@@ -37,6 +37,7 @@ const FeatureImplementationTemplate = ({
           {inspirationLink && (
             <Link
               href={inspirationLink as Route}
+              target="_blank"
               className="flex items-center bg-foreground/5 w-max py-[8px] font-medium px-[16px] rounded-[4px] hover:bg-accent"
             >
               Inspiration <PiArrowLineUpRightThin className="ml-[4px]" />
