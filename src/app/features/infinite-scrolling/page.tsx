@@ -20,6 +20,7 @@ const InfiniteScrollingPage = ({
           ? "https://github.com/gabrielelpidio/next-infinite-scroll-server-actions"
           : ""
       }
+      apiLink="https://pokeapi.co/"
     >
       {withServerAction ? (
         <Suspense

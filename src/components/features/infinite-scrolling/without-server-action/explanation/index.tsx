@@ -6,7 +6,7 @@ const ISWOSAExplanation = () => {
       <p>
         In this implementation, no server action is used. However, the initial
         pokemon list is still fetched and rendered on the server inside{" "}
-        <TextHighlight text="ISWOSAImplementation" /> component.
+        <TextHighlight text="ISWOSAImplementation" /> component so we still have the SEO benefits.
       </p>
       <p>
         The subsequent pokemon data is fetched on the client side in{" "}

@@ -12,6 +12,7 @@ interface FeatureImplementationTemplateProps extends React.PropsWithChildren {
   longFeatureTitle: string;
   resourceLink: string;
   inspirationLink?: string;
+  apiLink?: string;
 }
 
 const FeatureImplementationTemplate = ({
@@ -19,6 +20,7 @@ const FeatureImplementationTemplate = ({
   children,
   resourceLink,
   inspirationLink,
+  apiLink,
 }: FeatureImplementationTemplateProps) => {
   const router = useRouter();
 
@@ -34,6 +36,15 @@ const FeatureImplementationTemplate = ({
           <IoMdArrowBack className="w-[20px] h-[24px]" />
         </Button>
         <div className="flex space-x-[20px]">
+          {apiLink && (
+            <Link
+              href={apiLink as Route}
+              target="_blank"
+              className="flex items-center bg-foreground/5 w-max py-[8px] font-medium px-[16px] rounded-[4px] hover:bg-accent"
+            >
+              Data API <PiArrowLineUpRightThin className="ml-[4px]" />
+            </Link>
+          )}
           {inspirationLink && (
             <Link
               href={inspirationLink as Route}
@@ -70,6 +81,15 @@ const FeatureImplementationTemplate = ({
             className="flex items-center text-[12px] bg-foreground/5 font-medium w-max py-[4px] px-[12px] rounded-[4px]"
           >
             Inspiration <PiArrowLineUpRightThin className="ml-[4px]" />
+          </Link>
+        )}
+        {apiLink && (
+          <Link
+            href={apiLink as Route}
+            target="_blank"
+            className="flex items-center text-[12px] bg-foreground/5 font-medium w-max py-[4px] px-[12px] rounded-[4px]"
+          >
+            Data API <PiArrowLineUpRightThin className="ml-[4px]" />
           </Link>
         )}
       </div>
