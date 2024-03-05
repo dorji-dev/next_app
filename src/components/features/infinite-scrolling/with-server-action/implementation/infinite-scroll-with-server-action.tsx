@@ -5,7 +5,6 @@ import React, { useRef, useState, useTransition } from "react";
 import Loader from "@/components/loader";
 
 interface InfiniteScrollWSAProps extends React.PropsWithChildren {
-  pokemonsResponse: PokemonListResponse;
   getPokemonListNodes: (
     offset: number
   ) => Promise<readonly [React.JSX.Element, number | null] | null>;
@@ -24,7 +23,7 @@ const InfiniteScrollWSA = ({
   );
 
   // invoke server action when our target node is in view
-  const updatePokemonListNodes = async () => {
+  const updatePokemonListNodes = () => {
     startTransition(async () => {
       const response =
         offsetRef.current && (await getPokemonListNodes(offsetRef.current));
