@@ -59,7 +59,7 @@
 }
 
 html {
-  @apply text-[14px];
+  @apply text-[15px];
 }
 
 @media (max-width: 640px) {

@@ -8,7 +8,7 @@ interface TextHighlightProps {
 
 const TextHighlight = ({ text, textLink }: TextHighlightProps) => {
   return (
-    <span className="text-[12px] px-[4px] py-[1px] border border-border/30 rounded-[6px] bg-foreground/5 whitespace-nowrap">
+    <span className="text-[13px] px-[4px] py-[1px] border border-border/30 rounded-[6px] bg-foreground/5 whitespace-nowrap">
       {textLink ? (
         <Link
           target="_blank"
