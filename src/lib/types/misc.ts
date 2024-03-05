@@ -10,7 +10,7 @@ import {
 export type FETCH_METHODS = "POST" | "GET" | "DELETE" | "PATCH" | "PUT";
 
 export type ClassNameProp = {
-  className: string;
+  className?: string;
 };
 
 export interface InfiniteScrollingPageSearchParams {

@@ -1,7 +1,9 @@
 import ISWSAImplementation from "@/components/features/infinite-scrolling/with-server-action/implementation";
 import ISWOSAImplementation from "@/components/features/infinite-scrolling/without-server-action/implementation";
+import Loader from "@/components/loader";
 import FeatureImplementationTemplate from "@/components/templates/feature-implementation";
 import { InfiniteScrollingPageSearchParams } from "@/lib/types/misc";
+import { Suspense } from "react";
 
 const InfiniteScrollingPage = ({
   searchParams,
@@ -19,7 +21,27 @@ const InfiniteScrollingPage = ({
           : ""
       }
     >
-      {withServerAction ? <ISWSAImplementation /> : <ISWOSAImplementation />}
+      {withServerAction ? (
+        <Suspense
+          fallback={
+            <div className="mt-[100px]">
+              <Loader />
+            </div>
+          }
+        >
+          <ISWSAImplementation />
+        </Suspense>
+      ) : (
+        <Suspense
+          fallback={
+            <div className="mt-[100px]">
+              <Loader />
+            </div>
+          }
+        >
+          <ISWOSAImplementation />
+        </Suspense>
+      )}
     </FeatureImplementationTemplate>
   );
 };
