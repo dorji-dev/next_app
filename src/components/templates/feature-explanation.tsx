@@ -28,7 +28,7 @@ const FeatureExplanationTemplate = ({
               </PopoverTrigger>
               <PopoverContent
                 collisionPadding={24}
-                className="text-foreground/70 bg-background"
+                className="text-foreground/70"
               >
                 {disclaimer}
               </PopoverContent>
@@ -36,7 +36,7 @@ const FeatureExplanationTemplate = ({
           )}
         </h2>
       </div>
-      <ScrollArea className="h-[86%] md:h-[calc(100vh-180px)] text-foreground/70 leading-[1.8] pr-[10px]">
+      <ScrollArea className="h-[86%] md:h-[calc(100dvh-180px)] text-foreground/70 leading-[1.8] pr-[10px]">
         {children}
       </ScrollArea>
     </>

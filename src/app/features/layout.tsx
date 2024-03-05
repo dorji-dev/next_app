@@ -18,7 +18,7 @@ const FeatureLayout = ({ children, explanation }: FeatureLayoutProps) => {
       </div>
       <Separator
         orientation="vertical"
-        className="h-[calc(100vh-160px)] sticky top-[107px] mx-[15px] bg-border/40 hidden md:block"
+        className="h-[calc(100dvh-160px)] sticky top-[107px] mx-[15px] bg-border/40 hidden md:block"
       />
       {/* Feature implementation */}
       <div className="w-full">{children}</div>

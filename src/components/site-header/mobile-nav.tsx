@@ -36,7 +36,7 @@ const MobileNav = () => {
         >
           <SiteLogo />
         </Link>
-        <ScrollArea className="my-[16px] h-[calc(100vh-8rem)] pb-[40px] pr-[20px]">
+        <ScrollArea className="my-[16px] h-[calc(100dvh-8rem)] pb-[40px] pr-[20px]">
           <nav className="flex flex-col space-y-[16px]">
             <Accordion type="multiple" className="space-y-[16px]">
               {navConfig.mobileNav.withSubMenu.map((menu) => (
