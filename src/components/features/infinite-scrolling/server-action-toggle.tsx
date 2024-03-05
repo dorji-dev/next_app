@@ -34,7 +34,7 @@ const ServerActionToggle = ({
         className
       )}
     >
-      <span>With server action</span>
+      <span>With server action <span className="text-foreground/50">{withServerAction ? "(WSA)" : "(WOSA)"}</span></span>
       <Switch
         aria-label={
           withServerAction ? "Without server action" : "With server action"

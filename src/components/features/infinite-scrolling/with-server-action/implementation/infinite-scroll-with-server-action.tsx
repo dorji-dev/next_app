@@ -4,7 +4,7 @@ import { PokemonListResponse } from "@/lib/types/pokemon";
 import React, { useRef, useState, useTransition } from "react";
 import Loader from "@/components/loader";
 
-interface PokemonInfiniteScrollProps extends React.PropsWithChildren {
+interface InfiniteScrollWSAProps extends React.PropsWithChildren {
   pokemonsResponse: PokemonListResponse;
   getPokemonListNodes: (
     offset: number
@@ -12,11 +12,11 @@ interface PokemonInfiniteScrollProps extends React.PropsWithChildren {
   initialOffset: number;
 }
 
-const PokemonInfiniteScroll = ({
+const InfiniteScrollWSA = ({
   children,
   getPokemonListNodes,
   initialOffset,
-}: PokemonInfiniteScrollProps) => {
+}: InfiniteScrollWSAProps) => {
   const [isPending, startTransition] = useTransition();
   const offsetRef = useRef<number | null>(initialOffset);
   const [pokemonListNodes, setPokemonListNodes] = useState<React.JSX.Element[]>(
@@ -60,4 +60,4 @@ const PokemonInfiniteScroll = ({
   );
 };
 
-export default PokemonInfiniteScroll;
+export default InfiniteScrollWSA;
