@@ -1,21 +1,20 @@
 "use client";
 import { InView } from "react-intersection-observer";
-import { PokemonListResponse } from "@/lib/types/pokemon";
 import React, { useRef, useState, useTransition } from "react";
 import Loader from "@/components/loader";
 
-interface InfiniteScrollWSAProps extends React.PropsWithChildren {
+interface WSALoadMoreProps extends React.PropsWithChildren {
   getPokemonListNodes: (
     offset: number
   ) => Promise<readonly [React.JSX.Element, number | null] | null>;
   initialOffset: number;
 }
 
-const InfiniteScrollWSA = ({
+const WSALoadMore = ({
   children,
   getPokemonListNodes,
   initialOffset,
-}: InfiniteScrollWSAProps) => {
+}: WSALoadMoreProps) => {
   const [isPending, startTransition] = useTransition();
   const offsetRef = useRef<number | null>(initialOffset);
   const [pokemonListNodes, setPokemonListNodes] = useState<React.JSX.Element[]>(
@@ -59,4 +58,4 @@ const InfiniteScrollWSA = ({
   );
 };
 
-export default InfiniteScrollWSA;
+export default WSALoadMore;

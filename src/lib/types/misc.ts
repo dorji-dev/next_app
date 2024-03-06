@@ -13,12 +13,6 @@ export type ClassNameProp = {
   className?: string;
 };
 
-export interface InfiniteScrollingPageSearchParams {
-  searchParams: {
-    with_server_action: "true" | "false";
-  };
-}
-
 export type TailwindBreakPoints =
   | typeof TAILWIND_XSMALL
   | typeof TAILWIND_SMALL

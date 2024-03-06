@@ -1,6 +1,6 @@
 import TextHighlight from "@/components/text-highlight.tsx";
 
-const ISWSAExplanation = () => {
+const ISWithServerActionExplanation = () => {
   return (
     <div className="space-y-[20px]">
       <p>
@@ -18,23 +18,23 @@ const ISWSAExplanation = () => {
       </p>
       <p>
         On the initial load, the pokemon data is fetched on the server component{" "}
-        <TextHighlight text="ISWSAImplementation" />. We also define a server
+        <TextHighlight text="ISWithServerActionImplementation" />. We also define a server
         action <TextHighlight text="getPokemonListNodes" /> which we pass to the{" "}
-        <TextHighlight text="InfiniteScrollWSA" /> client component to later on
+        <TextHighlight text="WSALoadMore" /> client component to later on
         fetch the pokemon.
       </p>
       <p>
         We pass the initial pokemon list to the{" "}
-        <TextHighlight text="InfiniteScrollWSA" /> component as a children as
+        <TextHighlight text="WSALoadMore" /> component as a children as
         that is the only way a client component can render a server component.
-        In the <TextHighlight text="InfiniteScrollWSA" /> component, we maintain
+        In the <TextHighlight text="WSALoadMore" /> component, we maintain
         a state <TextHighlight text="pokemonListNodes" /> which we use to hold
         the pokemon list node returned from the server action{" "}
         <TextHighlight text="getPokemonListNodes" /> and is rendered after the{" "}
         <TextHighlight text="children" /> prop.
       </p>
       <p>
-        Inside <TextHighlight text="InfiniteScrollWSA" />, we make use of{" "}
+        Inside <TextHighlight text="WSALoadMore" />, we make use of{" "}
         <TextHighlight
           text="react-intersection-observer"
           textLink="https://www.npmjs.com/package/react-intersection-observer"
@@ -78,4 +78,4 @@ const ISWSAExplanation = () => {
   );
 };
 
-export default ISWSAExplanation;
+export default ISWithServerActionExplanation;

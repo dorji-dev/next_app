@@ -1,5 +1,11 @@
 import { buttonVariants } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { heroFeatures } from "@/config/hero-features";
 import { BASE_SEO_KEYWORDS } from "@/lib/constants/metadata";
@@ -11,7 +17,7 @@ import { FaGithub } from "react-icons/fa";
 export const metadata: Metadata = {
   title: "Every day features",
   description: "A demo of every day features using NextJs app router",
-  keywords: BASE_SEO_KEYWORDS
+  keywords: BASE_SEO_KEYWORDS,
 };
 
 export default function Home() {
@@ -31,7 +37,7 @@ export default function Home() {
             target="_blank"
             rel="noreferrer"
             href="https://github.com/dorji-dev/next_app"
-            className={cn(buttonVariants({ variant: "outline" }))}
+            className={cn(buttonVariants({ variant: "default" }))}
           >
             <FaGithub className="mr-2 h-4 w-4" />
             GitHub
@@ -42,20 +48,36 @@ export default function Home() {
       <section>
         <div className="flex flex-wrap justify-center gap-[40px]">
           {heroFeatures.map((feature) => (
-            <Link
+            <div
               key={feature.title}
-              href={feature.href}
               className="group min-w-full sm:min-w-[90%] sm:max-w-[400px] md:min-w-[70%] lg:min-w-[30%]"
             >
               <Card className="group-hover:border-input/60">
                 <CardHeader>
                   <CardTitle>{feature.title}</CardTitle>
+                  <CardDescription>{feature.content}</CardDescription>
                 </CardHeader>
+
                 <CardContent className="w-full text-foreground/60">
-                  {feature.content}
+                  <div className="flex flex-col xs:flex-row space-y-[16px] xs:space-x-[12px] xs:space-y-0">
+                    {feature.subFeatures.map((subFeature) => (
+                      <Link
+                        href={subFeature.href}
+                        key={subFeature.hrefText}
+                        className={cn(
+                          "grow text-[13px]",
+                          buttonVariants({
+                            variant: "secondary",
+                          })
+                        )}
+                      >
+                        {subFeature.hrefText}
+                      </Link>
+                    ))}
+                  </div>
                 </CardContent>
               </Card>
-            </Link>
+            </div>
           ))}
         </div>
       </section>

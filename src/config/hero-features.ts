@@ -4,12 +4,32 @@ import { Route } from "next";
 export const heroFeatures: HeroFeatures = [
   {
     title: "Pagination",
-    content: "Pagination with server component",
-    href: "/features/pagination" as Route,
+    content:
+      "Implementation of pagination with route params and tanstack query.",
+    subFeatures: [
+      {
+        hrefText: "With route params",
+        href: "/",
+      },
+      {
+        hrefText: "With tanstack query",
+        href: "/",
+      },
+    ],
   },
   {
     title: "Infinite scrolling",
-    content: "Infinite scrolling with server component",
-    href: "/features/infinite-scrolling" as Route,
+    content:
+      "Implementation of infinite scrolling with server action and tanstack query.",
+    subFeatures: [
+      {
+        href: "/features/infinite-scrolling/with-server-action" as Route,
+        hrefText: "With server action",
+      },
+      {
+        href: "/features/infinite-scrolling/with-tanstack-query" as Route,
+        hrefText: "With tanstack query",
+      },
+    ],
   },
 ];

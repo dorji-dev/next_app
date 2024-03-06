@@ -1,14 +1,9 @@
-import { DM_Sans } from "next/font/google";
+import { GeistSans } from 'geist/font/sans';
 import "../styles/globals.css";
 import SiteHeader from "@/components/site-header";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import SiteFooter from "@/components/site-footer";
 import { ReactNode } from "react";
-
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "600", "700"],
-});
 
 export default function RootLayout({
   children,
@@ -17,7 +12,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={dmSans.className}>
+      <body className={GeistSans.className}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

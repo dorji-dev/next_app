@@ -1,6 +1,6 @@
 import TextHighlight from "@/components/text-highlight.tsx";
 
-const ISWOSAExplanation = () => {
+const ISWithTanstackQueryExplanation = () => {
   return (
     <div className="space-y-[20px]">
       <p>
@@ -34,4 +34,4 @@ const ISWOSAExplanation = () => {
   );
 };
 
-export default ISWOSAExplanation;
+export default ISWithTanstackQueryExplanation;

@@ -7,14 +7,14 @@ import { getPokemons } from "@/services/get-pokemon";
 import { useRef, useState, useTransition } from "react";
 import { InView } from "react-intersection-observer";
 
-interface InfiniteScrollWOSAProps extends React.PropsWithChildren {
+interface WTQLoadMoreProps extends React.PropsWithChildren {
   initialOffset: number;
 }
 
-const InfiniteScrollWOSA = ({
+const WTQLoadMore = ({
   children,
   initialOffset,
-}: InfiniteScrollWOSAProps) => {
+}: WTQLoadMoreProps) => {
   const [pokemons, setPokemons] = useState<PokemonListResponse["results"]>([]);
   const offsetRef = useRef<number | null>(initialOffset);
   const [isPending, startTransition] = useTransition();
@@ -50,4 +50,4 @@ const InfiniteScrollWOSA = ({
   );
 };
 
-export default InfiniteScrollWOSA;
+export default WTQLoadMore;
