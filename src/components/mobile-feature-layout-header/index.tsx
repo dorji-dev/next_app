@@ -22,7 +22,7 @@ const MobileFeatureLayoutHeader = ({
           <Button
             onClick={router.back}
             size="icon"
-            variant="outline"
+            variant="secondary"
             aria-label="Back"
           >
             <IoMdArrowBack className="w-[20px] h-[24px]" />

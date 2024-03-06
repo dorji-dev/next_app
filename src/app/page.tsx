@@ -6,10 +6,11 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { heroFeatures } from "@/config/hero-features";
 import { BASE_SEO_KEYWORDS } from "@/lib/constants/metadata";
-import { cn } from "@/lib/utils";
+import clsx from "clsx";
 import { Metadata } from "next";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
@@ -37,7 +38,7 @@ export default function Home() {
             target="_blank"
             rel="noreferrer"
             href="https://github.com/dorji-dev/next_app"
-            className={cn(buttonVariants({ variant: "default" }))}
+            className={clsx(buttonVariants({ variant: "default" }))}
           >
             <FaGithub className="mr-2 h-4 w-4" />
             GitHub
@@ -54,27 +55,30 @@ export default function Home() {
             >
               <Card className="group-hover:border-input/60">
                 <CardHeader>
-                  <CardTitle>{feature.title}</CardTitle>
+                  <CardTitle className="text-[20px]">{feature.title}</CardTitle>
                   <CardDescription>{feature.content}</CardDescription>
                 </CardHeader>
 
                 <CardContent className="w-full text-foreground/60">
-                  <div className="flex flex-col xs:flex-row space-y-[16px] xs:space-x-[12px] xs:space-y-0">
-                    {feature.subFeatures.map((subFeature) => (
-                      <Link
-                        href={subFeature.href}
-                        key={subFeature.hrefText}
-                        className={cn(
-                          "grow text-[13px]",
-                          buttonVariants({
-                            variant: "secondary",
-                          })
-                        )}
-                      >
-                        {subFeature.hrefText}
-                      </Link>
-                    ))}
-                  </div>
+                  <ScrollArea className="w-full">
+                    <div className="flex flex-col gap-[20px] xs:flex-row">
+                      {feature.subFeatures.map((subFeature) => (
+                        <Link
+                          href={subFeature.href}
+                          key={subFeature.hrefText}
+                          className={clsx(
+                            "text-[13px] w-full",
+                            buttonVariants({
+                              variant: "outline",
+                            })
+                          )}
+                        >
+                          {subFeature.hrefText}
+                        </Link>
+                      ))}
+                    </div>
+                    <ScrollBar orientation="horizontal" />
+                  </ScrollArea>
                 </CardContent>
               </Card>
             </div>

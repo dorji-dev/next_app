@@ -16,7 +16,7 @@ const FeatureExplanationTemplate = ({
   return (
     <>
       <div className="pb-[4px] mt-[20px] md:mt-0 border-b border-b-border/40 mb-[15px]">
-        <h2 className="text-[18px] md:text-[16px] py-[4px] pl-[8px] pr-[38px] rounded-[4px] bg-foreground/10 relative">
+        <h2 className="text-[18px] md:text-[16px] py-[4px] pl-[8px] pr-[38px] rounded-[4px] border border-border relative">
           {featureTitle}
           {disclaimer && (
             <Popover>

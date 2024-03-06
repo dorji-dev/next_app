@@ -3,10 +3,12 @@
 import { Route } from "next";
 import Link from "next/link";
 import { PiArrowLineUpRightThin } from "react-icons/pi";
-import { Button } from "../ui/button";
+import { Button, buttonVariants } from "../ui/button";
 import { IoMdArrowBack } from "react-icons/io";
 import { useRouter } from "next/navigation";
 import React from "react";
+import clsx from "clsx";
+import { ScrollArea, ScrollBar } from "../ui/scroll-area";
 
 interface FeatureImplementationTemplateProps extends React.PropsWithChildren {
   longFeatureTitle: string;
@@ -30,7 +32,7 @@ const FeatureImplementationTemplate = ({
         <Button
           onClick={router.back}
           size="icon"
-          variant="outline"
+          variant="secondary"
           aria-label="Back"
         >
           <IoMdArrowBack className="w-[20px] h-[24px]" />
@@ -40,7 +42,11 @@ const FeatureImplementationTemplate = ({
             <Link
               href={apiLink as Route}
               target="_blank"
-              className="flex items-center bg-foreground/5 w-max py-[8px] font-medium px-[16px] rounded-[4px] hover:bg-accent"
+              className={clsx(
+                buttonVariants({
+                  variant: "secondary",
+                })
+              )}
             >
               Data API <PiArrowLineUpRightThin className="ml-[4px]" />
             </Link>
@@ -49,7 +55,11 @@ const FeatureImplementationTemplate = ({
             <Link
               href={inspirationLink as Route}
               target="_blank"
-              className="flex items-center bg-foreground/5 w-max py-[8px] font-medium px-[16px] rounded-[4px] hover:bg-accent"
+              className={clsx(
+                buttonVariants({
+                  variant: "secondary",
+                })
+              )}
             >
               Inspiration <PiArrowLineUpRightThin className="ml-[4px]" />
             </Link>
@@ -57,7 +67,11 @@ const FeatureImplementationTemplate = ({
           <Link
             href={resourceLink as Route}
             target="_blank"
-            className="flex items-center bg-foreground/5 w-max py-[8px] font-medium px-[16px] rounded-[4px] hover:bg-accent"
+            className={clsx(
+              buttonVariants({
+                variant: "secondary",
+              })
+            )}
           >
             Github link <PiArrowLineUpRightThin className="ml-[4px]" />
           </Link>
@@ -66,33 +80,51 @@ const FeatureImplementationTemplate = ({
       <h2 className="text-[24px] my-[18px] leading-[30px] font-[500]">
         {longFeatureTitle}
       </h2>
-      <div className="flex md:hidden space-x-[20px]">
-        <Link
-          href={resourceLink as Route}
-          target="_blank"
-          className="flex items-center text-[12px] bg-foreground/5 font-medium w-max py-[4px] px-[12px] rounded-[4px]"
-        >
-          Github link <PiArrowLineUpRightThin className="ml-[4px]" />
-        </Link>
-        {inspirationLink && (
+      <ScrollArea className="w-full md:hidden">
+        <div className="flex space-x-[20px]">
           <Link
-            href={inspirationLink as Route}
+            href={resourceLink as Route}
             target="_blank"
-            className="flex items-center text-[12px] bg-foreground/5 font-medium w-max py-[4px] px-[12px] rounded-[4px]"
+            className={clsx(
+              buttonVariants({
+                variant: "secondary",
+              }),
+              "text-[12px]"
+            )}
           >
-            Inspiration <PiArrowLineUpRightThin className="ml-[4px]" />
+            Github link <PiArrowLineUpRightThin className="ml-[4px]" />
           </Link>
-        )}
-        {apiLink && (
-          <Link
-            href={apiLink as Route}
-            target="_blank"
-            className="flex items-center text-[12px] bg-foreground/5 font-medium w-max py-[4px] px-[12px] rounded-[4px]"
-          >
-            Data API <PiArrowLineUpRightThin className="ml-[4px]" />
-          </Link>
-        )}
-      </div>
+          {inspirationLink && (
+            <Link
+              href={inspirationLink as Route}
+              target="_blank"
+              className={clsx(
+                buttonVariants({
+                  variant: "secondary",
+                }),
+                "text-[12px]"
+              )}
+            >
+              Inspiration <PiArrowLineUpRightThin className="ml-[4px]" />
+            </Link>
+          )}
+          {apiLink && (
+            <Link
+              href={apiLink as Route}
+              target="_blank"
+              className={clsx(
+                buttonVariants({
+                  variant: "secondary",
+                }),
+                "text-[12px]"
+              )}
+            >
+              Data API <PiArrowLineUpRightThin className="ml-[4px]" />
+            </Link>
+          )}
+        </div>
+        <ScrollBar orientation="horizontal" />
+      </ScrollArea>
       <div className="mt-[20px]">{children}</div>
     </div>
   );
