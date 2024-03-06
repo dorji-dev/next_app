@@ -18,7 +18,7 @@ const MobileFeatureLayoutHeader = ({
   return (
     <div className="md:hidden">
       <Sheet>
-        <div className="flex justify-between p-[4px] bg-foreground/5 border border-border/40 rounded-[8px]">
+        <div className="flex justify-between p-[4px] bg-foreground/5 border border-border/20 rounded-full">
           <Button
             onClick={router.back}
             size="icon"
