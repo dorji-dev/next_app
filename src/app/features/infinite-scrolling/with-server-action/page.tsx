@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 const InfiniteScrollWithServerActionPage = () => {
   return (
     <FeatureImplementationTemplate
-      resourceLink="https://github.com/dorji-dev/next_app/blob/main/src/app/features/infinite-scrolling/page.tsx"
+      resourceLink="https://github.com/dorji-dev/next_app/blob/main/src/app/features/infinite-scrolling/with-server-action/page.tsx"
       longFeatureTitle={`Infinite scrolling implementation with server component and server actions`}
       inspirationLink="https://github.com/gabrielelpidio/next-infinite-scroll-server-actions"
       apiLink="https://pokeapi.co/"
