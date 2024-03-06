@@ -12,10 +12,7 @@ export const metadata: Metadata = {
 
 const WithServerActionExplanationPage = () => {
   return (
-    <FeatureExplanationTemplate
-      featureTitle="Infinite loading with server action"
-      disclaimer="In order to follow along the explanation, you are expected to go through the linked resource to understand it better."
-    >
+    <FeatureExplanationTemplate disclaimer="In order to follow along the explanation, you are expected to go through the linked resource to understand it better.">
       <ISWithServerActionExplanation />
     </FeatureExplanationTemplate>
   );

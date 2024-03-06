@@ -4,20 +4,21 @@ import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { BsInfoSquare } from "react-icons/bs";
 
 interface FeatureExplanationTemplateProps extends React.PropsWithChildren {
-  featureTitle: string;
   disclaimer?: string;
 }
 
 const FeatureExplanationTemplate = ({
   children,
-  featureTitle,
   disclaimer,
 }: FeatureExplanationTemplateProps) => {
   return (
     <>
       <div className="pb-[4px] mt-[20px] md:mt-0 border-b border-b-border/40 mb-[15px]">
-        <h2 className="text-[18px] md:text-[16px] py-[4px] pl-[8px] pr-[38px] rounded-[4px] border border-border relative">
-          {featureTitle}
+        <h2 className="py-[4px] pl-[8px] pr-[38px] rounded-[4px] border border-border relative">
+          <span className="mr-[2px] inline-block text-[16px] text-foreground/50">
+            @
+          </span>
+          explanation
           {disclaimer && (
             <Popover>
               <PopoverTrigger
@@ -30,7 +31,8 @@ const FeatureExplanationTemplate = ({
               </PopoverTrigger>
               <PopoverContent
                 collisionPadding={24}
-                className="text-foreground/70"
+                sideOffset={14}
+                className="text-foreground/70 text-[13px]"
               >
                 {disclaimer}
               </PopoverContent>

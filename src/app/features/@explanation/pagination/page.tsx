@@ -3,7 +3,7 @@ import React from "react";
 
 const PaginationExplanation = () => {
   return (
-    <FeatureExplanationTemplate featureTitle="Pagination">
+    <FeatureExplanationTemplate>
       Pagination explanation
     </FeatureExplanationTemplate>
   );
