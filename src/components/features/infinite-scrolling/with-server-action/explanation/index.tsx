@@ -66,7 +66,7 @@ const ISWithServerActionExplanation = () => {
       </p>
       <p>
         We haven&apos;t used any client side data fetching library and used only
-        one state to get one of the much loved content listing feature. Feel
+        few states to get one of the much loved content listing feature. Feel
         free to explore your way around{" "}
         <TextHighlight text="Server components and actions" />.
       </p>
