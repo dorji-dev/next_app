@@ -1,20 +1,32 @@
-import { getPokemons } from "@/services/get-pokemon";
 import WSALoadMore from "./wsa-load-more";
-import PokemonList from "@/components/shared/pokemon-list";
+import ProductList from "@/components/shared/product-list";
+import { getProducts } from "@/services/get-products";
+import ParamUpdateInput from "./param-update-input";
 
-const PAGE_SIZE = 12; 
+const PAGE_SIZE = 12;
 
-const ISWithServerActionImplementation = async () => {
-  const pokeMonsResponse = await getPokemons(undefined, PAGE_SIZE);
+interface ISWithServerActionImplementationProps {
+  searchKey: string;
+}
 
-  // fetch pokemon and return Pokemon list and next offset
-  const getPokemonListNodes = async (offset: number) => {
+const ISWithServerActionImplementation = async ({
+  searchKey,
+}: ISWithServerActionImplementationProps) => {
+  const productsResponse = await getProducts(undefined, PAGE_SIZE, searchKey);
+
+  const initialOffset =
+    2 * PAGE_SIZE < productsResponse.total ? 2 * PAGE_SIZE : null;
+
+  // fetch products and return Product list and next offset
+  const getProductListNodes = async (offset: number) => {
     "use server";
     try {
-      const response = await getPokemons(offset, PAGE_SIZE);
-      const nextOffset = response.next ? offset + PAGE_SIZE : null;
+      const response = await getProducts(offset, PAGE_SIZE, searchKey);
+      // here you could make use of next and previous value from your api to calculate nextOffset
+      const nextOffset =
+        offset + PAGE_SIZE < response.total ? offset + PAGE_SIZE : null;
       return [
-        <PokemonList pokemons={response.results} key={offset} />,
+        <ProductList products={response.products} key={offset} />,
         nextOffset,
       ] as const;
     } catch (_) {
@@ -23,12 +35,25 @@ const ISWithServerActionImplementation = async () => {
   };
 
   return (
-    <WSALoadMore
-      getPokemonListNodes={getPokemonListNodes}
-      initialOffset={PAGE_SIZE}
-    >
-      <PokemonList pokemons={pokeMonsResponse.results} />
-    </WSALoadMore>
+    <>
+      <div className="mb-[24px] xs:max-w-[340px]">
+        <ParamUpdateInput />
+      </div>
+      {productsResponse.products.length ? (
+        <WSALoadMore
+          key={searchKey}
+          getProductListNodes={getProductListNodes}
+          initialOffset={initialOffset}
+        >
+          <ProductList products={productsResponse.products} />
+        </WSALoadMore>
+      ) : (
+        <p className="text-center mt-[100px] text-foreground/50">
+          No products for{" "}
+          <span className="text-foreground font-[600]">{searchKey}</span>
+        </p>
+      )}
+    </>
   );
 };
 

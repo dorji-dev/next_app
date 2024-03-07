@@ -1,14 +1,23 @@
 import { fetchHelper } from "@/helpers/fetch-helper";
-import { Product } from "@/lib/types/product";
+import { ProductsResponse } from "@/lib/types/product";
 
 /**
  * Fetch fake products
- * @param offset 
- * @param pageSize 
- * @returns 
+ * @param offset
+ * @param pageSize
+ * @returns
  */
-export const getProducts = async (offset: number = 0, pageSize: number) =>
-  await fetchHelper<Product[]>({
-    url: `https://api.escuelajs.co/api/v1/products?limit=${pageSize}&offset=${offset}`,
+export const getProducts = async (
+  offset: number = 0,
+  pageSize: number,
+  searchKey: string = ""
+) => {
+  // modify url based on existence of search key
+  const url = `https://dummyjson.com/products${
+    searchKey?.trim() ? `/search?q=${searchKey}&` : "?"
+  }limit=${pageSize}&skip=${offset}`;
+  return fetchHelper<ProductsResponse>({
+    url,
     method: "GET",
   });
+};

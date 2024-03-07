@@ -1,9 +1,8 @@
 "use client"
 
-import { Product } from "@/lib/types/product";
 import { ColumnDef } from "@tanstack/react-table";
 
-export const userColumns: ColumnDef<Product>[] = [
+export const userColumns: ColumnDef<any>[] = [
   {
     accessorKey: "id",
     header: "ID",

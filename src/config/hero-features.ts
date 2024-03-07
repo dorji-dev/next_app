@@ -5,7 +5,7 @@ export const heroFeatures: HeroFeatures = [
   {
     title: "Infinite scrolling",
     content:
-      "Implementation of infinite scrolling with server action and tanstack query.",
+      "Implementation of infinite scrolling with server action and useSWR hook.",
     subFeatures: [
       {
         href: "/features/infinite-scrolling/with-server-action" as Route,
@@ -20,7 +20,7 @@ export const heroFeatures: HeroFeatures = [
   {
     title: "Pagination",
     content:
-      "Implementation of pagination with route params and tanstack query.",
+      "Implementation of pagination with route params and useSWR hook.",
     subFeatures: [
       {
         hrefText: "With route params",

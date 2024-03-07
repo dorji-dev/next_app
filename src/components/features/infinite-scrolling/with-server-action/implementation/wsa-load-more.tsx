@@ -4,32 +4,34 @@ import React, { useRef, useState, useTransition } from "react";
 import Loader from "@/components/loader";
 
 interface WSALoadMoreProps extends React.PropsWithChildren {
-  getPokemonListNodes: (
+  getProductListNodes: (
     offset: number
   ) => Promise<readonly [React.JSX.Element, number | null] | null>;
-  initialOffset: number;
+  initialOffset: number | null;
 }
 
 const WSALoadMore = ({
   children,
-  getPokemonListNodes,
+  getProductListNodes,
   initialOffset,
 }: WSALoadMoreProps) => {
   const [isPending, startTransition] = useTransition();
   const offsetRef = useRef<number | null>(initialOffset);
-  const [pokemonListNodes, setPokemonListNodes] = useState<React.JSX.Element[]>(
+  const [productListNodes, setProductListNodes] = useState<React.JSX.Element[]>(
     []
   );
 
   // invoke server action when our target node is in view
-  const updatePokemonListNodes = () => {
+  const updateProductListNodes = () => {
+    if (!offsetRef.current) {
+      return;
+    }
     startTransition(async () => {
-      const response =
-        offsetRef.current && (await getPokemonListNodes(offsetRef.current));
+      const response = await getProductListNodes(offsetRef.current as number);
       if (response) {
         const [listNode, nextOffset] = response;
         offsetRef.current = nextOffset;
-        setPokemonListNodes((previousNodeList) => [
+        setProductListNodes((previousNodeList) => [
           ...previousNodeList,
           listNode,
         ]);
@@ -38,14 +40,14 @@ const WSALoadMore = ({
   };
 
   return (
-    <div>
-      <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 gap-[15px]">
+    <>
+      <div className="grid grid-cols-1 xxs:grid-cols-2 lg:grid-cols-3 gap-[15px]">
         {children}
-        {pokemonListNodes}
+        {productListNodes}
       </div>
       <InView
         as="div"
-        onChange={(inView) => inView && updatePokemonListNodes()}
+        onChange={(inView) => inView && updateProductListNodes()}
       >
         <div></div>
       </InView>
@@ -54,7 +56,7 @@ const WSALoadMore = ({
           <Loader />
         </div>
       )}
-    </div>
+    </>
   );
 };
 

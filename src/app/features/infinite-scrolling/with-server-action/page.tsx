@@ -12,13 +12,17 @@ export const metadata: Metadata = {
   keywords: [...BASE_SEO_KEYWORDS, "Infinite scrolling"],
 };
 
-const InfiniteScrollWithServerActionPage = () => {
+const InfiniteScrollWithServerActionPage = ({
+  searchParams,
+}: {
+  searchParams: { search: string };
+}) => {
   return (
     <FeatureImplementationTemplate
       resourceLink="https://github.com/dorji-dev/next_app/blob/main/src/app/features/infinite-scrolling/with-server-action/page.tsx"
-      longFeatureTitle={`Infinite scrolling implementation with server component and server actions`}
+      longFeatureTitle={`Infinite scrolling implementation with server component and server actions with search feature`}
       inspirationLink="https://github.com/gabrielelpidio/next-infinite-scroll-server-actions"
-      apiLink="https://pokeapi.co/"
+      apiLink="https://dummyjson.com/"
     >
       <Suspense
         fallback={
@@ -27,7 +31,7 @@ const InfiniteScrollWithServerActionPage = () => {
           </div>
         }
       >
-        <ISWithServerActionImplementation />
+        <ISWithServerActionImplementation searchKey={searchParams.search} />
       </Suspense>
     </FeatureImplementationTemplate>
   );
