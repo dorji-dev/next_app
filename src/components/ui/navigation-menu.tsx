@@ -1,9 +1,11 @@
 import * as React from "react";
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import { cva } from "class-variance-authority";
+import { Route } from "next";
 
 import { cn } from "@/lib/utils";
 import { VscChevronDown } from "react-icons/vsc";
+import Link from "next/link";
 
 const NavigationMenu = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Root>,
@@ -118,23 +120,26 @@ NavigationMenuIndicator.displayName =
 const NavigationMenuContentItem = React.forwardRef<
   React.ElementRef<"a">,
   React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
+>(({ className, title, children, href, ...props }, ref) => {
   return (
     <li>
       <NavigationMenuLink asChild>
-        <a
+        <Link
           ref={ref}
+          href={href as Route}
           className={cn(
             "block select-none space-y-[4px] rounded-md p-[12px] leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
             className
           )}
           {...props}
         >
-          <div className="font-[600] text-[12px] leading-none mb-[8px]">{title}</div>
+          <div className="font-[600] text-[12px] leading-none mb-[8px]">
+            {title}
+          </div>
           <p className="line-clamp-2 text-[14px] text-muted-foreground leading-[18px]">
             {children}
           </p>
-        </a>
+        </Link>
       </NavigationMenuLink>
     </li>
   );
@@ -151,5 +156,5 @@ export {
   NavigationMenuLink,
   NavigationMenuIndicator,
   NavigationMenuViewport,
-  NavigationMenuContentItem
+  NavigationMenuContentItem,
 };

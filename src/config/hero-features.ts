@@ -10,10 +10,12 @@ export const heroFeatures: HeroFeatures = [
       {
         href: "/features/infinite-scrolling/with-server-action" as Route,
         hrefText: "With server action",
+        completed: true,
       },
       {
         href: "/features/infinite-scrolling/with-use-swr" as Route,
         hrefText: "With useSWR",
+        completed: false
       },
     ],
   },
@@ -25,10 +27,12 @@ export const heroFeatures: HeroFeatures = [
       {
         hrefText: "With route params",
         href: "/",
+        completed: false
       },
       {
         hrefText: "With useSWR",
         href: "/",
+        completed: false
       },
     ],
   },

@@ -14,6 +14,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "../ui/accordion";
+import { FaCircle } from "react-icons/fa";
 
 const MobileNav = () => {
   const [open, setOpen] = useState(false);
@@ -42,7 +43,10 @@ const MobileNav = () => {
               {navConfig.mobileNav.withSubMenu.map((menu) => (
                 <AccordionItem key={menu.title} value={menu.title}>
                   <AccordionTrigger className="text-foreground/60">
-                    {menu.title}
+                    <span className="flex items-center">
+                      {menu.title}{" "}
+                      <FaCircle className="text-foreground/40 ml-[8px] text-[8px]" />
+                    </span>
                   </AccordionTrigger>
                   <AccordionContent className="flex flex-col pl-[8px] ml-[4px] mt-[12px] space-y-[16px] text-foreground/60 border-l border-dashed">
                     {menu.subMenu.map((subMenu) => (
@@ -63,9 +67,10 @@ const MobileNav = () => {
                 onClick={() => setOpen(false)}
                 href={menu.href}
                 key={menu.title}
-                className="text-foreground/60"
+                className="text-foreground/60 flex items-center"
               >
                 {menu.title}
+                <FaCircle className="text-foreground/40 ml-[8px] text-[8px]" />
               </Link>
             ))}
           </nav>

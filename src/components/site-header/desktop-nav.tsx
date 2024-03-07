@@ -11,6 +11,7 @@ import {
 } from "../ui/navigation-menu";
 import { navConfig } from "@/config/navigation";
 import SiteLogo from "../logo";
+import { FaCircle } from "react-icons/fa";
 
 const DesktopNav = () => {
   return (
@@ -23,7 +24,8 @@ const DesktopNav = () => {
         <NavigationMenuList>
           {navConfig.desktopNav.withMenu.map((menu) => (
             <NavigationMenuItem key={menu.title} className="mr-[20px]">
-              <NavigationMenuTrigger className="transition-color duration-300 h-[20px]">
+              <NavigationMenuTrigger className="transition-color duration-300 h-[20px] flex items-center">
+                <FaCircle className="text-foreground/40 mr-[8px] text-[8px]" />{" "}
                 {menu.title}
               </NavigationMenuTrigger>
               <NavigationMenuContent>
@@ -48,8 +50,9 @@ const DesktopNav = () => {
           <Link
             href={menu.href}
             key={menu.title}
-            className="mr-[14px] text-foreground/60 hover:text-foreground/80 transition-color duration-300"
+            className="mr-[14px] text-foreground/60 hover:text-foreground/80 transition-color duration-300 flex items-center"
           >
+            <FaCircle className="text-foreground/40 mr-[8px] text-[8px]" />{" "}
             {menu.title}
           </Link>
         ))}

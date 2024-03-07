@@ -1,3 +1,4 @@
+import TextHighlight from "@/components/text-highlight.tsx";
 import { buttonVariants } from "@/components/ui/button";
 import {
   Card,
@@ -13,7 +14,7 @@ import { BASE_SEO_KEYWORDS } from "@/lib/constants/metadata";
 import clsx from "clsx";
 import { Metadata } from "next";
 import Link from "next/link";
-import { FaGithub } from "react-icons/fa";
+import { FaCircle, FaGithub } from "react-icons/fa";
 
 export const metadata: Metadata = {
   title: "Every day features",
@@ -33,6 +34,14 @@ export default function Home() {
           <span className="text-foreground/80">App Router</span>. Each feature
           implementation is linked to the most related github resource.
         </span>
+        <div className="flex flex-col items-center mt-[30px] text-foreground/60 text-[10px] uppercase font-[500] space-y-[4px]">
+          <p className="flex items-center">
+            <FaCircle className="text-primary mr-[8px]" /> Completed
+          </p>
+          <p className="flex items-center">
+            <FaCircle className="text-foreground/40 mr-[8px]" /> Upcoming
+          </p>
+        </div>
         <div className="flex items-center justify-center mt-[30px]">
           <Link
             target="_blank"
@@ -44,6 +53,15 @@ export default function Home() {
             GitHub
           </Link>
         </div>
+        <p className="text-center border rounded-[8px] p-[16px] text-[13px] mt-[30px] text-foreground/60 xs:max-w-[480px] xs:mx-auto">
+          <TextHighlight
+            text="Parallel routing"
+            textLink="https://nextjs.org/docs/app/building-your-application/routing/parallel-routes"
+          />{" "}
+          is already implemented. If you navigate to the completed features
+          page, the explanation and implementation sections are in fact pages
+          rendered in parallel.
+        </p>
       </section>
       <Separator className="my-[50px] bg-foreground/5" />
       <section>
@@ -73,6 +91,14 @@ export default function Home() {
                             })
                           )}
                         >
+                          <FaCircle
+                            className={clsx(
+                              "mr-[8px] text-[8px]",
+                              subFeature.completed
+                                ? "text-primary"
+                                : "text-foreground/40"
+                            )}
+                          />{" "}
                           {subFeature.hrefText}
                         </Link>
                       ))}
