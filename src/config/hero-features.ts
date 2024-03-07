@@ -12,8 +12,8 @@ export const heroFeatures: HeroFeatures = [
         hrefText: "With server action",
       },
       {
-        href: "/features/infinite-scrolling/with-tanstack-query" as Route,
-        hrefText: "With tanstack query",
+        href: "/features/infinite-scrolling/with-use-swr" as Route,
+        hrefText: "With useSWR",
       },
     ],
   },
@@ -27,7 +27,7 @@ export const heroFeatures: HeroFeatures = [
         href: "/",
       },
       {
-        hrefText: "With tanstack query",
+        hrefText: "With useSWR",
         href: "/",
       },
     ],

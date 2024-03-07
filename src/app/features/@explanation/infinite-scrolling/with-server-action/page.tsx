@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   keywords: [...BASE_SEO_KEYWORDS, "Infinite scrolling"],
 };
 
-const WithServerActionExplanationPage = () => {
+const ISWithServerActionExplanationPage = () => {
   return (
     <FeatureExplanationTemplate disclaimer="In order to follow along the explanation, you are expected to go through the linked resource to understand it better.">
       <ISWithServerActionExplanation />
@@ -18,4 +18,4 @@ const WithServerActionExplanationPage = () => {
   );
 };
 
-export default WithServerActionExplanationPage;
+export default ISWithServerActionExplanationPage;

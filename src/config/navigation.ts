@@ -18,46 +18,6 @@ export const navConfig: NavigationConfig = {
             description:
               "Load another route from current layout or page without losing the context of the current page or layout. Also known as modal routing.",
           },
-          {
-            title: "Route handlers",
-            href: "/",
-            description:
-              "Create custom api routes. Replacement for the API folder of pages router.",
-          },
-          {
-            title: "Middleware",
-            href: "/",
-            description: "Run code right before the request is completed.",
-          },
-        ],
-      },
-      {
-        title: "Rendering",
-        subMenu: [
-          {
-            title: "Server component",
-            href: "/",
-            description:
-              "Write UI that renders only on the server. No Javascript bundle of the component is sent to the client.",
-          },
-          {
-            title: "Client component",
-            href: "/",
-            description:
-              "Write UI that renders on the client and occasionally on the server based the type of request, i.e. full page reload or client side navigation.",
-          },
-          {
-            title: "Component composition",
-            href: "/",
-            description:
-              "Recommended pattern on when to use server or client component and how to weave them together.",
-          },
-          {
-            title: "Runtime",
-            href: "/",
-            description:
-              "Node vs Edge runtime for the execution of your application code.",
-          },
         ],
       },
       {
@@ -122,35 +82,6 @@ export const navConfig: NavigationConfig = {
           },
           {
             title: "Intercepting routes",
-            href: "/",
-          },
-          {
-            title: "Route handlers",
-            href: "/",
-          },
-          {
-            title: "Middleware",
-            href: "/",
-          },
-        ],
-      },
-      {
-        title: "Rendering",
-        subMenu: [
-          {
-            title: "Server component",
-            href: "/",
-          },
-          {
-            title: "Client component",
-            href: "/",
-          },
-          {
-            title: "Component composition",
-            href: "/",
-          },
-          {
-            title: "Runtime",
             href: "/",
           },
         ],

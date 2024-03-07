@@ -1,16 +1,16 @@
 import { getPokemons } from "@/services/get-pokemon";
-import WTQLoadMore from "./wtq-load-more";
+import WithUseSWRLoadMore from "./wswr-load-more";
 import PokemonList from "@/components/shared/pokemon-list";
 
 const PAGE_SIZE = 12;
 
-const ISWithTanstackQueryImplementation = async () => {
+const ISWithUseSWRImplementation = async () => {
   const pokeMonsResponse = await getPokemons(undefined, PAGE_SIZE);
   return (
-    <WTQLoadMore initialOffset={PAGE_SIZE}>
+    <WithUseSWRLoadMore initialOffset={PAGE_SIZE}>
       <PokemonList pokemons={pokeMonsResponse.results} />
-    </WTQLoadMore>
+    </WithUseSWRLoadMore>
   );
 };
 
-export default ISWithTanstackQueryImplementation;
+export default ISWithUseSWRImplementation;
