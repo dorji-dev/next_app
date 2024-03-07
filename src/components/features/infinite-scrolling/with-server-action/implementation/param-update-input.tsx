@@ -23,10 +23,11 @@ const ParamUpdateInput = () => {
 
   useEffect(function focusInputOnMount() {
     inputRef.current?.focus();
-  },[])
+  }, []);
 
   return (
     <Input
+      onKeyDown={(e) => e.key === "Enter" && e.currentTarget.blur()}
       ref={inputRef}
       value={searchQueryValue ?? ""}
       onChange={(e) => setSearchQueryValue(e.target.value)}
