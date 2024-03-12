@@ -6,7 +6,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Infinite scrolling with server actions",
   description:
-    "Implementation of infinite scrolling with server component and server actions",
+    "Implementation of infinite scrolling with server component and server actions with a search feature.",
   keywords: [...BASE_SEO_KEYWORDS, "Infinite scrolling"],
 };
 
