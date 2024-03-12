@@ -15,7 +15,7 @@ export const heroFeatures: HeroFeatures = [
       {
         href: "/features/infinite-scrolling/with-use-swr" as Route,
         hrefText: "With useSWR",
-        completed: false
+        completed: true
       },
     ],
   },

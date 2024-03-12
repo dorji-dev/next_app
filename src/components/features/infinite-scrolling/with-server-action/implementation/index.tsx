@@ -1,7 +1,7 @@
 import WSALoadMore from "./wsa-load-more";
 import ProductList from "@/components/shared/product-list";
 import { getProducts } from "@/services/get-products";
-import ParamUpdateInput from "./param-update-input";
+import ParamUpdateInput from "../../../../shared/param-update-input";
 
 const PAGE_SIZE = 12;
 
@@ -14,6 +14,10 @@ const ISWithServerActionImplementation = async ({
 }: ISWithServerActionImplementationProps) => {
   const productsResponse = await getProducts(undefined, PAGE_SIZE, searchKey);
 
+  if (!productsResponse) {
+    return <div>No product to display</div>;
+  }
+
   const initialOffset =
     2 * PAGE_SIZE < productsResponse.total ? 2 * PAGE_SIZE : null;
 
@@ -22,6 +26,9 @@ const ISWithServerActionImplementation = async ({
     "use server";
     try {
       const response = await getProducts(offset, PAGE_SIZE, searchKey);
+      if (!response) {
+        return null;
+      }
       // here you could make use of next and previous value from your api to calculate nextOffset
       const nextOffset =
         offset + PAGE_SIZE < response.total ? offset + PAGE_SIZE : null;
@@ -37,7 +44,7 @@ const ISWithServerActionImplementation = async ({
   return (
     <>
       <div className="mb-[24px] xs:max-w-[340px]">
-        <ParamUpdateInput />
+        <ParamUpdateInput shallow={false} />
       </div>
       {productsResponse.products.length ? (
         <WSALoadMore

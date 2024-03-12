@@ -5,6 +5,7 @@ const InfiniteScrollWithUseSWRPage = () => {
   return (
     <FeatureImplementationTemplate
       longFeatureTitle="Implementation of infinite scrolling with useSWR"
+      apiLink="https://dummyjson.com/"
       resourceLink="https://github.com/dorji-dev/next_app/blob/main/src/app/features/infinite-scrolling/with-use-swr/page.tsx"
     >
       <ISWithUseSWRImplementation />

@@ -41,7 +41,7 @@ const WSALoadMore = ({
 
   return (
     <>
-      <div className="grid grid-cols-1 xxs:grid-cols-2 lg:grid-cols-3 gap-[15px]">
+      <div className="grid grid-cols-1 xxs:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[15px]">
         {children}
         {productListNodes}
       </div>
