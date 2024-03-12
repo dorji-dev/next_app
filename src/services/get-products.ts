@@ -5,7 +5,7 @@ import { ProductsResponse } from "@/lib/types/product";
  * Fetch fake products
  * @param offset
  * @param pageSize
- * @returns
+ * @returns `null` if there is an error while fetching, so don't forget to handle it to show appropriate UI
  */
 export const getProducts = async (
   offset: number = 0,
@@ -19,5 +19,5 @@ export const getProducts = async (
   return fetchHelper<ProductsResponse>({
     url,
     method: "GET",
-  });
+  }).catch(_ => null);
 };

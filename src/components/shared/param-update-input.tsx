@@ -5,7 +5,11 @@ import { useQueryState } from "nuqs";
 import { useDebounce } from "@uidotdev/usehooks";
 import { useEffect, useRef, useState } from "react";
 
-const ParamUpdateInput = () => {
+interface ParamUpdateInputProps {
+  shallow: boolean;
+}
+
+const ParamUpdateInput = ({ shallow }: ParamUpdateInputProps) => {
   const [initialSearchQuery, setSearchQuery] = useQueryState("search");
   const [searchQueryValue, setSearchQueryValue] = useState(initialSearchQuery);
   const debouncedQueryValue = useDebounce(searchQueryValue, 300);
@@ -14,7 +18,7 @@ const ParamUpdateInput = () => {
   useEffect(
     function updateSearchQuery() {
       setSearchQuery(debouncedQueryValue, {
-        shallow: false,
+        shallow,
       });
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
