@@ -22,16 +22,16 @@ export const heroFeatures: HeroFeatures = [
   {
     title: "Pagination",
     content:
-      "Implementation of pagination with route params and useSWR hook.",
+      "Implementation of pagination with server side and client side data fetching.",
     subFeatures: [
       {
-        hrefText: "With route params",
-        href: "/",
+        hrefText: "Server side",
+        href: "/features/pagination/server-side",
         completed: false
       },
       {
-        hrefText: "With useSWR",
-        href: "/",
+        hrefText: "Client side",
+        href: "/features/pagination/client-side",
         completed: false
       },
     ],
