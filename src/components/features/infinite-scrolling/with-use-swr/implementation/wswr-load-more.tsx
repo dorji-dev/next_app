@@ -89,13 +89,13 @@ const WithUseSWRLoadMore = () => {
   // by the time we reach here, we have at least a data to render
   return (
     <>
-      <p className="flex space-x-[8px] mb-[20px] items-center">
+      <div className="flex space-x-[8px] mb-[20px] items-center">
         <span className="text-[12px]">Loaded</span>
         <span className="text-primary">({totalProducts}</span>
         <Separator className="h-[14px] rotate-[30deg]" orientation="vertical" />
         <span className="text-foreground/60">{totalData})</span>
         <span className="text-[12px]">products</span>
-      </p>
+      </div>
       <div className="grid grid-cols-1 xxs:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[15px]">
         {data.map(
           (productData) =>
