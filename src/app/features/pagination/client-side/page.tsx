@@ -4,7 +4,7 @@ import FeatureImplementationTemplate from "@/components/templates/feature-implem
 const ClientSidePaginationPage = () => {
   return (
     <FeatureImplementationTemplate
-      resourceLink="/"
+      resourceLink="https://github.com/dorji-dev/next_app/blob/feat/pagination/src/app/features/pagination/client-side/page.tsx"
       longFeatureTitle="Pagination with client side data fetching with useSWR hook"
     >
       <ClientSidePaginationImplementation />

@@ -4,7 +4,7 @@ import FeatureImplementationTemplate from "@/components/templates/feature-implem
 const ServerSidePaginationPage = () => {
   return (
     <FeatureImplementationTemplate
-      resourceLink="/"
+      resourceLink="https://github.com/dorji-dev/next_app/blob/feat/pagination/src/app/features/pagination/server-side/page.tsx"
       longFeatureTitle="Pagination with server side data fetching amd server components"
     >
       <ServerSidePaginationImplementation />
