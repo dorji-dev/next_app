@@ -26,12 +26,12 @@ export const heroFeatures: HeroFeatures = [
     subFeatures: [
       {
         hrefText: "Server side",
-        href: "/features/pagination/server-side",
+        href: "/features/pagination/server-side" as Route,
         completed: false
       },
       {
         hrefText: "Client side",
-        href: "/features/pagination/client-side",
+        href: "/features/pagination/client-side" as Route,
         completed: false
       },
     ],

@@ -3,7 +3,11 @@ import Loader from "@/components/loader";
 import FeatureImplementationTemplate from "@/components/templates/feature-implementation";
 import { Suspense } from "react";
 
-const ServerSidePaginationPage = () => {
+const ServerSidePaginationPage = ({
+  searchParams,
+}: {
+  searchParams: { page: string };
+}) => {
   return (
     <FeatureImplementationTemplate
       resourceLink="https://github.com/dorji-dev/next_app/blob/feat/pagination/src/app/features/pagination/server-side/page.tsx"
@@ -16,7 +20,7 @@ const ServerSidePaginationPage = () => {
           </div>
         }
       >
-        <ServerSidePaginationImplementation />
+        <ServerSidePaginationImplementation page={searchParams.page} />
       </Suspense>
     </FeatureImplementationTemplate>
   );
