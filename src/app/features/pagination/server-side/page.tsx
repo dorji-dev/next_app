@@ -1,5 +1,7 @@
 import ServerSidePaginationImplementation from "@/components/features/pagination/server-side/implementation";
+import Loader from "@/components/loader";
 import FeatureImplementationTemplate from "@/components/templates/feature-implementation";
+import { Suspense } from "react";
 
 const ServerSidePaginationPage = () => {
   return (
@@ -7,7 +9,15 @@ const ServerSidePaginationPage = () => {
       resourceLink="https://github.com/dorji-dev/next_app/blob/feat/pagination/src/app/features/pagination/server-side/page.tsx"
       longFeatureTitle="Pagination with server side data fetching amd server components"
     >
-      <ServerSidePaginationImplementation />
+      <Suspense
+        fallback={
+          <div className="mt-[100px]">
+            <Loader />
+          </div>
+        }
+      >
+        <ServerSidePaginationImplementation />
+      </Suspense>
     </FeatureImplementationTemplate>
   );
 };
