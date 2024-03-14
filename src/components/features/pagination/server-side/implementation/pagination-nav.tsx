@@ -30,16 +30,22 @@ const PaginationNav = ({ pageSize, totalItems }: PaginationNavProps) => {
     const totalNumberToShow = 5;
     let topFivePageNumber: number[] = [];
     const partitionValue = Math.floor(totalNumberToShow / 2);
+    // left half values based on partition value, always starts at 1
     const leastLeftPartitionValues = Array.from({ length: partitionValue }).map(
       (_, index) => index + 1
     );
 
+    // right half values based on partition value, maximum size possible, and total number to show
     const greatestRightPartitionValues = Array.from({
       length: partitionValue,
     })
-      .map((_, index) => maximumSizePossible - index)
+      .map(
+        (_, index) =>
+          (maximumSizePossible < totalNumberToShow
+            ? totalNumberToShow
+            : maximumSizePossible) - index
+      )
       .reverse();
-
     if (leastLeftPartitionValues.includes(activePage)) {
       topFivePageNumber = [...leastLeftPartitionValues];
       Array.from({
