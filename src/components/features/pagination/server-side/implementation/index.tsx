@@ -2,15 +2,18 @@ import { DataTable } from "@/components/shared/data-table";
 import { getProducts } from "@/services/get-products";
 import { productColumns } from "./product-table-columns";
 import PaginationNav from "./pagination-nav";
+import ParamUpdateInput from "@/components/shared/param-update-input";
 
 const PAGE_SIZE = 12;
 
 interface ServerSidePaginationImplementationProps {
   page: string;
+  search: string;
 }
 
 const ServerSidePaginationImplementation = async ({
   page,
+  search,
 }: ServerSidePaginationImplementationProps) => {
   // this logic will depend on your backend api
   const getOffsetValue = () => {
@@ -22,7 +25,11 @@ const ServerSidePaginationImplementation = async ({
     }
   };
 
-  const productsResponse = await getProducts(getOffsetValue(), PAGE_SIZE);
+  const productsResponse = await getProducts(
+    getOffsetValue(),
+    PAGE_SIZE,
+    search
+  );
 
   if (!productsResponse) {
     return (
@@ -40,8 +47,13 @@ const ServerSidePaginationImplementation = async ({
     );
   }
 
+  const resetKeysOnSearch = ['page'];
+
   return (
     <div>
+      <div className="mb-[24px] xs:max-w-[340px]">
+        <ParamUpdateInput shallow={false} resetParamKeys={resetKeysOnSearch} />
+      </div>
       <DataTable
         data={productsResponse.products}
         columns={productColumns}

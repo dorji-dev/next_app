@@ -6,7 +6,7 @@ import { Suspense } from "react";
 const ServerSidePaginationPage = ({
   searchParams,
 }: {
-  searchParams: { page: string };
+  searchParams: { page: string, search: string };
 }) => {
   return (
     <FeatureImplementationTemplate
@@ -20,7 +20,7 @@ const ServerSidePaginationPage = ({
           </div>
         }
       >
-        <ServerSidePaginationImplementation page={searchParams.page} />
+        <ServerSidePaginationImplementation page={searchParams.page} search={searchParams.search} />
       </Suspense>
     </FeatureImplementationTemplate>
   );
