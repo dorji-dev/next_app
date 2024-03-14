@@ -35,3 +35,4 @@ export type FetchArguments<BodyType> = {
     | undefined;
   cache?: RequestCache;
 };
+

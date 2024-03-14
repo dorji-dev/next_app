@@ -1,6 +1,6 @@
 import { ProductsResponse } from "@/lib/types/product";
 import { toTitleCase } from "@/lib/utils/misc";
-import { rgbDataURL } from "@/lib/utils/rgb-data-url";
+import { lightGrayBlurData } from "@/lib/utils/rgb-data-url";
 import Image from "next/image";
 
 interface ProductListProps {
@@ -19,7 +19,7 @@ const ProductList = ({ products }: ProductListProps) => {
           src={product.thumbnail}
           alt={product.title}
           placeholder="blur"
-          blurDataURL={rgbDataURL(229, 228, 226)}
+          blurDataURL={lightGrayBlurData}
           style={{
             borderTopLeftRadius: 7,
             borderTopRightRadius: 7,
