@@ -36,3 +36,7 @@ export type FetchArguments<BodyType> = {
   cache?: RequestCache;
 };
 
+export type ErrorPageProps = {
+  reset: () => void;
+  error?: Error & { digest?: string };
+};

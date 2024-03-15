@@ -4,7 +4,7 @@ import { productColumns } from "./product-table-columns";
 import PaginationNav from "./pagination-nav";
 import ParamUpdateInput from "@/components/shared/param-update-input";
 
-const PAGE_SIZE = 12;
+const PAGE_SIZE = 6;
 
 interface ServerSidePaginationImplementationProps {
   page: string;
