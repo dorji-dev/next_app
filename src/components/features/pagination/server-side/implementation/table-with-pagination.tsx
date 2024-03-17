@@ -75,7 +75,6 @@ const TableWithPagination = ({
                   column.id !== "description" && (
                     <DropdownMenuCheckboxItem
                       key={column.id}
-                      className="capitalize"
                       checked={column.getIsVisible()}
                       onCheckedChange={(value) =>
                         column.toggleVisibility(!!value)

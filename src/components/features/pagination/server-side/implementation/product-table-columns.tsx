@@ -54,6 +54,7 @@ export const getProductColumns = (
       enableHiding: false,
     },
     {
+      id: 'ID',
       accessorKey: "id",
       header: () => (
         <PaginationTableHeader
@@ -64,6 +65,7 @@ export const getProductColumns = (
       ),
     },
     {
+      id: 'Image',
       accessorKey: "thumbnail",
       header: () => (
         <PaginationTableHeader
@@ -103,6 +105,7 @@ export const getProductColumns = (
       ),
     },
     {
+      id: 'Name',
       accessorKey: "title",
       header: ({ column }) => (
         <PaginationTableHeader
@@ -115,6 +118,7 @@ export const getProductColumns = (
       sortingFn: "alphanumericCaseSensitive",
     },
     {
+      id: 'Category',
       accessorKey: "category",
       header: ({ column }) => (
         <PaginationTableHeader
@@ -126,6 +130,7 @@ export const getProductColumns = (
       ),
     },
     {
+      id: 'Price',
       accessorKey: "price",
       header: ({ column }) => (
         <PaginationTableHeader
@@ -137,6 +142,7 @@ export const getProductColumns = (
       ),
     },
     {
+      id: 'Rating',
       accessorKey: "rating",
       header: ({ column }) => (
         <PaginationTableHeader
@@ -148,6 +154,7 @@ export const getProductColumns = (
       ),
     },
     {
+      id: 'Stock',
       accessorKey: "stock",
       header: () => (
         <PaginationTableHeader
@@ -158,6 +165,7 @@ export const getProductColumns = (
       ),
     },
     {
+      id: 'DP',
       accessorKey: "discountPercentage",
       header: () => (
         <PaginationTableHeader
@@ -172,7 +180,7 @@ export const getProductColumns = (
       accessorKey: "description",
     },
     {
-      id: "actions",
+      id: "Actions",
       cell: ({ row }) => {
         return (
           <DropdownMenu>
