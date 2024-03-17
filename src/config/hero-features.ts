@@ -22,7 +22,7 @@ export const heroFeatures: HeroFeatures = [
   {
     title: "Pagination",
     content:
-      "Implementation of pagination with server side and client side data fetching.",
+      "Implementation of pagination with server side and client side data fetching with tanstack table.",
     subFeatures: [
       {
         hrefText: "Server side",
