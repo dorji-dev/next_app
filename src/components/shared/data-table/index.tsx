@@ -15,6 +15,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { ForwardedRef, forwardRef } from "react";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -22,11 +23,10 @@ interface DataTableProps<TData, TValue> {
   columnsToHide?: string[];
 }
 
-export function DataTable<TData, TValue>({
-  columns,
-  data,
-  columnsToHide = [],
-}: DataTableProps<TData, TValue>) {
+function DataTableInner<TData, TValue>(
+  { columns, data, columnsToHide = [] }: DataTableProps<TData, TValue>,
+  tableRef: ForwardedRef<HTMLTableElement>
+) {
   const table = useReactTable({
     data,
     columns,
@@ -44,7 +44,7 @@ export function DataTable<TData, TValue>({
 
   return (
     <div className="rounded-md border">
-      <Table>
+      <Table ref={tableRef}>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>
@@ -90,3 +90,11 @@ export function DataTable<TData, TValue>({
     </div>
   );
 }
+
+const DataTable = forwardRef(DataTableInner) as <TData, TValue>(
+  props: DataTableProps<TData, TValue> & {
+    ref?: ForwardedRef<HTMLTableElement>;
+  }
+) => ReturnType<typeof DataTableInner>;
+
+export default DataTable;

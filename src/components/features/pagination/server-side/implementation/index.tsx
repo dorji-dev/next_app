@@ -1,8 +1,6 @@
-import { DataTable } from "@/components/shared/data-table";
 import { getProducts } from "@/services/get-products";
-import { productColumns } from "./product-table-columns";
-import PaginationNav from "./pagination-nav";
 import ParamUpdateInput from "@/components/shared/param-update-input";
+import TableWithPagination from "./table-with-pagination";
 
 const PAGE_SIZE = 10;
 
@@ -47,20 +45,11 @@ const ServerSidePaginationImplementation = async ({
         <ParamUpdateInput shallow={false} resetParamKeys={resetKeysOnSearch} />
       </div>
       {productsResponse.products.length ? (
-        <>
-          <DataTable
-            data={productsResponse.products}
-            columns={productColumns}
-            columnsToHide={["description"]}
-          />
-          <div className="mt-[20px] relative">
-            <PaginationNav
-              pageSize={PAGE_SIZE}
-              totalItems={productsResponse.total}
-              shallow={false}
-            />
-          </div>
-        </>
+        <TableWithPagination
+          products={productsResponse.products}
+          pageSize={PAGE_SIZE}
+          totalItems={productsResponse.total}
+        />
       ) : (
         <p className="mt-[100px] text-center text-foreground/50">
           There are no products to display
