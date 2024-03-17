@@ -6,6 +6,6 @@ export type HeroFeatures = {
   subFeatures: {
     hrefText: string;
     href: Route<string>;
-    completed: boolean
-  }[]
-}[]
+    completed: boolean;
+  }[];
+}[];

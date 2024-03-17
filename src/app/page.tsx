@@ -10,7 +10,7 @@ import {
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { heroFeatures } from "@/config/hero-features";
-import { BASE_SEO_KEYWORDS } from "@/lib/constants/metadata";
+import { HeroFeatures } from "@/lib/types/hero-feature";
 import clsx from "clsx";
 import { Metadata } from "next";
 import Link from "next/link";
@@ -19,10 +19,44 @@ import { FaCircle, FaGithub } from "react-icons/fa";
 export const metadata: Metadata = {
   title: "Every day features",
   description: "A demo of every day features using NextJs app router",
-  keywords: BASE_SEO_KEYWORDS,
 };
 
 export default function Home() {
+  const twoColumnFeatureData: { one: HeroFeatures; two: HeroFeatures } = {
+    one: [],
+    two: [],
+  };
+  const threeColumnFeatureData: {
+    one: HeroFeatures;
+    two: HeroFeatures;
+    three: HeroFeatures;
+  } = { one: [], two: [], three: [] };
+
+  heroFeatures.forEach((feature, index) => {
+    // update two column feature data object
+    if (index % 2 === 0) {
+      twoColumnFeatureData["one"].push(feature);
+    } else {
+      twoColumnFeatureData["two"].push(feature);
+    }
+    // update three column feature data object
+    if (
+      threeColumnFeatureData["one"].length ===
+        threeColumnFeatureData["two"].length &&
+      threeColumnFeatureData["two"].length ===
+        threeColumnFeatureData["three"].length
+    ) {
+      threeColumnFeatureData["one"].push(feature);
+    } else if (
+      threeColumnFeatureData["two"].length ===
+      threeColumnFeatureData["three"].length
+    ) {
+      threeColumnFeatureData["two"].push(feature);
+    } else {
+      threeColumnFeatureData["three"].push(feature);
+    }
+  });
+
   return (
     <main>
       <section>
@@ -64,13 +98,56 @@ export default function Home() {
         </p>
       </section>
       <Separator className="my-[50px] bg-foreground/5" />
-      <section>
-        <div className="flex flex-wrap justify-center gap-[40px]">
-          {heroFeatures.map((feature) => (
-            <div
-              key={feature.title}
-              className="group min-w-full sm:min-w-[90%] sm:max-w-[400px] md:min-w-[70%] lg:min-w-[30%]"
-            >
+
+      {/* One column feature */}
+      <section className="grid gap-[16px] md:hidden">
+        {heroFeatures.map((feature) => (
+          <div key={feature.title} className="group min-w-full">
+            <Card className="group-hover:border-input/60">
+              <CardHeader>
+                <CardTitle className="text-[20px]">{feature.title}</CardTitle>
+                <CardDescription>{feature.content}</CardDescription>
+              </CardHeader>
+
+              <CardContent className="w-full text-foreground/60">
+                <ScrollArea className="w-full">
+                  <div className="flex flex-col gap-[16px] xs:flex-row">
+                    {feature.subFeatures.map((subFeature) => (
+                      <Link
+                        href={subFeature.href}
+                        key={subFeature.hrefText}
+                        className={clsx(
+                          "text-[13px] w-full",
+                          buttonVariants({
+                            variant: "outline",
+                          })
+                        )}
+                      >
+                        <FaCircle
+                          className={clsx(
+                            "mr-[8px] text-[8px]",
+                            subFeature.completed
+                              ? "text-primary"
+                              : "text-foreground/40"
+                          )}
+                        />{" "}
+                        {subFeature.hrefText}
+                      </Link>
+                    ))}
+                  </div>
+                  <ScrollBar orientation="horizontal" />
+                </ScrollArea>
+              </CardContent>
+            </Card>
+          </div>
+        ))}
+      </section>
+
+      {/* Two column feature */}
+      <section className="hidden md:grid grid-cols-2 gap-[16px] lg:hidden">
+        <div className="flex flex-col gap-[16px]">
+          {twoColumnFeatureData["one"].map((feature) => (
+            <div key={feature.title} className="group min-w-full">
               <Card className="group-hover:border-input/60">
                 <CardHeader>
                   <CardTitle className="text-[20px]">{feature.title}</CardTitle>
@@ -79,7 +156,178 @@ export default function Home() {
 
                 <CardContent className="w-full text-foreground/60">
                   <ScrollArea className="w-full">
-                    <div className="flex flex-col gap-[20px] xs:flex-row">
+                    <div className="flex flex-col gap-[16px] xs:flex-row">
+                      {feature.subFeatures.map((subFeature) => (
+                        <Link
+                          href={subFeature.href}
+                          key={subFeature.hrefText}
+                          className={clsx(
+                            "text-[13px] w-full",
+                            buttonVariants({
+                              variant: "outline",
+                            })
+                          )}
+                        >
+                          <FaCircle
+                            className={clsx(
+                              "mr-[8px] text-[8px]",
+                              subFeature.completed
+                                ? "text-primary"
+                                : "text-foreground/40"
+                            )}
+                          />{" "}
+                          {subFeature.hrefText}
+                        </Link>
+                      ))}
+                    </div>
+                    <ScrollBar orientation="horizontal" />
+                  </ScrollArea>
+                </CardContent>
+              </Card>
+            </div>
+          ))}
+        </div>
+        <div className="flex flex-col gap-[16px]">
+          {twoColumnFeatureData["two"].map((feature) => (
+            <div key={feature.title} className="group min-w-full">
+              <Card className="group-hover:border-input/60">
+                <CardHeader>
+                  <CardTitle className="text-[20px]">{feature.title}</CardTitle>
+                  <CardDescription>{feature.content}</CardDescription>
+                </CardHeader>
+
+                <CardContent className="w-full text-foreground/60">
+                  <ScrollArea className="w-full">
+                    <div className="flex flex-col gap-[16px] xs:flex-row">
+                      {feature.subFeatures.map((subFeature) => (
+                        <Link
+                          href={subFeature.href}
+                          key={subFeature.hrefText}
+                          className={clsx(
+                            "text-[13px] w-full",
+                            buttonVariants({
+                              variant: "outline",
+                            })
+                          )}
+                        >
+                          <FaCircle
+                            className={clsx(
+                              "mr-[8px] text-[8px]",
+                              subFeature.completed
+                                ? "text-primary"
+                                : "text-foreground/40"
+                            )}
+                          />{" "}
+                          {subFeature.hrefText}
+                        </Link>
+                      ))}
+                    </div>
+                    <ScrollBar orientation="horizontal" />
+                  </ScrollArea>
+                </CardContent>
+              </Card>
+            </div>
+          ))}
+        </div>
+      </section>
+      {/* Three column feature */}
+      <section className="hidden lg:grid grid-cols-3 gap-[16px]">
+        <div className="flex flex-col gap-[16px]">
+          {threeColumnFeatureData["one"].map((feature) => (
+            <div key={feature.title} className="group min-w-full">
+              <Card className="group-hover:border-input/60">
+                <CardHeader>
+                  <CardTitle className="text-[20px]">{feature.title}</CardTitle>
+                  <CardDescription>{feature.content}</CardDescription>
+                </CardHeader>
+
+                <CardContent className="w-full text-foreground/60">
+                  <ScrollArea className="w-full">
+                    <div className="flex flex-col gap-[16px] xs:flex-row">
+                      {feature.subFeatures.map((subFeature) => (
+                        <Link
+                          href={subFeature.href}
+                          key={subFeature.hrefText}
+                          className={clsx(
+                            "text-[13px] w-full",
+                            buttonVariants({
+                              variant: "outline",
+                            })
+                          )}
+                        >
+                          <FaCircle
+                            className={clsx(
+                              "mr-[8px] text-[8px]",
+                              subFeature.completed
+                                ? "text-primary"
+                                : "text-foreground/40"
+                            )}
+                          />{" "}
+                          {subFeature.hrefText}
+                        </Link>
+                      ))}
+                    </div>
+                    <ScrollBar orientation="horizontal" />
+                  </ScrollArea>
+                </CardContent>
+              </Card>
+            </div>
+          ))}
+        </div>
+        <div className="flex flex-col gap-[16px]">
+          {threeColumnFeatureData["two"].map((feature) => (
+            <div key={feature.title} className="group min-w-full">
+              <Card className="group-hover:border-input/60">
+                <CardHeader>
+                  <CardTitle className="text-[20px]">{feature.title}</CardTitle>
+                  <CardDescription>{feature.content}</CardDescription>
+                </CardHeader>
+
+                <CardContent className="w-full text-foreground/60">
+                  <ScrollArea className="w-full">
+                    <div className="flex flex-col gap-[16px] xs:flex-row">
+                      {feature.subFeatures.map((subFeature) => (
+                        <Link
+                          href={subFeature.href}
+                          key={subFeature.hrefText}
+                          className={clsx(
+                            "text-[13px] w-full",
+                            buttonVariants({
+                              variant: "outline",
+                            })
+                          )}
+                        >
+                          <FaCircle
+                            className={clsx(
+                              "mr-[8px] text-[8px]",
+                              subFeature.completed
+                                ? "text-primary"
+                                : "text-foreground/40"
+                            )}
+                          />{" "}
+                          {subFeature.hrefText}
+                        </Link>
+                      ))}
+                    </div>
+                    <ScrollBar orientation="horizontal" />
+                  </ScrollArea>
+                </CardContent>
+              </Card>
+            </div>
+          ))}
+        </div>
+        <div className="flex flex-col gap-[16px]">
+          {threeColumnFeatureData["three"].map((feature) => (
+            <div key={feature.title} className="group min-w-full">
+              <Card className="group-hover:border-input/60">
+                <CardHeader>
+                  <CardTitle className="text-[20px]">{feature.title}</CardTitle>
+                  <CardDescription>{feature.content}</CardDescription>
+                </CardHeader>
+
+                <CardContent className="w-full text-foreground/60">
+                  <ScrollArea className="w-full">
+                    <div className="flex flex-col gap-[16px] xs:flex-row">
                       {feature.subFeatures.map((subFeature) => (
                         <Link
                           href={subFeature.href}
