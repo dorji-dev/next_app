@@ -4,7 +4,7 @@ import { ProductsResponse } from "@/lib/types/product";
 import useSWRInfinite from "swr/infinite";
 import { useQueryState } from "nuqs";
 import { fetchHelper } from "@/helpers/fetch-helper";
-import Loader from "@/components/loader";
+import ContentLoader from "@/components/loaders/content-loader";
 import { InView } from "react-intersection-observer";
 import ProductList from "@/components/shared/product-list";
 import { Separator } from "@/components/ui/separator";
@@ -49,7 +49,7 @@ const WithUseSWRLoadMore = () => {
   if (isLoading && !data) {
     return (
       <div className="mt-[100px]">
-        <Loader />
+        <ContentLoader />
       </div>
     );
   }
@@ -119,7 +119,7 @@ const WithUseSWRLoadMore = () => {
 
       {isValidating && (
         <div className="relative mt-[60px]">
-          <Loader />
+          <ContentLoader />
         </div>
       )}
     </>

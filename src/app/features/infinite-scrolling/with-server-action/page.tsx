@@ -1,5 +1,5 @@
 import ISWithServerActionImplementation from "@/components/features/infinite-scrolling/with-server-action/implementation";
-import Loader from "@/components/loader";
+import ContentLoader from "@/components/loaders/content-loader";
 import FeatureImplementationTemplate from "@/components/templates/feature-implementation";
 import { BASE_SEO_KEYWORDS } from "@/lib/constants/metadata";
 import { Metadata } from "next";
@@ -27,7 +27,7 @@ const InfiniteScrollWithServerActionPage = ({
       <Suspense
         fallback={
           <div className="mt-[100px]">
-            <Loader />
+            <ContentLoader />
           </div>
         }
       >

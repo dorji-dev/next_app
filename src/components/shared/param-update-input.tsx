@@ -1,10 +1,11 @@
 "use client";
 
 import { Input } from "@/components/ui/input";
-import { useQueryState } from "nuqs";
+import { parseAsString, useQueryState } from "nuqs";
 import { useDebounce } from "@uidotdev/usehooks";
-import { useEffect, useRef, useState } from "react";
-import { useUpdateSearchParams } from "@/hooks/use-update-search-params";
+import { useEffect, useState, useTransition } from "react";
+import { useRemoveSearchParams } from "@/hooks/use-remove-search-params";
+import ActionLoader from "../loaders/action-loader";
 
 interface ParamUpdateInputProps {
   shallow: boolean;
@@ -17,42 +18,45 @@ const ParamUpdateInput = ({
   paramKey = "search",
   resetParamKeys = [],
 }: ParamUpdateInputProps) => {
-  const [initialSearchQuery, setSearchQuery] = useQueryState(paramKey);
-  const updateSearchParams = useUpdateSearchParams();
+  const [isLoading, startTransition] = useTransition(); // lets us know if the server request is completed
+  const [initialSearchQuery, setSearchQuery] = useQueryState(
+    paramKey,
+    parseAsString.withOptions({
+      startTransition: shallow ? undefined : startTransition,
+      history: "push",
+    })
+  );
+  const removeParams = useRemoveSearchParams(resetParamKeys, true);
   const [searchQueryValue, setSearchQueryValue] = useState(initialSearchQuery);
   const debouncedQueryValue = useDebounce(searchQueryValue, 300);
-  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(
     function updateSearchQuery() {
-      if (shallow) {
-        setSearchQuery(debouncedQueryValue);
-      } else {
-        // to get page loading status since it will cause server request
-        updateSearchParams({
-          query: {
-            [paramKey]: searchQueryValue !== null ? debouncedQueryValue : null,
-          },
-          removeParams: resetParamKeys,
-        });
-      }
+      const updateQuery = async () => {
+        setSearchQuery(debouncedQueryValue, { shallow });
+        await removeParams();
+      };
+      updateQuery();
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [debouncedQueryValue]
   );
 
-  useEffect(function focusInputOnMount() {
-    inputRef.current?.focus();
-  }, []);
-
   return (
-    <Input
-      onKeyDown={(e) => e.key === "Enter" && e.currentTarget.blur()}
-      ref={inputRef}
-      value={searchQueryValue ?? ""}
-      onChange={(e) => setSearchQueryValue(e.target.value)}
-      placeholder="Search products"
-    />
+    <div className="flex items-center relative">
+      <Input
+        onKeyDown={(e) => e.key === "Enter" && e.currentTarget.blur()}
+        value={searchQueryValue ?? ""}
+        onChange={(e) => setSearchQueryValue(e.target.value)}
+        placeholder="Search products"
+        className="pr-[40px]"
+      />
+      {isLoading && (
+        <div className="absolute right-[12px]">
+          <ActionLoader />
+        </div>
+      )}
+    </div>
   );
 };
 

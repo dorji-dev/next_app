@@ -1,7 +1,7 @@
 "use client";
 import { InView } from "react-intersection-observer";
 import React, { useRef, useState, useTransition } from "react";
-import Loader from "@/components/loader";
+import ContentLoader from "@/components/loaders/content-loader";
 
 interface WSALoadMoreProps extends React.PropsWithChildren {
   getProductListNodes: (
@@ -53,7 +53,7 @@ const WSALoadMore = ({
       </InView>
       {isPending && (
         <div className="relative mt-[60px]">
-          <Loader />
+          <ContentLoader />
         </div>
       )}
     </>

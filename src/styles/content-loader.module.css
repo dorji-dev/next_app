@@ -1,4 +1,4 @@
-.loader {
+.content_loader {
   position: relative;
   margin: auto;
   width: 100px;
@@ -9,7 +9,7 @@
   text-align: center;
   line-height: 100px;
   font-family: sans-serif;
-  font-size: 10px;
+  font-size: 10px; 
   font-weight: 600;
   color: #0066ff;
   letter-spacing: 2px;
@@ -18,7 +18,7 @@
   box-shadow: 0 0 20px rgba(0, 0, 0, .15);
 }
 
-.loader::before {
+.content_loader::before {
   content: '';
   position: absolute;
   top: 0px;
@@ -32,7 +32,7 @@
   animation: animateC 2s linear infinite;
 }
 
-.loader span {
+.content_loader span {
   display: block;
   position: absolute;
   top: calc(50% - 2px);
@@ -44,7 +44,7 @@
   animation: animate 2s linear infinite;
 }
 
-.loader span::before {
+.content_loader span::before {
   content: '';
   position: absolute;
   width: 12px;

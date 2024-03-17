@@ -1,5 +1,5 @@
 import ServerSidePaginationImplementation from "@/components/features/pagination/server-side/implementation";
-import Loader from "@/components/loader";
+import ContentLoader from "@/components/loaders/content-loader";
 import FeatureImplementationTemplate from "@/components/templates/feature-implementation";
 import { Suspense } from "react";
 
@@ -16,7 +16,7 @@ const ServerSidePaginationPage = ({
       <Suspense
         fallback={
           <div className="mt-[100px]">
-            <Loader />
+            <ContentLoader />
           </div>
         }
       >

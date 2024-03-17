@@ -1,4 +1,5 @@
-export const TAILWIND_XSMALL = "360";
+export const TAILWIND_XXSMALL = "360";
+export const TAILWIND_XSMALL = "480";
 export const TAILWIND_SMALL = "640";
 export const TAILWIND_MEDIUM = "768";
 export const TAILWIND_LARGE = "1024";
