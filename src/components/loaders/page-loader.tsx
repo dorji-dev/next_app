@@ -1,9 +1,9 @@
-import Loader from "../loader";
+import ContentLoader from "./content-loader";
 
 const PageLoader = () => {
   return (
     <div className="mt-[250px]">
-      <Loader />
+      <ContentLoader />
     </div>
   );
 };

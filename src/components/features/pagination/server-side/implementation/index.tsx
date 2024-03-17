@@ -1,10 +1,8 @@
-import { DataTable } from "@/components/shared/data-table";
 import { getProducts } from "@/services/get-products";
-import { productColumns } from "./product-table-columns";
-import PaginationNav from "./pagination-nav";
 import ParamUpdateInput from "@/components/shared/param-update-input";
+import TableWithPagination from "./table-with-pagination";
 
-const PAGE_SIZE = 12;
+const PAGE_SIZE = 10;
 
 interface ServerSidePaginationImplementationProps {
   page: string;
@@ -39,32 +37,24 @@ const ServerSidePaginationImplementation = async ({
     );
   }
 
-  if (!productsResponse.products.length) {
-    return (
-      <p className="mt-[100px] text-center text-foreground/50">
-        There are no products to display
-      </p>
-    );
-  }
-
-  const resetKeysOnSearch = ['page'];
+  const resetKeysOnSearch = ["page"];
 
   return (
     <div>
       <div className="mb-[24px] xs:max-w-[340px]">
         <ParamUpdateInput shallow={false} resetParamKeys={resetKeysOnSearch} />
       </div>
-      <DataTable
-        data={productsResponse.products}
-        columns={productColumns}
-        columnsToHide={["description"]}
-      />
-      <div className="mt-[20px]">
-        <PaginationNav
+      {productsResponse.products.length ? (
+        <TableWithPagination
+          products={productsResponse.products}
           pageSize={PAGE_SIZE}
           totalItems={productsResponse.total}
         />
-      </div>
+      ) : (
+        <p className="mt-[100px] text-center text-foreground/50">
+          There are no products to display
+        </p>
+      )}
     </div>
   );
 };

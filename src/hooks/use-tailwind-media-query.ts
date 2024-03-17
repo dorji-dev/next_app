@@ -12,10 +12,9 @@ export function useTailwindMediaQuery(
   tailwindMediaWidth: TailwindBreakPoints
 ) {
   const [mediaMatches, setMediaMatches] = useState(false);
-  const [isChecking, setIsChecking] = useState(false); // 
+  const [isChecking, setIsChecking] = useState(true); // 
 
   useEffect(() => {
-    setIsChecking(true);
     const mediaWatcher = window.matchMedia(
       `(min-width: ${tailwindMediaWidth}px)`
     );

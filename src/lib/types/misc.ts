@@ -5,6 +5,7 @@ import {
   TAILWIND_SMALL,
   TAILWIND_XL,
   TAILWIND_XSMALL,
+  TAILWIND_XXSMALL,
 } from "../constants/tailwind-device-width";
 
 export type FETCH_METHODS = "POST" | "GET" | "DELETE" | "PATCH" | "PUT";
@@ -14,6 +15,7 @@ export type ClassNameProp = {
 };
 
 export type TailwindBreakPoints =
+  | typeof TAILWIND_XXSMALL
   | typeof TAILWIND_XSMALL
   | typeof TAILWIND_SMALL
   | typeof TAILWIND_MEDIUM
@@ -36,3 +38,7 @@ export type FetchArguments<BodyType> = {
   cache?: RequestCache;
 };
 
+export type ErrorPageProps = {
+  reset: () => void;
+  error?: Error & { digest?: string };
+};
