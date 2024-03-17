@@ -10,6 +10,7 @@ const ServerSidePaginationPage = ({
 }) => {
   return (
     <FeatureImplementationTemplate
+      apiLink="https://dummyjson.com/"
       resourceLink="https://github.com/dorji-dev/next_app/blob/feat/pagination/src/app/features/pagination/server-side/page.tsx"
       longFeatureTitle="Pagination with server side data fetching and client side sorting with column visibility toggle"
     >

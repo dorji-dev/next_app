@@ -51,8 +51,7 @@ const ServerSidePaginationExplanation = () => {
         current feature, but you may not want the behavior for other cases. It
         is quite hacky to get that behavior currently so I am using a library
         called <TextHighlight text="nuqs" textLink="https://nuqs.47ng.com/" />{" "}
-        which supports shallow updates as well. Had a great experience so far
-        with it.
+        which supports shallow updates. It supports both page and app router.
       </p>
     </div>
   );
