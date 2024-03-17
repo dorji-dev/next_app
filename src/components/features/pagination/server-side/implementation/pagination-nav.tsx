@@ -39,7 +39,7 @@ const PaginationNav = ({
       startTransition: shallow ? undefined : startTransition,
     })
   );
-  const { mediaMatches: isAbove480 } = useTailwindMediaQuery("480");
+  const { mediaMatches: isAbove480, isChecking } = useTailwindMediaQuery("480");
   const activePage = getActivePage(page, pageSize, totalItems);
   const maximumSizePossible = getMaximumPagePossible(pageSize, totalItems);
   const totalPagesToShow = isAbove480 ? 5 : 2;
@@ -48,6 +48,11 @@ const PaginationNav = ({
     activePage,
     totalPagesToShow
   );
+
+  // avoid content change
+  if (isChecking) {
+    return;
+  }
 
   return (
     <>

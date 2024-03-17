@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  ColumnDef,
-  flexRender,
-  getCoreRowModel,
-  useReactTable,
-} from "@tanstack/react-table";
+import { flexRender, Table as ReactTable } from "@tanstack/react-table";
 
 import {
   Table,
@@ -17,31 +12,15 @@ import {
 } from "@/components/ui/table";
 import { ForwardedRef, forwardRef } from "react";
 
-interface DataTableProps<TData, TValue> {
-  columns: ColumnDef<TData, TValue>[];
-  data: TData[];
-  columnsToHide?: string[];
+interface DataTableProps<TData> {
+  table: ReactTable<TData>;
+  columnLength: number;
 }
 
-function DataTableInner<TData, TValue>(
-  { columns, data, columnsToHide = [] }: DataTableProps<TData, TValue>,
+function DataTableInner<TData>(
+  { table, columnLength }: DataTableProps<TData>,
   tableRef: ForwardedRef<HTMLTableElement>
 ) {
-  const table = useReactTable({
-    data,
-    columns,
-    getCoreRowModel: getCoreRowModel(),
-    state: {
-      columnVisibility: columnsToHide.reduce<{ [index: string]: boolean }>(
-        (visibilityObject, columnName) => {
-          visibilityObject[columnName] = false;
-          return visibilityObject;
-        },
-        {}
-      ),
-    },
-  });
-
   return (
     <div className="rounded-md border">
       <Table ref={tableRef}>
@@ -80,7 +59,10 @@ function DataTableInner<TData, TValue>(
             ))
           ) : (
             <TableRow>
-              <TableCell colSpan={columns.length} className="h-24 text-center">
+              <TableCell
+                colSpan={columnLength}
+                className="h-[96px] text-center"
+              >
                 No results.
               </TableCell>
             </TableRow>
@@ -91,8 +73,11 @@ function DataTableInner<TData, TValue>(
   );
 }
 
-const DataTable = forwardRef(DataTableInner) as <TData, TValue>(
-  props: DataTableProps<TData, TValue> & {
+/**
+ * Reusable tanstack table component. All the table config should be passed from the parent component.
+ */
+const DataTable = forwardRef(DataTableInner) as <TData>(
+  props: DataTableProps<TData> & {
     ref?: ForwardedRef<HTMLTableElement>;
   }
 ) => ReturnType<typeof DataTableInner>;
