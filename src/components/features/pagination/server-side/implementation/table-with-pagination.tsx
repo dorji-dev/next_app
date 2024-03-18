@@ -35,7 +35,7 @@ const TableWithPagination = ({
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({
     description: false,
   });
-  const [sorting, setSorting] = useState<SortingState>([])
+  const [sorting, setSorting] = useState<SortingState>([]);
   const tableRef = useRef<HTMLTableElement>(null);
   const productColumns = getProductColumns(tableRef);
 
@@ -54,15 +54,18 @@ const TableWithPagination = ({
 
   return (
     <>
-      <div className="my-[20px] flex items-center">
-        <div className="flex-1 text-sm text-muted-foreground">
+      <div className="my-[20px] flex items-center justify-between">
+        <div className="text-sm text-muted-foreground">
           {table.getFilteredSelectedRowModel().rows.length} of{" "}
           {table.getFilteredRowModel().rows.length} product(s) selected.
         </div>
         {/* Column visibility toggle */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="ml-auto text-[14px] rounded-md">
+            <Button
+              variant="outline"
+              className="text-[14px] rounded-md"
+            >
               Columns <GoChevronDown className="ml-2 h-4 w-4" />
             </Button>
           </DropdownMenuTrigger>
@@ -88,6 +91,16 @@ const TableWithPagination = ({
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
+      <p className="text-[10px] -mt-[10px] mb-[8px] text-center text-foreground/40">
+        Table powered by{" "}
+        <a
+          href="https://tanstack.com/table/latest"
+          target="_blank"
+          className="text-primary hover:underline underline-offset-2"
+        >
+          @tanstack/table
+        </a>
+      </p>
       <DataTable table={table} columnLength={products.length} ref={tableRef} />
       <div className="mt-[20px] relative">
         <PaginationNav
