@@ -14,7 +14,7 @@ const FeatureExplanationTemplate = ({
   return (
     <>
       <div className="pb-[4px] mt-[20px] md:mt-0 border-b border-b-border/40 mb-[15px]">
-        <h2 className="py-[4px] pl-[8px] pr-[38px] rounded-[4px] border border-border relative">
+        <p className="py-[4px] pl-[8px] pr-[38px] rounded-[4px] border border-border relative">
           <span className="mr-[2px] inline-block text-[16px] text-foreground/50">
             @
           </span>
@@ -38,7 +38,7 @@ const FeatureExplanationTemplate = ({
               </PopoverContent>
             </Popover>
           )}
-        </h2>
+        </p>
       </div>
       <ScrollArea className="h-[86%] md:h-[calc(100dvh-180px)] text-foreground/70 leading-[1.8] pr-[10px]">
         {children}

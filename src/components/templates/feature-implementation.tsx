@@ -77,9 +77,9 @@ const FeatureImplementationTemplate = ({
           </Link>
         </div>
       </div>
-      <h2 className="text-[24px] my-[18px] leading-[30px] font-[500]">
+      <h5 className="text-[24px] my-[18px] font-[500]">
         {longFeatureTitle}
-      </h2>
+      </h5>
       <ScrollArea className="w-full md:hidden">
         <div className="flex space-x-[20px]">
           <Link

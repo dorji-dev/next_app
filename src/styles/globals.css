@@ -47,19 +47,34 @@
     --input: 240 3.7% 15.9%;
     --ring: 142.4 71.8% 29.2%;
   }
-}
-
-@layer base {
   * {
     @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
   }
-}
+  html {
+    @apply text-[15px];
+  }
 
-html {
-  @apply text-[15px];
+  h1 {
+    @apply text-[max(48px,min(5vw,76px))] leading-[1.12];
+  }
+  h2 {
+    @apply text-[max(42px,min(5vw,56px))] leading-[1.12];
+  }
+  h3 {
+    @apply text-[max(36px,min(5vw,50px))] leading-[1.12];
+  }
+  h4 {
+    @apply text-[max(30px,min(5vw,44px))] leading-[1.12];
+  }
+  h5 {
+    @apply text-[max(24px,min(5vw,36px))] leading-[1.3];
+  }
+  h6 {
+    @apply text-[max(18px,min(5vw,28px))] leading-[1.12];
+  }
 }
 
 @media (max-width: 640px) {

@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <main className="space-y-[50px]">
       <section>
-        <h1 className="text-[max(48px,min(5vw,76px))] leading-[1.12] text-center px-[20px] md:px-[60px] lg:px-[100px] mt-[32px] md:mt-[54px] lg:mt-[50px] font-bold">
+        <h1 className="bg-gradient-to-b from-foreground to-foreground/50 bg-clip-text text-transparent text-center px-[20px] md:px-[60px] lg:px-[100px] mt-[40px] md:mt-[50px] lg:mt-[60px] font-bold">
           Everyday features with Next App Router
         </h1>
         <span className="text-[18px] mt-[30px] max-w-[570px] block text-center mx-auto text-foreground/50">

@@ -55,7 +55,7 @@ const LandingHeroFeatures = () => {
           <div key={feature.title} className="group min-w-full">
             <Card className="group-hover:border-input/60">
               <CardHeader>
-                <CardTitle className="text-[20px]">{feature.title}</CardTitle>
+                <CardTitle>{feature.title}</CardTitle>
                 <CardDescription>{feature.content}</CardDescription>
               </CardHeader>
 
@@ -100,7 +100,7 @@ const LandingHeroFeatures = () => {
             <div key={feature.title} className="group min-w-full">
               <Card className="group-hover:border-input/60">
                 <CardHeader>
-                  <CardTitle className="text-[20px]">{feature.title}</CardTitle>
+                  <CardTitle>{feature.title}</CardTitle>
                   <CardDescription>{feature.content}</CardDescription>
                 </CardHeader>
 
@@ -142,7 +142,7 @@ const LandingHeroFeatures = () => {
             <div key={feature.title} className="group min-w-full">
               <Card className="group-hover:border-input/60">
                 <CardHeader>
-                  <CardTitle className="text-[20px]">{feature.title}</CardTitle>
+                  <CardTitle>{feature.title}</CardTitle>
                   <CardDescription>{feature.content}</CardDescription>
                 </CardHeader>
 
@@ -187,7 +187,7 @@ const LandingHeroFeatures = () => {
             <div key={feature.title} className="group min-w-full">
               <Card className="group-hover:border-input/60">
                 <CardHeader>
-                  <CardTitle className="text-[20px]">{feature.title}</CardTitle>
+                  <CardTitle>{feature.title}</CardTitle>
                   <CardDescription>{feature.content}</CardDescription>
                 </CardHeader>
 
@@ -229,7 +229,7 @@ const LandingHeroFeatures = () => {
             <div key={feature.title} className="group min-w-full">
               <Card className="group-hover:border-input/60">
                 <CardHeader>
-                  <CardTitle className="text-[20px]">{feature.title}</CardTitle>
+                  <CardTitle>{feature.title}</CardTitle>
                   <CardDescription>{feature.content}</CardDescription>
                 </CardHeader>
 
@@ -271,7 +271,7 @@ const LandingHeroFeatures = () => {
             <div key={feature.title} className="group min-w-full">
               <Card className="group-hover:border-input/60">
                 <CardHeader>
-                  <CardTitle className="text-[20px]">{feature.title}</CardTitle>
+                  <CardTitle>{feature.title}</CardTitle>
                   <CardDescription>{feature.content}</CardDescription>
                 </CardHeader>
 

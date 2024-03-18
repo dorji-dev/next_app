@@ -29,13 +29,12 @@ const LibrariesUsed = () => {
             </Button>
           </HoverCardTrigger>
           <HoverCardContent
-            align="center"
             className="w-80"
             collisionBoundary={containerRef.current}
           >
             <div className="flex justify-between space-x-4">
               <div className="space-y-1 text-[14px] w-full">
-                <h4 className="font-semibold">{library.name}</h4>
+                <h6 className="font-semibold text-[14px]">{library.name}</h6>
                 <p>{library.description}</p>
                 <a
                   href={library.link}

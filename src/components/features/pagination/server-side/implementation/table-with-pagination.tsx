@@ -62,7 +62,7 @@ const TableWithPagination = ({
         {/* Column visibility toggle */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="ml-auto text-[14px]">
+            <Button variant="outline" className="ml-auto text-[14px] rounded-md">
               Columns <GoChevronDown className="ml-2 h-4 w-4" />
             </Button>
           </DropdownMenuTrigger>

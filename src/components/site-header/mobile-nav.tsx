@@ -42,7 +42,7 @@ const MobileNav = () => {
             <Accordion type="multiple" className="space-y-[16px]">
               {navConfig.mobileNav.withSubMenu.map((menu) => (
                 <AccordionItem key={menu.title} value={menu.title}>
-                  <AccordionTrigger className="text-foreground/60">
+                  <AccordionTrigger className="text-foreground/60 text-[1rem]">
                     <span className="flex items-center">
                       {menu.title}{" "}
                       <FaCircle className="text-foreground/40 ml-[8px] text-[8px]" />
