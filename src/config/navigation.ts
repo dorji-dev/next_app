@@ -4,23 +4,6 @@ export const navConfig: NavigationConfig = {
   desktopNav: {
     withMenu: [
       {
-        title: "Routing",
-        subMenu: [
-          {
-            title: "Parallel routing",
-            href: "/",
-            description:
-              "Render more than one page in the same layout conditionally or simultaneously.",
-          },
-          {
-            title: "Intercepting routes",
-            href: "/",
-            description:
-              "Load another route from current layout or page without losing the context of the current page or layout. Also known as modal routing.",
-          },
-        ],
-      },
-      {
         title: "File conventions",
         subMenu: [
           {
@@ -73,19 +56,6 @@ export const navConfig: NavigationConfig = {
   },
   mobileNav: {
     withSubMenu: [
-      {
-        title: "Routing",
-        subMenu: [
-          {
-            title: "Parallel routing",
-            href: "/",
-          },
-          {
-            title: "Intercepting routes",
-            href: "/",
-          },
-        ],
-      },
       {
         title: "File conventions",
         subMenu: [

@@ -22,7 +22,7 @@ export const heroFeatures: HeroFeatures = [
   {
     title: "Pagination",
     content:
-      "Implementation of pagination with server side and client side data fetching with tanstack table.",
+      "Implementation of pagination with server side and client side data fetching with tanstack table. Thanks to tanstack table, it also has features like column visibility toggle, row selection, client side filter out of the box.",
     subFeatures: [
       {
         hrefText: "Server side",
@@ -61,6 +61,30 @@ export const heroFeatures: HeroFeatures = [
   {
     title: "State management",
     content: "State management with Zustand.",
+    subFeatures: [
+      {
+        hrefText: "Implementation",
+        href: "/" as Route,
+        completed: false,
+      },
+    ],
+  },
+  {
+    title: "Intercepting routes",
+    content:
+      "Load another route from current layout or page without losing the context of the current page or layout. Also known as modal routing.",
+    subFeatures: [
+      {
+        hrefText: "Implementation",
+        href: "/" as Route,
+        completed: false,
+      },
+    ],
+  },
+  {
+    title: "Parallel routing",
+    content:
+      "Render more than one page in the same layout conditionally or simultaneously.",
     subFeatures: [
       {
         hrefText: "Implementation",

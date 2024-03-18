@@ -42,3 +42,9 @@ export type ErrorPageProps = {
   reset: () => void;
   error?: Error & { digest?: string };
 };
+
+export type LibrariesUsed = {
+  name: string;
+  link: string;
+  description: string;
+}[];
