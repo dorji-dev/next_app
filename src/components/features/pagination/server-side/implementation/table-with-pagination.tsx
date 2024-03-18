@@ -57,7 +57,7 @@ const TableWithPagination = ({
       <div className="my-[20px] flex items-center">
         <div className="flex-1 text-sm text-muted-foreground">
           {table.getFilteredSelectedRowModel().rows.length} of{" "}
-          {table.getFilteredRowModel().rows.length} row(s) selected.
+          {table.getFilteredRowModel().rows.length} product(s) selected.
         </div>
         {/* Column visibility toggle */}
         <DropdownMenu>

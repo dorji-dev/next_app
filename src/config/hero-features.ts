@@ -58,4 +58,15 @@ export const heroFeatures: HeroFeatures = [
       },
     ],
   },
+  {
+    title: "State management",
+    content: "State management with Zustand.",
+    subFeatures: [
+      {
+        hrefText: "Implementation",
+        href: "/" as Route,
+        completed: false,
+      },
+    ],
+  },
 ];
