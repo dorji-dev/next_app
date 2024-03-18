@@ -33,7 +33,8 @@ const ParamUpdateInput = ({
   useEffect(
     function updateSearchQuery() {
       const updateQuery = async () => {
-        setSearchQuery(debouncedQueryValue, { shallow });
+        debouncedQueryValue !== null &&
+          setSearchQuery(debouncedQueryValue || null, { shallow }); // remove query key if the value === ''
         await removeParams();
       };
       updateQuery();

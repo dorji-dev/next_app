@@ -84,7 +84,7 @@ export const getProductColumns = (
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
-              <DialogTitle>{data.row.getValue("title")}</DialogTitle>
+              <DialogTitle>{data.row.getValue("Name")}</DialogTitle>
               <DialogDescription>
                 {data.row.getValue("description")}
               </DialogDescription>
@@ -92,7 +92,7 @@ export const getProductColumns = (
             <div className="relative h-[0px] w-full pb-[80%] border rounded-[12px] overflow-hidden">
               <Image
                 src={data.getValue() as string}
-                alt={data.row.getValue("title")}
+                alt={data.row.getValue("Name")}
                 placeholder="blur"
                 blurDataURL={lightGrayBlurData}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

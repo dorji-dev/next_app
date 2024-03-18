@@ -23,7 +23,7 @@ export const getMaximumPagePossible = (
   return maximumPagePossible;
 };
 
-export const getTopFivePages = (
+export const getPagesToShow = (
   maximumSizePossible: number,
   activePage: number,
   totalNumberToShow: number

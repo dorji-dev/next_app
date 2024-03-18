@@ -13,7 +13,7 @@ import {
 import {
   getActivePage,
   getMaximumPagePossible,
-  getTopFivePages,
+  getPagesToShow,
 } from "@/lib/utils/pagination";
 import clsx from "clsx";
 import { parseAsString, useQueryState } from "nuqs";
@@ -42,8 +42,8 @@ const PaginationNav = ({
   const { mediaMatches: isAbove480, isChecking } = useTailwindMediaQuery("480");
   const activePage = getActivePage(page, pageSize, totalItems);
   const maximumSizePossible = getMaximumPagePossible(pageSize, totalItems);
-  const totalPagesToShow = isAbove480 ? 5 : 2;
-  const pagesToShow = getTopFivePages(
+  const totalPagesToShow = isAbove480 ? 5 : 3;
+  const pagesToShow = getPagesToShow(
     maximumSizePossible,
     activePage,
     totalPagesToShow
@@ -75,7 +75,7 @@ const PaginationNav = ({
                 onClick={() => setPage((activePage - 1).toString())}
               >
                 <LuChevronLeft className="h-[16px] w-[16px]" />
-                <span>Previous</span>
+                <span className="hidden xxs:block">Previous</span>
               </Button>
             </PaginationPrevious>
           </PaginationItem>
@@ -110,7 +110,7 @@ const PaginationNav = ({
                 )}
                 onClick={() => setPage((activePage + 1).toString())}
               >
-                <span>Next</span>
+                <span className="hidden xxs:block">Next</span>
                 <LuChevronRight className="h-[16px] w-[16px]" />
               </Button>
             </PaginationNext>
