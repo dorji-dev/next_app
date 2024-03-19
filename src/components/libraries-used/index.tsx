@@ -23,7 +23,7 @@ const LibrariesUsed = () => {
           <HoverCardTrigger asChild>
             <Button
               variant="outline"
-              className="text-[13px] px-[12px] py-[4px] h-auto font-normal"
+              className="text-[14px] text-muted-foreground px-[12px] py-[4px] h-auto font-normal"
             >
               {library.name}
             </Button>
