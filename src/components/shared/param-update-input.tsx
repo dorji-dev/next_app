@@ -23,7 +23,6 @@ const ParamUpdateInput = ({
     paramKey,
     parseAsString.withOptions({
       startTransition: shallow ? undefined : startTransition,
-      history: "push",
     })
   );
   const removeParams = useRemoveSearchParams(resetParamKeys, true);

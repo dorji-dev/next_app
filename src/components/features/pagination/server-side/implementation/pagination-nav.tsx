@@ -37,6 +37,7 @@ const PaginationNav = ({
     "page",
     parseAsString.withOptions({
       startTransition: shallow ? undefined : startTransition,
+      history: "push",
     })
   );
   const { mediaMatches: isAbove480, isChecking } = useTailwindMediaQuery("480");
