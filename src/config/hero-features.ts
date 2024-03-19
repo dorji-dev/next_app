@@ -32,7 +32,7 @@ export const heroFeatures: HeroFeatures = [
       {
         hrefText: "Client side",
         href: "/features/pagination/client-side" as Route,
-        completed: false,
+        completed: true,
       },
     ],
   },

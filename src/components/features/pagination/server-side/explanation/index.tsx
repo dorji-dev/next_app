@@ -8,7 +8,7 @@ const ServerSidePaginationExplanation = () => {
         implementation, the data fetching is always done on the server inside{" "}
         <TextHighlight text="ServerSidePaginationImplementation" /> and the data
         is passed to the client component{" "}
-        <TextHighlight text="TableWithPagination" />.
+        <TextHighlight text="PaginationDataTable" />.
       </p>
       <p>
         For the table, we have used{" "}

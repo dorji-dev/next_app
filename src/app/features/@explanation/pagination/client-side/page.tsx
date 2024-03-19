@@ -3,7 +3,7 @@ import FeatureExplanationTemplate from "@/components/templates/feature-explanati
 
 const ClientSidePaginationExplanationPage = () => {
   return (
-    <FeatureExplanationTemplate>
+    <FeatureExplanationTemplate disclaimer="In order to follow along the explanation, you are expected to go through the linked resource to understand it better.">
       <ClientSidePaginationExplanation />
     </FeatureExplanationTemplate>
   );
