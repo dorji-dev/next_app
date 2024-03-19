@@ -13,7 +13,7 @@ import { lightGrayBlurData } from "@/lib/utils/rgb-data-url";
 import { ColumnDef } from "@tanstack/react-table";
 import Image from "next/image";
 import { IoEyeOutline } from "react-icons/io5";
-import PaginationTableHeader from "../../pagination-table-header";
+import PaginationTableHeader from "./pagination-table-header";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";

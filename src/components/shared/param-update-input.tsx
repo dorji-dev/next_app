@@ -34,7 +34,7 @@ const ParamUpdateInput = ({
       const updateQuery = async () => {
         debouncedQueryValue !== null &&
           setSearchQuery(debouncedQueryValue || null, { shallow }); // remove query key if the value === ''
-        await removeParams();
+        debouncedQueryValue !== null && (await removeParams());
       };
       updateQuery();
     },

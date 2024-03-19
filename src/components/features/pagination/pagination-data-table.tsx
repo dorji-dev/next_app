@@ -1,7 +1,6 @@
 "use client";
 
 import DataTable from "@/components/shared/data-table";
-import PaginationNav from "./pagination-nav";
 import { ProductsResponse } from "@/lib/types/product";
 import { getProductColumns } from "./product-table-columns";
 import { useRef, useState } from "react";
@@ -21,17 +20,13 @@ import {
 import { Button } from "@/components/ui/button";
 import { GoChevronDown } from "react-icons/go";
 
-interface TableWithPaginationProps {
+interface PaginationDataTableProps {
   products: ProductsResponse["products"];
-  pageSize: number;
-  totalItems: number;
 }
 
-const TableWithPagination = ({
+const PaginationDataTable = ({
   products,
-  pageSize,
-  totalItems,
-}: TableWithPaginationProps) => {
+}: PaginationDataTableProps) => {
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({
     description: false,
   });
@@ -101,15 +96,8 @@ const TableWithPagination = ({
         columnLength={products.length}
         tableRef={tableRef}
       />
-      <div className="mt-[20px] relative">
-        <PaginationNav
-          pageSize={pageSize}
-          totalItems={totalItems}
-          shallow={false}
-        />
-      </div>
     </>
   );
 };
 
-export default TableWithPagination;
+export default PaginationDataTable;
