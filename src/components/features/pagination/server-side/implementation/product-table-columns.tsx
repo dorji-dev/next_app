@@ -54,7 +54,7 @@ export const getProductColumns = (
       enableHiding: false,
     },
     {
-      id: 'ID',
+      id: "ID",
       accessorKey: "id",
       header: () => (
         <PaginationTableHeader
@@ -65,7 +65,7 @@ export const getProductColumns = (
       ),
     },
     {
-      id: 'Image',
+      id: "Image",
       accessorKey: "thumbnail",
       header: () => (
         <PaginationTableHeader
@@ -105,7 +105,7 @@ export const getProductColumns = (
       ),
     },
     {
-      id: 'Name',
+      id: "Name",
       accessorKey: "title",
       header: ({ column }) => (
         <PaginationTableHeader
@@ -118,7 +118,7 @@ export const getProductColumns = (
       sortingFn: "alphanumericCaseSensitive",
     },
     {
-      id: 'Category',
+      id: "Category",
       accessorKey: "category",
       header: ({ column }) => (
         <PaginationTableHeader
@@ -130,7 +130,7 @@ export const getProductColumns = (
       ),
     },
     {
-      id: 'Price',
+      id: "Price",
       accessorKey: "price",
       header: ({ column }) => (
         <PaginationTableHeader
@@ -142,7 +142,7 @@ export const getProductColumns = (
       ),
     },
     {
-      id: 'Rating',
+      id: "Rating",
       accessorKey: "rating",
       header: ({ column }) => (
         <PaginationTableHeader
@@ -154,7 +154,7 @@ export const getProductColumns = (
       ),
     },
     {
-      id: 'Stock',
+      id: "Stock",
       accessorKey: "stock",
       header: () => (
         <PaginationTableHeader
@@ -165,7 +165,7 @@ export const getProductColumns = (
       ),
     },
     {
-      id: 'DP',
+      id: "DP",
       accessorKey: "discountPercentage",
       header: () => (
         <PaginationTableHeader
@@ -178,6 +178,7 @@ export const getProductColumns = (
     // will be hidden by default, only used to image view modal
     {
       accessorKey: "description",
+      enableHiding: false,
     },
     {
       id: "Actions",
@@ -192,7 +193,10 @@ export const getProductColumns = (
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="text-[14px]">
               <DropdownMenuLabel className="flex justify-between items-center">
-                Actions <span className="text-[12px] font-normal bg-foreground/10 p-[4px] rounded-[4px]">ID {`= ${row.original.id}`}</span>
+                Actions{" "}
+                <span className="text-[12px] font-normal bg-foreground/10 p-[4px] rounded-[4px]">
+                  ID {`= ${row.original.id}`}
+                </span>
               </DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuItem className="cursor-pointer">

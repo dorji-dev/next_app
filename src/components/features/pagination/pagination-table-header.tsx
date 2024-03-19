@@ -35,7 +35,7 @@ const PaginationTableHeader = ({
               <RxCaretSort className="ml-2 h-4 w-4" />
             </button>
           ) : (
-            <span className="h-full flex justify-center items-center">
+            <span className="h-full flex items-center">
               {headerValue}
             </span>
           )}

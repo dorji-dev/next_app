@@ -62,10 +62,7 @@ const TableWithPagination = ({
         {/* Column visibility toggle */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button
-              variant="outline"
-              className="text-[14px] rounded-md"
-            >
+            <Button variant="outline" className="text-[14px] rounded-md">
               Columns <GoChevronDown className="ml-2 h-4 w-4" />
             </Button>
           </DropdownMenuTrigger>
@@ -75,17 +72,15 @@ const TableWithPagination = ({
               .filter((column) => column.getCanHide())
               .map((column) => {
                 return (
-                  column.id !== "description" && (
-                    <DropdownMenuCheckboxItem
-                      key={column.id}
-                      checked={column.getIsVisible()}
-                      onCheckedChange={(value) =>
-                        column.toggleVisibility(!!value)
-                      }
-                    >
-                      {column.id}
-                    </DropdownMenuCheckboxItem>
-                  )
+                  <DropdownMenuCheckboxItem
+                    key={column.id}
+                    checked={column.getIsVisible()}
+                    onCheckedChange={(value) =>
+                      column.toggleVisibility(!!value)
+                    }
+                  >
+                    {column.id}
+                  </DropdownMenuCheckboxItem>
                 );
               })}
           </DropdownMenuContent>
@@ -101,7 +96,11 @@ const TableWithPagination = ({
           @tanstack/table
         </a>
       </p>
-      <DataTable table={table} columnLength={products.length} ref={tableRef} />
+      <DataTable
+        table={table}
+        columnLength={products.length}
+        tableRef={tableRef}
+      />
       <div className="mt-[20px] relative">
         <PaginationNav
           pageSize={pageSize}

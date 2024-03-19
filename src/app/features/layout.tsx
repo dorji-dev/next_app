@@ -21,7 +21,7 @@ const FeatureLayout = ({ children, explanation }: FeatureLayoutProps) => {
         className="h-[calc(100dvh-160px)] sticky top-[107px] mx-[15px] bg-border/40 hidden md:block"
       />
       {/* Feature implementation */}
-      <div className="w-full">{children}</div>
+      <div className="w-full overflow-auto px-[4px]">{children}</div>
     </div>
   );
 };

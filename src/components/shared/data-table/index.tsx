@@ -8,19 +8,27 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { ForwardedRef, forwardRef } from "react";
+import { memo, RefObject } from "react";
+import { cn } from "@/lib/utils";
 
 interface DataTableProps<TData> {
   table: ReactTable<TData>;
   columnLength: number;
+  tableRef: RefObject<HTMLTableElement>;
+  containerClass?: string;
 }
 
-function DataTableInner<TData>(
-  { table, columnLength }: DataTableProps<TData>,
-  tableRef: ForwardedRef<HTMLTableElement>
-) {
+/**
+ * Reusable tanstack table component. All the table config should be passed from the parent component.
+ */
+const DataTable = <TData,>({
+  table,
+  columnLength,
+  tableRef,
+  containerClass,
+}: DataTableProps<TData>) => {
   return (
-    <div className="rounded-md border">
+    <div className={cn(containerClass, "rounded-md border")}>
       <Table ref={tableRef}>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
@@ -69,15 +77,6 @@ function DataTableInner<TData>(
       </Table>
     </div>
   );
-}
-
-/**
- * Reusable tanstack table component. All the table config should be passed from the parent component.
- */
-const DataTable = forwardRef(DataTableInner) as <TData>(
-  props: DataTableProps<TData> & {
-    ref?: ForwardedRef<HTMLTableElement>;
-  }
-) => ReturnType<typeof DataTableInner>;
+};
 
 export default DataTable;
