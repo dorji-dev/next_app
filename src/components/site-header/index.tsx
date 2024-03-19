@@ -1,10 +1,11 @@
 import { cn } from "@/lib/utils";
-import Link from "next/link";
 import { buttonVariants } from "../ui/button";
 import ModeToggle from "../mode-toggle";
 import MobileNav from "./mobile-nav";
 import { FaGithub } from "react-icons/fa";
 import DesktopNav from "./desktop-nav";
+import { TbSlash } from "react-icons/tb";
+import Link from "next/link";
 
 const SiteHeader = () => {
   return (
@@ -14,12 +15,25 @@ const SiteHeader = () => {
           <DesktopNav />
           <MobileNav />
           <nav className="ml-auto flex items-center space-x-[8px]">
-            <Link
+            <Link href="/">
+              <span
+                className={cn(
+                  buttonVariants({
+                    variant: "outline",
+                  }),
+                  "text-[10px] tracking-[2px]"
+                )}
+              >
+                HOME{" "}
+                <TbSlash className="h-[16px] w-[16px] text-foreground/50" />
+              </span>
+            </Link>
+            <a
               href="https://github.com/dorji-dev/next_app"
               target="_blank"
               rel="noreferrer"
             >
-              <div
+              <span
                 className={cn(
                   buttonVariants({
                     variant: "ghost",
@@ -29,8 +43,8 @@ const SiteHeader = () => {
               >
                 <FaGithub className="h-[16px] w-[16px]" />
                 <span className="sr-only">GitHub</span>
-              </div>
-            </Link>
+              </span>
+            </a>
             <ModeToggle />
           </nav>
         </div>
