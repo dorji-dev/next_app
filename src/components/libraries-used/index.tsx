@@ -7,17 +7,11 @@ import {
   HoverCardTrigger,
 } from "../ui/hover-card";
 import { Button } from "../ui/button";
-import { useRef } from "react";
 import { PiArrowLineUpRightThin } from "react-icons/pi";
 
 const LibrariesUsed = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-
   return (
-    <div
-      ref={containerRef}
-      className="flex flex-wrap justify-center gap-[20px] max-w-[90%] lg:max-w-[80%] mx-auto"
-    >
+    <div className="flex flex-wrap justify-center gap-[20px] max-w-[90%] lg:max-w-[80%] mx-auto">
       {LIBRARIES_USED.map((library) => (
         <HoverCard key={library.name} openDelay={300}>
           <HoverCardTrigger asChild>
@@ -28,10 +22,7 @@ const LibrariesUsed = () => {
               {library.name}
             </Button>
           </HoverCardTrigger>
-          <HoverCardContent
-            className="w-80"
-            collisionBoundary={containerRef.current}
-          >
+          <HoverCardContent className="w-max max-w-[320px]" collisionPadding={10}>
             <div className="flex justify-between space-x-4">
               <div className="space-y-1 text-[14px] w-full">
                 <h6 className="font-semibold text-[14px]">{library.name}</h6>
