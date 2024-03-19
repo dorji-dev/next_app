@@ -1,6 +1,7 @@
 import HeroFeatureSeparator from "@/components/hero-feature-separator";
 import LandingHeroFeatures from "@/components/landing-features";
 import LibrariesUsed from "@/components/libraries-used";
+import SearchFeatures from "@/components/search-features";
 import TextHighlight from "@/components/text-highlight.tsx";
 import { buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -69,6 +70,9 @@ export default function Home() {
       </div>
       <div className="space-y-[3px] flex flex-col items-center">
         <HeroFeatureSeparator />
+      </div>
+      <div className="!my-[30px]">
+        <SearchFeatures />
       </div>
       <LandingHeroFeatures />
     </main>

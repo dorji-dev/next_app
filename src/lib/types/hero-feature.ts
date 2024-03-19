@@ -7,5 +7,6 @@ export type HeroFeatures = {
     hrefText: string;
     href: Route<string>;
     completed: boolean;
+    description: string;
   }[];
 }[];
