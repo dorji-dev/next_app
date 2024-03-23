@@ -42,6 +42,32 @@ export const heroFeatures: HeroFeatures = [
     ],
   },
   {
+    title: "Intercepting routes",
+    content:
+      "Load another route from current layout or page without losing the context of the current page or layout. Also known as modal routing.",
+    subFeatures: [
+      {
+        hrefText: "Implementation",
+        href: "/" as Route,
+        completed: false,
+        description: "Intercepting routes to create modal routing",
+      },
+    ],
+  },
+  {
+    title: "Parallel routing",
+    content:
+      "Render more than one page in the same layout conditionally or simultaneously.",
+    subFeatures: [
+      {
+        hrefText: "Implementation",
+        href: "/" as Route,
+        completed: false,
+        description: "Parallel routing to render more than one page",
+      },
+    ],
+  },
+  {
     title: "Video streaming",
     content: "Implementation of video streaming.",
     subFeatures: [
@@ -75,32 +101,6 @@ export const heroFeatures: HeroFeatures = [
         href: "/" as Route,
         completed: false,
         description: "State management with zustand",
-      },
-    ],
-  },
-  {
-    title: "Intercepting routes",
-    content:
-      "Load another route from current layout or page without losing the context of the current page or layout. Also known as modal routing.",
-    subFeatures: [
-      {
-        hrefText: "Implementation",
-        href: "/" as Route,
-        completed: false,
-        description: "Intercepting routes to create modal routing",
-      },
-    ],
-  },
-  {
-    title: "Parallel routing",
-    content:
-      "Render more than one page in the same layout conditionally or simultaneously.",
-    subFeatures: [
-      {
-        hrefText: "Implementation",
-        href: "/" as Route,
-        completed: false,
-        description: "Parallel routing to render more than one page",
       },
     ],
   },

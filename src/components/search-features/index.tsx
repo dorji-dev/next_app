@@ -46,16 +46,16 @@ const SearchFeatures = () => {
         }
         className={cn(
           buttonVariants({ variant: "outline" }),
-          "flex text-muted-foreground/80 cursor-pointer rounded-[8px] justify-between mx-auto max-w-[200px] font-normal"
+          "flex text-muted-foreground/80 cursor-pointer rounded-[8px] justify-between mx-auto max-w-[250px] px-[8px] font-normal"
         )}
       >
-        <span className="text-[12px] ml-[2px]">Search features</span>
+        <span className="text-[12px] ml-[4px]">Search features & demos</span>
         <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded-[4px] border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
           <span className="text-[12px]">⌘</span>K
         </kbd>
       </div>
       <CommandDialog open={open} onOpenChange={setOpen}>
-        <CommandInput placeholder="Type a command or search..." />
+        <CommandInput placeholder="Search..." />
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>
           {heroFeatures.map((feature) => (
