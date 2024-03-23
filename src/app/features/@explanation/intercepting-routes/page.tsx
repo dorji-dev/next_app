@@ -1,0 +1,11 @@
+import FeatureExplanationTemplate from "@/components/templates/feature-explanation";
+
+const InterceptingRoutesExplanationPage = () => {
+  return (
+    <FeatureExplanationTemplate disclaimer="In order to follow along the explanation, you are expected to go through the linked resource to understand it better.">
+      InterceptingRoutesExplanationPage
+    </FeatureExplanationTemplate>
+  );
+};
+
+export default InterceptingRoutesExplanationPage;
