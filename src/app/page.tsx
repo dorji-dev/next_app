@@ -69,7 +69,6 @@ export default function Home() {
           <LibrariesUsed />
         </div>
       </div>
-      <Link href="/product/4">toProduct</Link>
       <div className="space-y-[3px] flex flex-col items-center">
         <HeroFeatureSeparator />
       </div>
