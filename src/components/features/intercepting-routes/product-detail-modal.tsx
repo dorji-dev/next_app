@@ -2,6 +2,7 @@
 
 import ContentLoader from "@/components/loaders/content-loader";
 import ProductDetails from "@/components/product/product-details";
+import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { useRouter } from "next/navigation";
 import { Suspense } from "react";
@@ -17,9 +18,12 @@ const ProductDetailModal = ({ productId }: ProductDetailModalProps) => {
     <Dialog open={true} onOpenChange={(open) => !open && router.back()}>
       <DialogContent>
         <div className="py-[10px]">
-          <p className="text-center text-[10px] text-primary mb-[8px]">
-            Reload the page to go to details page
-          </p>
+          <button
+            onClick={router.refresh}
+            className="text-center text-[12px] text-primary mb-[8px] mx-auto block hover:underline"
+          >
+            Visit page
+          </button>
           <Suspense
             fallback={
               <div className="my-[60px]">

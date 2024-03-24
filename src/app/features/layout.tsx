@@ -4,15 +4,11 @@ import React, { ReactNode } from "react";
 
 interface FeatureLayoutProps extends React.PropsWithChildren {
   explanation: ReactNode;
-  interceptionModal
-  : ReactNode;
 }
 
 const FeatureLayout = ({
   children,
   explanation,
-  interceptionModal
-  ,
 }: FeatureLayoutProps) => {
   return (
     <div className="flex flex-col md:flex-row pt-[10px] md:pt-[24px]  pb-[50px] h-full">
@@ -27,8 +23,6 @@ const FeatureLayout = ({
         orientation="vertical"
         className="h-[calc(100dvh-160px)] sticky top-[107px] mx-[15px] bg-border/40 hidden md:block"
       />
-      {interceptionModal
-      }
       {/* Feature implementation */}
       <div className="w-full overflow-auto px-[4px]">{children}</div>
     </div>

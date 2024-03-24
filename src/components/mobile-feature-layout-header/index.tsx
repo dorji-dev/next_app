@@ -5,6 +5,7 @@ import { Button, buttonVariants } from "../ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import { ReactNode } from "react";
 import { useRouter } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 interface MobileFeatureLayoutHeaderProps {
   explanation: ReactNode;
@@ -27,7 +28,7 @@ const MobileFeatureLayoutHeader = ({
           >
             <IoMdArrowBack className="w-[20px] h-[24px]" />
           </Button>
-          <SheetTrigger className={buttonVariants({variant: "default"})}>
+          <SheetTrigger className={cn(buttonVariants({variant: "default"}), "font-normal text-[14px]")}>
             View explanation
           </SheetTrigger>
         </div>
