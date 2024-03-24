@@ -49,7 +49,7 @@ export const heroFeatures: HeroFeatures = [
       {
         hrefText: "Implementation",
         href: "/features/intercepting-routes" as Route,
-        completed: false,
+        completed: true,
         description: "Intercepting routes to create modal routing",
       },
     ],
