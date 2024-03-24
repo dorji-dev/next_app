@@ -1,4 +1,4 @@
-import { getProducts } from "@/services/get-products";
+import { getProducts } from "@/services/product-service";
 import ParamUpdateInput from "@/components/shared/param-update-input";
 import PaginationDataTable from "../../pagination-data-table";
 import PaginationNav from "../../pagination-nav";

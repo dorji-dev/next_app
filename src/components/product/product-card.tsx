@@ -1,15 +1,14 @@
-import { ProductsResponse } from "@/lib/types/product";
+import { Product } from "@/lib/types/product";
 import { toTitleCase } from "@/lib/utils/misc";
 import { lightGrayBlurData } from "@/lib/utils/rgb-data-url";
 import Image from "next/image";
 
-interface ProductListProps {
-  products: ProductsResponse["products"];
+interface ProductCardProps {
+  product: Product;
 }
 
-const ProductList = ({ products }: ProductListProps) => {
-
-  return products.map((product) => (
+const ProductCard = ({ product }: ProductCardProps) => {
+  return (
     <div
       key={product.id}
       className="flex flex-col border border-border rounded-[8px] p-[8px]"
@@ -31,11 +30,16 @@ const ProductList = ({ products }: ProductListProps) => {
       </div>
       <div className="pb-[10px] pt-[10px]">
         <p>{toTitleCase(product.title)}</p>
-        <p className="text-[12px] text-foreground/50">{toTitleCase(product.category)}</p>
-        <p><span className="mr-[2px] font-[600]">Nu.{product.price}</span> <span className="text-[11px]">{product.discountPercentage}%Off</span></p>
+        <p className="text-[12px] text-foreground/50">
+          {toTitleCase(product.category)}
+        </p>
+        <p>
+          <span className="mr-[2px] font-[600]">Nu.{product.price}</span>{" "}
+          <span className="text-[11px]">{product.discountPercentage}%Off</span>
+        </p>
       </div>
     </div>
-  ));
+  );
 };
 
-export default ProductList;
+export default ProductCard;

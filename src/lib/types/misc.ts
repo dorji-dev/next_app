@@ -1,3 +1,4 @@
+import { IconType } from "react-icons/lib";
 import {
   TAILWIND_2XL,
   TAILWIND_LARGE,
@@ -48,3 +49,10 @@ export type LibrariesUsed = {
   link: string;
   description: string;
 }[];
+
+export interface FileTreeDataItem {
+  id: string;
+  name: string;
+  icon?: IconType;
+  children?: FileTreeDataItem[];
+}

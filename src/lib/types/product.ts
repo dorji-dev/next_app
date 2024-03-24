@@ -13,7 +13,7 @@ export type Product = {
   discountPercentage: number;
   rating: number;
   stock: number;
-  branch: string;
+  brand: string;
   category: string;
   thumbnail: string;
   images: string[];

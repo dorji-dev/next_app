@@ -32,7 +32,7 @@ const FeatureExplanationTemplate = ({
               <PopoverContent
                 collisionPadding={24}
                 sideOffset={14}
-                className="text-foreground/70 text-[13px]"
+                className="text-foreground/70 text-[13px] max-w-[240px]"
               >
                 {disclaimer}
               </PopoverContent>
@@ -52,7 +52,8 @@ const FeatureExplanationTemplate = ({
               className="text-primary underline underline-offset-2"
             >
               twitter
-            </a>.
+            </a>
+            .
           </p>
         </div>
       </ScrollArea>

@@ -1,6 +1,6 @@
 import WSALoadMore from "./wsa-load-more";
-import ProductList from "@/components/shared/product-list";
-import { getProducts } from "@/services/get-products";
+import ProductList from "@/components/product/product-list";
+import { getProducts } from "@/services/product-service";
 import ParamUpdateInput from "../../../../shared/param-update-input";
 
 const PAGE_SIZE = 12;

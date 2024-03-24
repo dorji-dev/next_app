@@ -6,7 +6,7 @@ import { useQueryState } from "nuqs";
 import { fetchHelper } from "@/helpers/fetch-helper";
 import ContentLoader from "@/components/loaders/content-loader";
 import { InView } from "react-intersection-observer";
-import ProductList from "@/components/shared/product-list";
+import ProductList from "@/components/product/product-list";
 import { Separator } from "@/components/ui/separator";
 
 const PAGE_SIZE = 12;

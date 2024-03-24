@@ -6,7 +6,10 @@ interface FeatureLayoutProps extends React.PropsWithChildren {
   explanation: ReactNode;
 }
 
-const FeatureLayout = ({ children, explanation }: FeatureLayoutProps) => {
+const FeatureLayout = ({
+  children,
+  explanation,
+}: FeatureLayoutProps) => {
   return (
     <div className="flex flex-col md:flex-row pt-[10px] md:pt-[24px]  pb-[50px] h-full">
       <MobileFeatureLayoutHeader explanation={explanation} />
