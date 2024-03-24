@@ -2,7 +2,6 @@
 
 import ContentLoader from "@/components/loaders/content-loader";
 import ProductDetails from "@/components/product/product-details";
-import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { useRouter } from "next/navigation";
 import { Suspense } from "react";
