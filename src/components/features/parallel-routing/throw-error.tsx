@@ -8,10 +8,15 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { useSearchParams } from "next/navigation";
+import { useState } from "react";
 
 const ThrowError = () => {
-  const _ = useSearchParams();
+  const [clicked, setClicked] = useState(false);
+
+  if (clicked) {
+    throw new Error("Oh no! Something went wrong.");
+  }
+
   return (
     <TooltipProvider>
       <Tooltip delayDuration={200}>
@@ -20,9 +25,7 @@ const ThrowError = () => {
             size="icon"
             variant="outline"
             className="border-destructive"
-            onClick={() => {
-              throw new Error("Errored");
-            }}
+            onClick={() => setClicked(true)}
           >
             <IoBugSharp className="text-destructive" />
           </Button>
