@@ -8,7 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { memo, RefObject } from "react";
+import { RefObject } from "react";
 import { cn } from "@/lib/utils";
 
 interface DataTableProps<TData> {

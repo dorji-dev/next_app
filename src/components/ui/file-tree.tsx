@@ -5,7 +5,7 @@ import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { LuChevronRight } from "react-icons/lu";
 import useResizeObserver from "use-resize-observer";
 import { cn } from "@/lib/utils";
-import { ScrollArea, ScrollBar } from "./scroll-area";
+import { ScrollArea } from "./scroll-area";
 import { type IconType } from "react-icons/lib";
 import { FileTreeDataItem } from "@/lib/types/misc";
 
