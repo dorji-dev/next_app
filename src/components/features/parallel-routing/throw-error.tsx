@@ -8,8 +8,10 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { useSearchParams } from "next/navigation";
 
 const ThrowError = () => {
+  const _ = useSearchParams();
   return (
     <TooltipProvider>
       <Tooltip delayDuration={200}>
@@ -19,7 +21,7 @@ const ThrowError = () => {
             variant="outline"
             className="border-destructive"
             onClick={() => {
-              throw Error();
+              throw new Error("Errored");
             }}
           >
             <IoBugSharp className="text-destructive" />
