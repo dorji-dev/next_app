@@ -1,3 +1,7 @@
-import PageLoader from "@/components/loaders/page-loader";
+import ParallelRouteLoader from "@/components/features/parallel-routing/parallel-route-loader";
 
-export default PageLoader;
+const Loading = () => {
+  return <ParallelRouteLoader pageName="Two" />;
+};
+
+export default Loading;
