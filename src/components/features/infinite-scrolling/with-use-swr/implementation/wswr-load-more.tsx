@@ -118,7 +118,7 @@ const WithUseSWRLoadMore = () => {
         page to fetch based on what we return from the  getFetchURL function */}
 
       {isValidating && (
-        <div className="relative mt-[60px]">
+        <div className="relative mt-[60px] mb-[20px]">
           <ContentLoader />
         </div>
       )}
