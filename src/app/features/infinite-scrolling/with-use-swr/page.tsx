@@ -1,5 +1,12 @@
 import ISWithUseSWRImplementation from "@/components/features/infinite-scrolling/with-use-swr/implementation";
 import FeatureImplementationTemplate from "@/components/templates/feature-implementation";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Infinite scrolling with useSWR",
+  description:
+    "Implementation of infinite scrolling with useSWR and client side rendering",
+};
 
 const InfiniteScrollWithUseSWRPage = () => {
   return (

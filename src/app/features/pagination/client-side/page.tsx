@@ -1,5 +1,12 @@
 import ClientSidePaginationImplementation from "@/components/features/pagination/client-side/implementation";
 import FeatureImplementationTemplate from "@/components/templates/feature-implementation";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Pagination with client side data fetching",
+  description:
+    "Implementation pagination in NextJs app router with client side data fetching",
+};
 
 const ClientSidePaginationPage = () => {
   return (
