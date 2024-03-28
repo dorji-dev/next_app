@@ -1,12 +1,5 @@
 import ISWithUseSWRExplanation from "@/components/features/infinite-scrolling/with-use-swr/explanation";
 import FeatureExplanationTemplate from "@/components/templates/feature-explanation";
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Infinite scrolling with swr",
-  description:
-    "Implementation of infinite scrolling with swr client side data fetching library",
-};
 
 const ISWithUseSWRExplanationPage = () => {
   return (

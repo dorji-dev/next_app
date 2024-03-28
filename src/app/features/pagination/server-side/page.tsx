@@ -1,7 +1,14 @@
 import ServerSidePaginationImplementation from "@/components/features/pagination/server-side/implementation";
 import ContentLoader from "@/components/loaders/content-loader";
 import FeatureImplementationTemplate from "@/components/templates/feature-implementation";
+import { Metadata } from "next";
 import { Suspense } from "react";
+
+export const metadata: Metadata = {
+  title: "Pagination with server side data fetching",
+  description:
+    "Implementation pagination in NextJs with server side data fetching",
+};
 
 const ServerSidePaginationPage = ({
   searchParams,

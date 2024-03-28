@@ -1,13 +1,14 @@
+import { fakeAPI } from "@/actions/parallel-route";
 import PageContent from "./page-content";
 
-const FirstPage = async () => {
-  const promise = new Promise((resolve) => {
-    setTimeout(() => {
-      resolve("");
-    }, 2000);
-  });
-  await promise;
-  return <PageContent/>;
+// force the page to dynamic rendering via searchParams access
+const FirstPage = async ({
+  searchParams,
+}: {
+  searchParams: { value: string };
+}) => {
+  await fakeAPI(2000, searchParams.value);
+  return <PageContent />;
 };
 
 export default FirstPage;
