@@ -86,18 +86,6 @@ const InterceptingRoutesExplanation = () => {
         the above folder structure is taken from the actual implementation as
         well.
       </p>
-      <p className="text-foreground">
-        Note: You might experience a shift in scroll position of the current
-        page while opening the modal on navigation based on how you have
-        rendered the parallel route slot in your layout. To avoid that you can
-        use the <TextHighlight text="Link" /> component for the navigation like
-        in the implementation code with the option{" "}
-        <TextHighlight text="{scroll: false}" />. Currently, there is no{" "}
-        <TextHighlight text="scroll" /> option for the{" "}
-        <TextHighlight text="route.push()" /> method so may have to wait a
-        while. As long as your use case is achievable via{" "}
-        <TextHighlight text="Link" /> component, then it&apos;s all good.
-      </p>
     </div>
   );
 };
