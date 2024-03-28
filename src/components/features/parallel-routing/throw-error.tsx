@@ -30,7 +30,7 @@ const ThrowError = () => {
             <IoBugSharp className="text-destructive" />
           </Button>
         </TooltipTrigger>
-        <TooltipContent>Click to force error state</TooltipContent>
+        <TooltipContent side="bottom">Click to trigger error</TooltipContent>
       </Tooltip>
     </TooltipProvider>
   );

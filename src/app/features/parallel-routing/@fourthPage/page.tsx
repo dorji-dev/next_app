@@ -1,3 +1,4 @@
+import { fakeAPI } from "@/actions/parallel-route";
 import ParallelRoutePageContent from "@/components/features/parallel-routing/parallel-route-content";
 
 // force the page to dynamic rendering via searchParams access
@@ -6,12 +7,7 @@ const FourthPage = async ({
 }: {
   searchParams: { value: string };
 }) => {
-  const promise = new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(searchParams.value);
-    }, 8000);
-  });
-  await promise;
+  await fakeAPI(8000, searchParams.value);
   return <ParallelRoutePageContent pageName="Four" timeToLoad={8} />;
 };
 
