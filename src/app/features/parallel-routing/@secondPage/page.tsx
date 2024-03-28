@@ -1,9 +1,14 @@
 import ParallelRoutePageContent from "@/components/features/parallel-routing/parallel-route-content";
 
-const SecondPage = async () => {
+// force the page to dynamic rendering via searchParams access
+const SecondPage = async ({
+  searchParams,
+}: {
+  searchParams: { value: string };
+}) => {
   const promise = new Promise((resolve) => {
     setTimeout(() => {
-      resolve("");
+      resolve(searchParams.value);
     }, 4000);
   });
   await promise;

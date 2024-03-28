@@ -1,13 +1,18 @@
 import PageContent from "./page-content";
 
-const FirstPage = async () => {
+// force the page to dynamic rendering via searchParams access
+const FirstPage = async ({
+  searchParams,
+}: {
+  searchParams: { value: string };
+}) => {
   const promise = new Promise((resolve) => {
     setTimeout(() => {
-      resolve("");
+      resolve(searchParams.value);
     }, 2000);
   });
   await promise;
-  return <PageContent/>;
+  return <PageContent />;
 };
 
 export default FirstPage;
