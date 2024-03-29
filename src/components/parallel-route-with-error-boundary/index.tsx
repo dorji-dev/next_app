@@ -7,8 +7,8 @@ import ParallelRouteError from "../features/parallel-routing/parallel-route-erro
 const ParallelRouteWithErrorBoundary = ({ children }: PropsWithChildren) => {
   return (
     <ErrorBoundary
-      fallbackRender={({ resetErrorBoundary }) => (
-        <ParallelRouteError reset={resetErrorBoundary} />
+      fallbackRender={({ resetErrorBoundary, error }) => (
+        <ParallelRouteError reset={resetErrorBoundary} error={error} />
       )}
     >
       {children}

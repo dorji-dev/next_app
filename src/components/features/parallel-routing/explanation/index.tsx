@@ -53,7 +53,7 @@ const ParallelRoutingExplanation = () => {
         Each parallel routes can have both <TextHighlight text="error.tsx" />{" "}
         and <TextHighlight text="loading.tsx" /> files which enables page
         streaming and granular error handling as you can see in the demo. You
-        can play around it get the idea as well.
+        can play around it get the idea.
       </p>
     </div>
   );

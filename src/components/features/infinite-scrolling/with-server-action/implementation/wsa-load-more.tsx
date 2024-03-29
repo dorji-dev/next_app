@@ -52,7 +52,7 @@ const WSALoadMore = ({
         <div></div>
       </InView>
       {isPending && (
-        <div className="relative mt-[60px]">
+        <div className="relative mt-[60px] mb-[10px]">
           <ContentLoader />
         </div>
       )}

@@ -48,7 +48,7 @@ const WithUseSWRLoadMore = () => {
 
   if (isLoading && !data) {
     return (
-      <div className="mt-[100px]">
+      <div className="mt-[100px] mb-[20px]">
         <ContentLoader />
       </div>
     );
