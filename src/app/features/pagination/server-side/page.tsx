@@ -23,7 +23,7 @@ const ServerSidePaginationPage = ({
     >
       <Suspense
         fallback={
-          <div className="mt-[100px]">
+          <div className="mt-[100px] mb-[20px]">
             <ContentLoader />
           </div>
         }

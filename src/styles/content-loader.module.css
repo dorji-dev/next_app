@@ -4,17 +4,17 @@
   width: 100px;
   height: 100px;
   background: transparent;
-  border: 3px solid rgba(0, 102, 255, 0.1);
+  border: 3px solid rgba(22, 163, 74, 0.1);
   border-radius: 50%;
   text-align: center;
   line-height: 100px;
   font-family: sans-serif;
   font-size: 10px; 
   font-weight: 600;
-  color: #0066ff;
+  color: #16a34a;
   letter-spacing: 2px;
   text-transform: uppercase;
-  text-shadow: 0 0 10px #0066ff;
+  text-shadow: 0 0 10px #16a34a;
   box-shadow: 0 0 20px rgba(0, 0, 0, .15);
 }
 
@@ -26,8 +26,8 @@
   width: 100%;
   height: 100%;
   border: 3px solid transparent;
-  border-top: 3px solid #0066ff;
-  border-right: 3px solid #0066ff;
+  border-top: 3px solid #16a34a;
+  border-right: 3px solid #16a34a;
   border-radius: 50%;
   animation: animateC 2s linear infinite;
 }
@@ -50,10 +50,10 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: #00aeff;
+  background: #16a34a;
   top: -10px;
   right: -4px;
-  box-shadow: 0 0 20px 5px #0066ff;
+  box-shadow: 0 0 20px 5px #16a34a;
 }
 
 @keyframes animateC {

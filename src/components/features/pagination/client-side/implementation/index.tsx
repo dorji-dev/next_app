@@ -65,7 +65,7 @@ const ClientSidePaginationImplementation = () => {
       {/* Hiding input field on every search with loader give bad UX so the 
         loader is shown here */}
       {isLoading && (
-        <div className="mt-[100px] mb-[50px]">
+        <div className="mt-[100px] mb-[20px]">
           <ContentLoader />
         </div>
       )}

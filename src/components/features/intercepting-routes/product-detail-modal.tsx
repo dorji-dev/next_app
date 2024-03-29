@@ -25,7 +25,7 @@ const ProductDetailModal = ({ productId }: ProductDetailModalProps) => {
           </button>
           <Suspense
             fallback={
-              <div className="my-[60px]">
+              <div className="my-[60px] mb-[20px]">
                 <ContentLoader />
               </div>
             }
