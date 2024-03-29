@@ -62,7 +62,7 @@ export const heroFeatures: HeroFeatures = [
       {
         hrefText: "Implementation",
         href: "/features/parallel-routing" as Route,
-        completed: false,
+        completed: true,
         description: "Parallel routing to render more than one page",
       },
     ],

@@ -1,5 +1,5 @@
 import TextHighlight from "@/components/text-highlight.tsx";
-import FolderStructure from "./folder-structure";
+import RouteInterceptionFolderStructure from "./route-interception-folder-structure";
 
 const InterceptingRoutesExplanation = () => {
   return (
@@ -27,7 +27,7 @@ const InterceptingRoutesExplanation = () => {
         Briefly go through the following folder structure used for this feature
         implementation to understand it better.
       </p>
-      <FolderStructure />
+      <RouteInterceptionFolderStructure />
       <p>
         Currently, we are on the <TextHighlight text="page.tsx" /> file of{" "}
         <TextHighlight text="/intercepting-routes" /> segment. From that page we

@@ -14,7 +14,7 @@ const ThrowError = () => {
   const [clicked, setClicked] = useState(false);
 
   if (clicked) {
-    throw new Error("Oh no! Something went wrong.");
+    throw new Error("Simulated error");
   }
 
   return (

@@ -5,7 +5,7 @@ import { BiLogoReact } from "react-icons/bi";
 import { Tree } from "@/components/ui/file-tree";
 import { FileTreeDataItem } from "@/lib/types/misc";
 
-const FolderStructure = () => {
+const RouteInterceptionFolderStructure = () => {
   return (
     <Tree
       data={folderStructureData}
@@ -18,7 +18,7 @@ const FolderStructure = () => {
   );
 };
 
-export default FolderStructure;
+export default RouteInterceptionFolderStructure;
 
 const folderStructureData: FileTreeDataItem[] = [
   {

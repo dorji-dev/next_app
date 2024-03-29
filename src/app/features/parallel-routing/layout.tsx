@@ -18,7 +18,7 @@ const ParallelRoutingLayout = (props: ParallelRoutingLayoutProps) => {
           {children}
         </Suspense>
       </div>
-      <div className="grid grid-cols-2 gap-[20px]">
+      <div className="grid xs:grid-cols-2 gap-[20px]">
         <div className="border flex justify-center items-center rounded-[8px] h-[200px]">
           {/* This is a hack for the loading to work as expected, currently there seems 
             to have a bug that the loading.tsx file of the first parallel route in the
