@@ -51,7 +51,7 @@ const FeatureImplementationTemplate = ({
           </Link>
         </div>
       </div>
-      <h5 className="text-[24px] my-[18px] font-[500]">{longFeatureTitle}</h5>
+      <h5 className="text-[24px] mt-[24px] mb-[18px] font-[500]">{longFeatureTitle}</h5>
       {/* Mobile page header */}
       <ScrollArea className="w-full md:hidden">
         <div className="flex space-x-[20px]">

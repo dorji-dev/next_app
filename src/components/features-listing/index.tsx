@@ -1,4 +1,3 @@
-import { heroFeatures } from "@/config/hero-features";
 import clsx from "clsx";
 import Link from "next/link";
 import { FaCircle } from "react-icons/fa";
@@ -13,7 +12,11 @@ import {
 import { ScrollArea, ScrollBar } from "../ui/scroll-area";
 import { HeroFeatures } from "@/lib/types/hero-feature";
 
-const LandingHeroFeatures = () => {
+interface FeaturesListingProps {
+  features: HeroFeatures;
+}
+
+const FeaturesListing = ({ features }: FeaturesListingProps) => {
   const twoColumnFeatureData: { one: HeroFeatures; two: HeroFeatures } = {
     one: [],
     two: [],
@@ -24,7 +27,7 @@ const LandingHeroFeatures = () => {
     three: HeroFeatures;
   } = { one: [], two: [], three: [] };
 
-  heroFeatures.forEach((feature, index) => {
+  features.forEach((feature, index) => {
     // update two column feature data object
     if (index % 2 === 0) {
       twoColumnFeatureData["one"].push(feature);
@@ -51,7 +54,7 @@ const LandingHeroFeatures = () => {
   return (
     <>
       <section className="grid gap-[16px] md:hidden">
-        {heroFeatures.map((feature) => (
+        {features.map((feature) => (
           <div key={feature.title} className="group min-w-full">
             <Card className="group-hover:border-input/60">
               <CardHeader>
@@ -313,4 +316,4 @@ const LandingHeroFeatures = () => {
   );
 };
 
-export default LandingHeroFeatures;
+export default FeaturesListing;

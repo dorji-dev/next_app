@@ -10,10 +10,10 @@ const MobileFeatureLayoutHeader = ({
   explanation,
 }: MobileFeatureLayoutHeaderProps) => {
   return (
-    <div className="md:hidden flex justify-between items-center">
+    <div className="md:hidden flex justify-between items-center mt-[10px] px-[4px]">
       <AppBreadCrumb />
       <Sheet>
-        <SheetTrigger className="text-primary underline decoration-border underline-offset-[4px]">
+        <SheetTrigger className="text-primary underline decoration-border/40 underline-offset-[2px]">
           View explanation
         </SheetTrigger>
         <SheetContent side="bottom" className="h-[calc(100dvh-40px)]">

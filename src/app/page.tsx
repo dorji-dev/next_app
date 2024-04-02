@@ -1,5 +1,5 @@
 import HeroFeatureSeparator from "@/components/hero-feature-separator";
-import LandingHeroFeatures from "@/components/landing-features";
+import FeaturesListing from "@/components/features-listing";
 import LibrariesUsed from "@/components/libraries-used";
 import SearchFeatures from "@/components/search-features";
 import TextHighlight from "@/components/text-highlight.tsx";
@@ -9,6 +9,8 @@ import clsx from "clsx";
 import { Metadata } from "next";
 import Link from "next/link";
 import { FaCircle, FaGithub } from "react-icons/fa";
+import { heroFeatures } from "@/config/hero-features";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Every day features",
@@ -16,17 +18,22 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
+  const homeFeatures = heroFeatures.slice(0, 6);
+
   return (
     <main className="space-y-[50px]">
       <section>
         <h1 className="bg-gradient-to-b from-foreground to-foreground/50 bg-clip-text text-transparent text-center px-[20px] md:px-[60px] lg:px-[100px] mt-[40px] md:mt-[50px] lg:mt-[60px] font-bold">
           Everyday features with Next App Router
-          <span className="block text-[12px] font-bold italic text-muted-foreground tracking-widest">& concept demos</span>
+          <span className="block text-[12px] font-bold italic text-muted-foreground tracking-widest">
+            & concept demos
+          </span>
         </h1>
         <span className="text-[18px] mt-[30px] max-w-[570px] block text-center mx-auto text-foreground/50">
           Explore how to do things the NextJS way backed by the{" "}
           <span className="text-foreground/80">App Router</span>. Each feature
-          implementation and concept demo is linked to the most related github resource.
+          implementation and concept demo is linked to the most related github
+          resource.
         </span>
         <div className="flex flex-col items-center mt-[30px] text-foreground/60 text-[10px] uppercase font-[500] space-y-[4px]">
           <p className="flex items-center">
@@ -75,7 +82,16 @@ export default function Home() {
       <div className="!my-[30px]">
         <SearchFeatures />
       </div>
-      <LandingHeroFeatures />
+      <FeaturesListing features={homeFeatures} />
+      <Link
+        href="/features"
+        className={cn(
+          buttonVariants({ variant: "outline" }),
+          "font-normal text-[14px] mx-auto flex w-max"
+        )}
+      >
+        View all features
+      </Link>
     </main>
   );
 }
