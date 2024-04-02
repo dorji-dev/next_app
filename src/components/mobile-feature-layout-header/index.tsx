@@ -1,11 +1,6 @@
-"use client";
-
-import { IoMdArrowBack } from "react-icons/io";
-import { Button, buttonVariants } from "../ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import { ReactNode } from "react";
-import { useRouter } from "next/navigation";
-import { cn } from "@/lib/utils";
+import AppBreadCrumb from "../app-breadcrumb";
 
 interface MobileFeatureLayoutHeaderProps {
   explanation: ReactNode;
@@ -14,24 +9,13 @@ interface MobileFeatureLayoutHeaderProps {
 const MobileFeatureLayoutHeader = ({
   explanation,
 }: MobileFeatureLayoutHeaderProps) => {
-  const router = useRouter();
-
   return (
-    <div className="md:hidden">
+    <div className="md:hidden flex justify-between items-center">
+      <AppBreadCrumb />
       <Sheet>
-        <div className="flex justify-between p-[4px] bg-foreground/5 border border-border/20 rounded-full">
-          <Button
-            onClick={router.back}
-            size="icon"
-            variant="secondary"
-            aria-label="Back"
-          >
-            <IoMdArrowBack className="w-[20px] h-[24px]" />
-          </Button>
-          <SheetTrigger className={cn(buttonVariants({variant: "default"}), "font-normal text-[14px]")}>
-            View explanation
-          </SheetTrigger>
-        </div>
+        <SheetTrigger className="text-primary underline decoration-border underline-offset-[4px]">
+          View explanation
+        </SheetTrigger>
         <SheetContent side="bottom" className="h-[calc(100dvh-40px)]">
           {explanation}
         </SheetContent>

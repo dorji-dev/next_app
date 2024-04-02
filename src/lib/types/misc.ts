@@ -56,3 +56,5 @@ export interface FileTreeDataItem {
   icon?: IconType;
   children?: FileTreeDataItem[];
 }
+
+export type BreadCrumbObj = { label: string; href?: string };
