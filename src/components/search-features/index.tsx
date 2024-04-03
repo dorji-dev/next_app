@@ -64,7 +64,7 @@ const SearchFeatures = () => {
                 {feature.subFeatures.map((subFeature) => (
                   <CommandItem
                     onSelect={() =>
-                      runCommand(() => router.prefetch(subFeature.href))
+                      runCommand(() => router.push(subFeature.href))
                     }
                     key={subFeature.description}
                     value={subFeature.description}
