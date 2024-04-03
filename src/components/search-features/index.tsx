@@ -64,10 +64,11 @@ const SearchFeatures = () => {
                 {feature.subFeatures.map((subFeature) => (
                   <CommandItem
                     onSelect={() =>
-                      runCommand(() => router.push(subFeature.href))
+                      runCommand(() => router.prefetch(subFeature.href))
                     }
                     key={subFeature.description}
                     value={subFeature.description}
+                    className="cursor-pointer"
                   >
                     <div>
                       <p>{subFeature.hrefText}</p>

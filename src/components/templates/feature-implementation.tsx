@@ -28,7 +28,7 @@ const FeatureImplementationTemplate = ({
             <Link
               href={apiLink as Route}
               target="_blank"
-              className="flex items-center text-[13px] text-primary underline decoration-border underline-offset-[4px]"
+              className="theme-link"
             >
               Data API
             </Link>
@@ -37,7 +37,7 @@ const FeatureImplementationTemplate = ({
             <Link
               href={inspirationLink as Route}
               target="_blank"
-              className="flex items-center text-[13px] text-primary underline decoration-border underline-offset-[4px]"
+              className="theme-link"
             >
               Inspiration
             </Link>
@@ -45,7 +45,7 @@ const FeatureImplementationTemplate = ({
           <Link
             href={resourceLink as Route}
             target="_blank"
-            className="flex items-center text-[13px] text-primary underline decoration-border underline-offset-[4px]"
+            className="theme-link"
           >
             Github link
           </Link>
@@ -58,7 +58,7 @@ const FeatureImplementationTemplate = ({
           <Link
             href={resourceLink as Route}
             target="_blank"
-            className="flex items-center text-[13px] text-primary underline decoration-border underline-offset-[4px]"
+            className="theme-link"
           >
             Github link
           </Link>
@@ -66,7 +66,7 @@ const FeatureImplementationTemplate = ({
             <Link
               href={inspirationLink as Route}
               target="_blank"
-              className="flex items-center text-[13px] text-primary underline decoration-border underline-offset-[4px]"
+              className="theme-link"
             >
               Inspiration
             </Link>
@@ -75,7 +75,7 @@ const FeatureImplementationTemplate = ({
             <Link
               href={apiLink as Route}
               target="_blank"
-              className="flex items-center text-[13px] text-primary underline decoration-border underline-offset-[4px]"
+              className="theme-link"
             >
               Data API
             </Link>

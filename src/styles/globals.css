@@ -75,6 +75,9 @@
   h6 {
     @apply text-[max(18px,min(5vw,28px))] leading-[1.12];
   }
+  .theme-link {
+    @apply text-[14px] text-primary underline decoration-border underline-offset-[4px] hover:opacity-[.7] transition-all duration-300;
+  }
 }
 
 @media (max-width: 640px) {

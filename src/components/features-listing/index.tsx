@@ -1,7 +1,5 @@
-import clsx from "clsx";
 import Link from "next/link";
 import { FaCircle } from "react-icons/fa";
-import { buttonVariants } from "../ui/button";
 import {
   Card,
   CardContent,
@@ -11,6 +9,7 @@ import {
 } from "../ui/card";
 import { ScrollArea, ScrollBar } from "../ui/scroll-area";
 import { HeroFeatures } from "@/lib/types/hero-feature";
+import { cn } from "@/lib/utils";
 
 interface FeaturesListingProps {
   features: HeroFeatures;
@@ -69,16 +68,11 @@ const FeaturesListing = ({ features }: FeaturesListingProps) => {
                       <Link
                         href={subFeature.href}
                         key={subFeature.hrefText}
-                        className={clsx(
-                          "text-[13px] w-full",
-                          buttonVariants({
-                            variant: "outline",
-                          })
-                        )}
+                        className="theme-link flex items-center"
                       >
                         <FaCircle
-                          className={clsx(
-                            "mr-[8px] text-[8px]",
+                          className={cn(
+                            "mr-[8px] text-[6px] mt-[4px]",
                             subFeature.completed
                               ? "text-primary"
                               : "text-foreground/40"
@@ -114,16 +108,11 @@ const FeaturesListing = ({ features }: FeaturesListingProps) => {
                         <Link
                           href={subFeature.href}
                           key={subFeature.hrefText}
-                          className={clsx(
-                            "text-[13px] w-full",
-                            buttonVariants({
-                              variant: "outline",
-                            })
-                          )}
+                          className="theme-link flex items-center"
                         >
                           <FaCircle
-                            className={clsx(
-                              "mr-[8px] text-[8px]",
+                            className={cn(
+                              "mr-[8px] text-[6px] mt-[4px]",
                               subFeature.completed
                                 ? "text-primary"
                                 : "text-foreground/40"
@@ -156,16 +145,11 @@ const FeaturesListing = ({ features }: FeaturesListingProps) => {
                         <Link
                           href={subFeature.href}
                           key={subFeature.hrefText}
-                          className={clsx(
-                            "text-[13px] w-full",
-                            buttonVariants({
-                              variant: "outline",
-                            })
-                          )}
+                          className="theme-link flex items-center"
                         >
                           <FaCircle
-                            className={clsx(
-                              "mr-[8px] text-[8px]",
+                            className={cn(
+                              "mr-[8px] text-[6px] mt-[4px]",
                               subFeature.completed
                                 ? "text-primary"
                                 : "text-foreground/40"
@@ -201,16 +185,11 @@ const FeaturesListing = ({ features }: FeaturesListingProps) => {
                         <Link
                           href={subFeature.href}
                           key={subFeature.hrefText}
-                          className={clsx(
-                            "text-[13px] w-full",
-                            buttonVariants({
-                              variant: "outline",
-                            })
-                          )}
+                          className="theme-link flex items-center"
                         >
                           <FaCircle
-                            className={clsx(
-                              "mr-[8px] text-[8px]",
+                            className={cn(
+                              "mr-[8px] text-[6px] mt-[4px]",
                               subFeature.completed
                                 ? "text-primary"
                                 : "text-foreground/40"
@@ -243,16 +222,11 @@ const FeaturesListing = ({ features }: FeaturesListingProps) => {
                         <Link
                           href={subFeature.href}
                           key={subFeature.hrefText}
-                          className={clsx(
-                            "text-[13px] w-full",
-                            buttonVariants({
-                              variant: "outline",
-                            })
-                          )}
+                          className="theme-link flex items-center"
                         >
                           <FaCircle
-                            className={clsx(
-                              "mr-[8px] text-[8px]",
+                            className={cn(
+                              "mr-[8px] text-[6px] mt-[4px]",
                               subFeature.completed
                                 ? "text-primary"
                                 : "text-foreground/40"
@@ -285,16 +259,11 @@ const FeaturesListing = ({ features }: FeaturesListingProps) => {
                         <Link
                           href={subFeature.href}
                           key={subFeature.hrefText}
-                          className={clsx(
-                            "text-[13px] w-full",
-                            buttonVariants({
-                              variant: "outline",
-                            })
-                          )}
+                          className="theme-link flex items-center"
                         >
                           <FaCircle
-                            className={clsx(
-                              "mr-[8px] text-[8px]",
+                            className={cn(
+                              "mr-[8px] text-[6px] mt-[4px]",
                               subFeature.completed
                                 ? "text-primary"
                                 : "text-foreground/40"
