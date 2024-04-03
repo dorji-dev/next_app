@@ -55,7 +55,7 @@ const AppBreadCrumb = () => {
     : 2;
 
   return (
-    <Breadcrumb className="text-[13px]">
+    <Breadcrumb className="text-[14px]">
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink asChild>
@@ -82,7 +82,7 @@ const AppBreadCrumb = () => {
                       .map((item, index) => (
                         <DropdownMenuItem
                           asChild
-                          className="cursor-pointer capitalize text-[13px]"
+                          className="cursor-pointer capitalize text-[14px]"
                           key={index}
                         >
                           <Link href={item.href as Route}>{item.label}</Link>
@@ -112,7 +112,7 @@ const AppBreadCrumb = () => {
                           <Link
                             key={index}
                             href={item.href ? (item.href as Route) : "#"}
-                            className="py-1 text-[13px] capitalize"
+                            className="py-1 text-[14px] capitalize"
                           >
                             {item.label}
                           </Link>
