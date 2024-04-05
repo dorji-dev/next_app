@@ -30,8 +30,13 @@ const InterceptingRoutesExplanation = () => {
       <RouteInterceptionFolderStructure />
       <p>
         Currently, we are on the <TextHighlight text="page.tsx" /> file of{" "}
-        <TextHighlight text="/intercepting-routes" /> segment. From that page we
-        want to intercept the route{" "}
+        <TextHighlight text="/intercepting-routes" /> segment inside{" "}
+        <TextHighlight text="(page)" />{" "}
+        <TextHighlight
+          text="route group"
+          textLink="https://nextjs.org/docs/app/building-your-application/routing/route-groups"
+        />
+        . From that page we want to intercept the route{" "}
         <TextHighlight text="/product/[productId]" />. To do that we need to
         create a folder with the <TextHighlight text="(..)" />{" "}
         <TextHighlight
@@ -58,9 +63,9 @@ const InterceptingRoutesExplanation = () => {
       </p>
       <p>
         Now the most important thing to keep in mind is that the segment which
-        contains the parallel route and the route interception folder, for our modal
-        routing must have a <TextHighlight text="layout.{tsx, jsx}" /> file
-        which will{" "}
+        contains the parallel route and the route interception folder, for our
+        modal routing must have a <TextHighlight text="layout.{tsx, jsx}" />{" "}
+        file which will{" "}
         <TextHighlight
           text="receive"
           textLink="https://nextjs.org/docs/app/building-your-application/routing/parallel-routes#slots"

@@ -1,15 +1,17 @@
+
 import MobileFeatureLayoutHeader from "@/components/mobile-feature-layout-header";
 import { Separator } from "@/components/ui/separator";
 import React, { ReactNode } from "react";
 
-interface FeatureLayoutProps extends React.PropsWithChildren {
+interface FeatureImplementationExplanationLayoutProps
+  extends React.PropsWithChildren {
   explanation: ReactNode;
 }
 
-const FeatureLayout = ({
+const FeatureImplementationExplanationLayout = ({
   children,
   explanation,
-}: FeatureLayoutProps) => {
+}: FeatureImplementationExplanationLayoutProps) => {
   return (
     <div className="flex flex-col md:flex-row pt-[10px] md:pt-[24px]  pb-[50px] h-full">
       <MobileFeatureLayoutHeader explanation={explanation} />
@@ -29,4 +31,4 @@ const FeatureLayout = ({
   );
 };
 
-export default FeatureLayout;
+export default FeatureImplementationExplanationLayout;

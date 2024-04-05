@@ -30,80 +30,86 @@ const folderStructureData: FileTreeDataItem[] = [
         name: "features",
         children: [
           {
-            id: "parallel-routing",
-            name: "parallel-routing",
+            id: "implementations",
+            name: "(implementations)",
             children: [
               {
-                id: "first",
-                name: "@firstPage",
+                id: "parallel-routing",
+                name: "parallel-routing",
                 children: [
                   {
-                    id: "first-page",
-                    name: "page.tsx",
-                  },
-                ],
-              },
-              {
-                id: "fourth",
-                name: "@fourthPage",
-                children: [
-                  {
-                    id: "error",
-                    name: "error.tsx",
+                    id: "first",
+                    name: "@firstPage",
+                    children: [
+                      {
+                        id: "first-page",
+                        name: "page.tsx",
+                      },
+                    ],
                   },
                   {
-                    id: "loading",
-                    name: "loading.tsx",
+                    id: "fourth",
+                    name: "@fourthPage",
+                    children: [
+                      {
+                        id: "error",
+                        name: "error.tsx",
+                      },
+                      {
+                        id: "loading",
+                        name: "loading.tsx",
+                      },
+                      {
+                        id: "page",
+                        name: "page.tsx",
+                      },
+                    ],
+                  },
+                  {
+                    id: "second",
+                    name: "@secondPage",
+                    children: [
+                      {
+                        id: "error",
+                        name: "error.tsx",
+                      },
+                      {
+                        id: "loading",
+                        name: "loading.tsx",
+                      },
+                      {
+                        id: "page",
+                        name: "page.tsx",
+                      },
+                    ],
+                  },
+                  {
+                    id: "third",
+                    name: "@thirdPage",
+                    children: [
+                      {
+                        id: "error",
+                        name: "error.tsx",
+                      },
+                      {
+                        id: "loading",
+                        name: "loading.tsx",
+                      },
+                      {
+                        id: "page",
+                        name: "page.tsx",
+                      },
+                    ],
+                  },
+                  {
+                    id: "layout",
+                    name: "layout.tsx",
                   },
                   {
                     id: "page",
                     name: "page.tsx",
                   },
                 ],
-              },
-              {
-                id: "second",
-                name: "@secondPage",
-                children: [
-                  {
-                    id: "error",
-                    name: "error.tsx",
-                  },
-                  {
-                    id: "loading",
-                    name: "loading.tsx",
-                  },
-                  {
-                    id: "page",
-                    name: "page.tsx",
-                  },
-                ],
-              },
-              {
-                id: "third",
-                name: "@thirdPage",
-                children: [
-                  {
-                    id: "error",
-                    name: "error.tsx",
-                  },
-                  {
-                    id: "loading",
-                    name: "loading.tsx",
-                  },
-                  {
-                    id: "page",
-                    name: "page.tsx",
-                  },
-                ],
-              },
-              {
-                id: "layout",
-                name: "layout.tsx",
-              },
-              {
-                id: "page",
-                name: "page.tsx",
               },
             ],
           },
