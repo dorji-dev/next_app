@@ -32,7 +32,8 @@ const ParallelRoutePageContent = ({
               Click me
             </Button>
           </DialogTrigger>
-          <DialogContent>
+          <DialogContent className="space-y-[10px]">
+            <h6 className="text-[18px]">Interactive</h6>
             <p className="text-muted-foreground">
               This is just to demo that the already rendered page can be
               interactive while other pages are still loading. Basically, we are
