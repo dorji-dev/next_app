@@ -14,7 +14,6 @@ const InterceptingRouteLayout = ({
   interceptionModal,
   explanation,
 }: InterceptingRouteLayoutProps) => {
-  
   return (
     <>
       {interceptionModal}
