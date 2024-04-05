@@ -12,7 +12,7 @@ const ClientSidePaginationPage = () => {
   return (
     <FeatureImplementationTemplate
       apiLink="https://dummyjson.com/"
-      resourceLink="https://github.com/dorji-dev/next_app/blob/main/src/app/features/pagination/client-side/page.tsx"
+      resourceLink="https://github.com/dorji-dev/next_app/blob/main/src/app/features/(implementations)/pagination/client-side/(page)/page.tsx"
       longFeatureTitle="Pagination with client side data fetching with useSWR hook"
     >
       <ClientSidePaginationImplementation />

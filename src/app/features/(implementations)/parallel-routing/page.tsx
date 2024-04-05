@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const ParallelRoutingImplementationPage = () => {
   return (
     <FeatureImplementationTemplate
-      resourceLink="https://github.com/dorji-dev/next_app/blob/main/src/app/features/parallel-routing/page.tsx"
+      resourceLink="https://github.com/dorji-dev/next_app/blob/main/src/app/features/(implementations)/parallel-routing/page.tsx"
       longFeatureTitle="Parallel routing concept demo, rendering multiple pages in one page simultaneously or conditionally"
     >
       <ParallelRoutingImplementation />

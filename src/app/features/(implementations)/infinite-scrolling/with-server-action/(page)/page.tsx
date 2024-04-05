@@ -17,7 +17,7 @@ const InfiniteScrollWithServerActionPage = ({
 }) => {
   return (
     <FeatureImplementationTemplate
-      resourceLink="https://github.com/dorji-dev/next_app/blob/main/src/app/features/infinite-scrolling/with-server-action/page.tsx"
+      resourceLink="https://github.com/dorji-dev/next_app/blob/main/src/app/features/(implementations)/infinite-scrolling/with-server-action/(page)/page.tsx"
       longFeatureTitle={`Infinite scrolling implementation with server component and server actions with search feature`}
       inspirationLink="https://github.com/gabrielelpidio/next-infinite-scroll-server-actions"
       apiLink="https://dummyjson.com/"
