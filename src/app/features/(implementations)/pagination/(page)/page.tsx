@@ -1,4 +1,5 @@
 import AppBreadCrumb from "@/components/app-breadcrumb";
+import { Route } from "next";
 import Link from "next/link";
 
 const PaginationPage = () => {
@@ -13,10 +14,16 @@ const PaginationPage = () => {
         server side data fetching.
       </p>
       <div className="flex flex-col items-center sm:flex-row sm:justify-center gap-[40px]">
-        <Link className="theme-link text-[16px]" href="/features/pagination/server-side">
+        <Link
+          className="theme-link text-[16px]"
+          href={"/features/pagination/server-side" as Route}
+        >
           Server side pagination
         </Link>
-        <Link className="theme-link text-[16px]" href="/features/pagination/client-side">
+        <Link
+          className="theme-link text-[16px]"
+          href={"/features/pagination/client-side" as Route}
+        >
           Client side pagination
         </Link>
       </div>

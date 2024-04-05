@@ -1,5 +1,6 @@
 import AppBreadCrumb from "@/components/app-breadcrumb";
 import TextHighlight from "@/components/text-highlight.tsx";
+import { Route } from "next";
 import Link from "next/link";
 
 const InfiniteScrollingPage = () => {
@@ -21,13 +22,13 @@ const InfiniteScrollingPage = () => {
       <div className="flex flex-col items-center sm:flex-row sm:justify-center gap-[40px]">
         <Link
           className="theme-link text-[16px]"
-          href="/features/infinite-scrolling/with-server-action"
+          href={"/features/infinite-scrolling/with-server-action" as Route}
         >
           With server action
         </Link>
         <Link
           className="theme-link text-[16px]"
-          href="/features/infinite-scrolling/with-use-swr"
+          href={"/features/infinite-scrolling/with-use-swr" as Route}
         >
           With useSWR hook
         </Link>
