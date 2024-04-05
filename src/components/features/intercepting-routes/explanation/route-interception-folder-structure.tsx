@@ -30,42 +30,49 @@ const folderStructureData: FileTreeDataItem[] = [
         name: "features",
         children: [
           {
-            id: "intercepting_routes",
-            name: "intercepting-routes",
+            id: "(implementations)",
+            name: "(implementations)",
             children: [
               {
-                id: "interception_modal",
-                name: "@interceptionModal",
+                id: "intercepting_routes",
+                name: "intercepting-routes",
                 children: [
                   {
-                    id: "(...)product",
-                    name: "(...)product",
+                    id: "(page)",
+                    name: "(page)",
+                    children: [{ id: "page", name: "page.tsx" }],
+                  },
+                  {
+                    id: "interception_modal",
+                    name: "@interceptionModal",
                     children: [
                       {
-                        id: "intercepted_product",
-                        name: "productId",
+                        id: "(...)product",
+                        name: "(...)product",
                         children: [
                           {
-                            id: "intercepted_product_page",
-                            name: "page.tsx",
+                            id: "intercepted_product",
+                            name: "productId",
+                            children: [
+                              {
+                                id: "intercepted_product_page",
+                                name: "page.tsx",
+                              },
+                            ],
                           },
                         ],
+                      },
+                      {
+                        id: "default",
+                        name: "default.tsx",
                       },
                     ],
                   },
                   {
-                    id: "default",
-                    name: "default.tsx",
+                    id: "intercepting_routes_layout",
+                    name: "layout.tsx",
                   },
                 ],
-              },
-              {
-                id: "intercepting_routes_layout",
-                name: "layout.tsx",
-              },
-              {
-                id: "intercepting_routes_page",
-                name: "page.tsx",
               },
             ],
           },
