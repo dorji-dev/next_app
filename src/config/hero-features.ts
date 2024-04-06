@@ -85,7 +85,7 @@ export const heroFeatures: HeroFeatures = [
     subFeatures: [
       {
         hrefText: "Implementation",
-        href: "/" as Route,
+        href: "/features/music-streaming" as Route,
         completed: false,
         description: "Music streaming",
       },
