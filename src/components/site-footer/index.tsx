@@ -3,7 +3,10 @@ import { buttonVariants } from "../ui/button";
 import { cn } from "@/lib/utils";
 const SiteFooter = () => {
   return (
-    <div className="container py-[20px] mt-[50px] text-[12px] border-t border-t-border/40 space-y-[10px]">
+    <footer
+      id="site_footer"
+      className="container py-[20px] mt-[50px] text-[12px] border-t border-t-border/40 space-y-[10px]"
+    >
       <div className="flex justify-center space-x-[20px]">
         <a
           target="_blank"
@@ -31,6 +34,7 @@ const SiteFooter = () => {
       <p className="text-center">
         Built with{" "}
         <a
+          target="_blank"
           href="https://nextjs.org/"
           className="text-foreground/60 font-medium underline tracking-[2px]"
         >
@@ -38,6 +42,7 @@ const SiteFooter = () => {
         </a>{" "}
         and{" "}
         <a
+          target="_blank"
           href="https://ui.shadcn.com/"
           className="text-foreground/60 font-medium underline tracking-[2px]"
         >
@@ -47,12 +52,13 @@ const SiteFooter = () => {
         <a
           href="https://github.com/dorji-dev"
           className="text-foreground/50 font-medium"
+          target="_blank"
         >
           dorji-dev
         </a>
         .
       </p>
-    </div>
+    </footer>
   );
 };
 
