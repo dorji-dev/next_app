@@ -4,6 +4,17 @@ import SiteHeader from "@/components/site-header";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import SiteFooter from "@/components/site-footer";
 import { ReactNode } from "react";
+import dynamic from "next/dynamic";
+
+// 'use client' doesn't make the component fully client side rendered
+// so need to disable pre-rendering since we are using local storage hook
+const AudioPlayer = dynamic(
+  () =>
+    import("@/components/features/music-streaming/implementation/audio-player"),
+  {
+    ssr: false,
+  }
+);
 
 export default function RootLayout({
   children,
@@ -23,6 +34,7 @@ export default function RootLayout({
             <SiteHeader />
             <main className="container flex-1">{children}</main>
             <SiteFooter />
+            <AudioPlayer />
           </div>
         </ThemeProvider>
       </body>

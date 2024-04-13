@@ -1,0 +1,148 @@
+import { Music } from "../types/misc";
+
+export const MUSIC_LIST: Music[] = [
+  {
+    name: "Aphi Bum Dhi",
+    id: "aphi-bum-dhi",
+    artists: ["Rangdol Tashi Tobgye", "Ramisha Mahjong"],
+    poster: "/assets/audio-posters/aphi-bum-dhi.jpeg",
+  },
+  {
+    name: "Bay Matshu",
+    id: "bay-matshu",
+    artists: ["Misty Terrace"],
+    poster: "/assets/audio-posters/bay-matshu.jpeg",
+  },
+  {
+    name: "Bum Choe",
+    id: "bum-choe",
+    artists: ["YourBoyZimba"],
+    poster: "/assets/audio-posters/bum-choe.jpeg",
+  },
+  {
+    name: "Choe Tsheyi Ra",
+    id: "choe-tsheyi-ra",
+    artists: ["Ngawang Thinley", "Dechen Dorji", "Tshewang Namgyal"],
+    poster: "/assets/audio-posters/choe-tsheyi-ra.jpeg",
+  },
+  {
+    name: "Dhue Hema",
+    id: "dhue-hema",
+    artists: ["Baby Floyd"],
+    poster: "/assets/audio-posters/dhue-hema.jpeg",
+  },
+  {
+    name: "Dochula",
+    id: "dochula",
+    artists: ["Tshewang Ft. Dedrik"],
+    poster: "/assets/audio-posters/dochula.jpeg",
+  },
+  {
+    name: "Draksin Gyalmo",
+    id: "draksin-gyalmo",
+    artists: ["Ugyen Panday", "Pem Deki"],
+    poster: "/assets/audio-posters/drakcin-gyalmo.jpeg",
+  },
+  {
+    name: "Druk Mi Yong Gi Moenlam",
+    id: "druk-mi-yong-gi-moenlam",
+    artists: ["Tshering Dorji"],
+    poster: "/assets/audio-posters/druk-mi-yong-gi-moenlam.jpeg",
+  },
+  {
+    name: "Funk That",
+    id: "funk-that",
+    artists: ["Drona Ft. Chogo"],
+    poster: "/assets/audio-posters/funk-that.jpeg",
+  },
+  {
+    name: "Gasey",
+    id: "gasey",
+    artists: ["MCThree"],
+    poster: "/assets/audio-posters/gasey.jpg",
+  },
+  {
+    name: "Hamigoway",
+    id: "hamigoway",
+    artists: ["Kuenga Tashi"],
+    poster: "/assets/audio-posters/hamigoway.jpeg",
+  },
+  {
+    name: "Hangtoma",
+    id: "hangtoma",
+    artists: ["Baby Floyd"],
+    poster: "/assets/audio-posters/hangtoma.jpeg",
+  },
+  {
+    name: "Jarim Choe Dha Nga",
+    id: "jarim-choe-dha-nga",
+    artists: ["Jigme Lodhen Wangchuk"],
+    poster: "/assets/audio-posters/jarim-choe-dha-nga.jpeg",
+  },
+  {
+    name: "Jawey Mo",
+    id: "jawey-mo",
+    artists: ["Jikme the Carriage"],
+    poster: "/assets/audio-posters/jawey-mo.jpeg",
+  },
+  {
+    name: "Lam Joyee Joyee",
+    id: "lam-joyee-joyee",
+    artists: ["Kuenzang Lhamo", "Jigdrel Dorji"],
+    poster: "/assets/audio-posters/lam-joyee-joyee.jpeg",
+  },
+  {
+    name: "Namkhai Kam",
+    id: "namkhai-kam",
+    artists: ["Jigmyal", "Alu Tsagay", "Alien"],
+    poster: "/assets/audio-posters/namkhai-kam.jpeg",
+  },
+  {
+    name: "Norzib",
+    id: "norzib",
+    artists: ["OStrangers"],
+    poster: "/assets/audio-posters/norzib.jpeg",
+  },
+  {
+    name: "Nyingtheunma",
+    id: "nyingthuenma",
+    artists: ["Sonam Wangchen Ft. CHOGO"],
+    poster: "/assets/audio-posters/nyingthuenma.jpeg",
+  },
+  {
+    name: "Say You Love Me",
+    id: "say-you-love-me",
+    artists: ["Kenny Lhendup Ft. Leczin"],
+    poster: "/assets/audio-posters/say-you-love-me.jpeg",
+  },
+  {
+    name: "Sem Bara Macha",
+    id: "sem-bara-macha",
+    artists: ["Jigme Norbu Wangdi"],
+    poster: "/assets/audio-posters/sem-bara-macha.jpeg",
+  },
+  {
+    name: "Thong Ra Mathong",
+    id: "thong-ra-mathong",
+    artists: ["Ugyen Giant"],
+    poster: "/assets/audio-posters/thong-ra-mathong.jpeg",
+  },
+  {
+    name: "Ya Taru Ma Taru",
+    id: "ya-taru-ma-taru",
+    artists: ["Sonam Wangchen"],
+    poster: "/assets/audio-posters/ya-taru-ma-taru.jpeg",
+  },
+  {
+    name: "Yar La Aee",
+    id: "yar-la-aee",
+    artists: ["Sonam Rinchey ZOMBIE"],
+    poster: "/assets/audio-posters/yar-la-aee.jpeg",
+  },
+  {
+    name: "Zay Di Bayru",
+    id: "zay-di-bayru",
+    artists: ["Rinzin Dorji"],
+    poster: "/assets/audio-posters/zay-di-bay-ru.jpeg",
+  },
+];
