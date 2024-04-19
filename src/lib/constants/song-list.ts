@@ -1,6 +1,6 @@
-import { Music } from "../types/misc";
+import { Song } from "../types/misc";
 
-export const MUSIC_LIST: Music[] = [
+export const SONG_LIST: Song[] = [
   {
     name: "Aphi Bum Dhi",
     id: "aphi-bum-dhi",

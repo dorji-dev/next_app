@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 import SiteFooter from "@/components/site-footer";
 import { ReactNode } from "react";
 import dynamic from "next/dynamic";
+import { AudioPlayerInitProvider } from "@/components/providers/audio-player-init-provider";
 
 // 'use client' doesn't make the component fully client side rendered
 // so need to disable pre-rendering since we are using local storage hook
@@ -30,12 +31,14 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="relative flex min-h-screen flex-col bg-background">
-            <SiteHeader />
-            <main className="container flex-1">{children}</main>
-            <SiteFooter />
-            <AudioPlayer />
-          </div>
+          <AudioPlayerInitProvider>
+            <div className="relative flex min-h-screen flex-col bg-background">
+              <SiteHeader />
+              <main className="container flex-1">{children}</main>
+              <SiteFooter />
+              <AudioPlayer />
+            </div>
+          </AudioPlayerInitProvider>
         </ThemeProvider>
       </body>
     </html>
