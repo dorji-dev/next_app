@@ -1,7 +1,13 @@
 import MusicStreamingImplementation from "@/components/features/music-streaming/implementation";
 import ContentLoader from "@/components/loaders/content-loader";
 import FeatureImplementationTemplate from "@/components/templates/feature-implementation";
+import { Metadata } from "next";
 import { Suspense } from "react";
+
+export const metadata: Metadata = {
+  title: "Music streaming",
+  description: "Music streaming with NextJs App Router",
+};
 
 const MusicStreamingImplementationPage = () => {
   return (
