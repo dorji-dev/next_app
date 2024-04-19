@@ -7,7 +7,7 @@ const MusicStreamingImplementationPage = () => {
   return (
     <FeatureImplementationTemplate
       resourceLink="https://github.com/dorji-dev/next_app/blob/main/src/app/features/(implementations)/intercepting-routes/(page)/page.tsx"
-      longFeatureTitle="Music streaming implementation"
+      longFeatureTitle="Song streaming implementation"
     >
       <Suspense
         fallback={

@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { IoMdPlay } from "react-icons/io";
 import { IoMdPause } from "react-icons/io";
 import { MdSkipNext, MdSkipPrevious, MdOutlineClose } from "react-icons/md";
-import { HiSpeakerWave } from "react-icons/hi2";
+import { MdVolumeUp, MdVolumeOff } from "react-icons/md";
 import { TfiLoop, TfiControlShuffle } from "react-icons/tfi";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -12,7 +12,7 @@ import { Slider } from "@/components/ui/slider";
 import { cn } from "@/lib/utils";
 import { useGlobalAudioPlayer } from "react-use-audio-player";
 import { useLocalStorage } from "@uidotdev/usehooks";
-import { MUSIC_LIST } from "@/lib/constants/music-list";
+import { SONG_LIST } from "@/lib/constants/song-list";
 import {
   Tooltip,
   TooltipContent,
@@ -22,33 +22,34 @@ import {
 import ActionLoader from "@/components/loaders/action-loader";
 import { AvatarImage } from "@radix-ui/react-avatar";
 import AudioSlider from "./audio-slider";
+import { useAudioPlayerInit } from "@/components/providers/audio-player-init-provider";
 
 const AudioPlayer = () => {
-  const [position, setPosition] = useState<number>(0);
+  const [shuffle, setShuffle] = useState(false);
+  const [audioEnded, setAudioEnded] = useState(false);
   const [audioId, setAudioId] = useLocalStorage<string | null>(
     "current_audio_id",
     null
+  );
+  const [muted, setMuted] = useLocalStorage<boolean>("muted", false);
+  const [audioVolume, setAudioVolume] = useLocalStorage<number>("volume", 1);
+  const { isPlayerInitialized, setIsPlayerInitialized } = useAudioPlayerInit(
+    (state) => state
   );
   const {
     load,
     playing,
     togglePlayPause,
-    getPosition,
     isLoading,
-    duration,
     loop,
     looping,
     mute,
-    muted,
-    volume,
     setVolume,
-    seek,
-    isReady,
     stop,
   } = useGlobalAudioPlayer();
   const containerRef = useRef<HTMLDivElement | null>(null);
 
-  const currentMusicObject = MUSIC_LIST.find((music) => music.id === audioId);
+  const currentMusicObject = SONG_LIST.find((song) => song.id === audioId);
 
   // update footer bottom margin based on whether the audio player needs to be shown
   useEffect(() => {
@@ -58,76 +59,68 @@ const AudioPlayer = () => {
     }
   }, [currentMusicObject]);
 
-  const handlePlayPause = () => {
-    if (playing) {
-      setPosition(getPosition());
-      togglePlayPause();
-    } else {
-      if (getPosition() === 0) {
-        const currentAudioIndex = MUSIC_LIST.findIndex(
-          (music) => music.id === currentMusicObject?.id
-        );
-        const nextAudioId = MUSIC_LIST[currentAudioIndex + 1]?.id;
-        load(`/assets/audio/${audioId}.mp3`, {
-          html5: true,
-          autoplay: true,
-          initialMute: false,
-          onend: () => onEndHandler(nextAudioId),
-        });
-        setPosition(0);
-      } else {
-        togglePlayPause();
-      }
+  useEffect(() => {
+    const audioExists = SONG_LIST.find((song) => song.id === audioId)?.id;
+    if (audioExists && isPlayerInitialized) {
+      const songName = SONG_LIST.find((song) => song.id === audioId)?.name;
+      if (songName) document.title = songName;
+      load(`/assets/audio/${audioId}.mp3`, {
+        autoplay: true,
+        initialMute: muted,
+        onend: () => setAudioEnded(true),
+        initialVolume: audioVolume,
+      });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [audioId, isPlayerInitialized, load]);
+
+  useEffect(() => {
+    audioEnded && onEndHandler();
+    setAudioEnded(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [audioEnded]);
+
+  const handlePlayPause = () => {
+    isPlayerInitialized ? togglePlayPause() : setIsPlayerInitialized(true);
   };
 
-  const currentAudioIndex = MUSIC_LIST.findIndex(
-    (music) => music.id === audioId
-  );
+  const currentAudioIndex = SONG_LIST.findIndex((song) => song.id === audioId);
 
   const previous = () => {
-    const previousAudioId = MUSIC_LIST[currentAudioIndex - 1].id;
-    const previousAudioIndex = MUSIC_LIST.findIndex(
-      (music) => music.id === previousAudioId
-    );
-    const nextAudioId = MUSIC_LIST[previousAudioIndex + 1].id;
-    load(`/assets/audio/${previousAudioId}.mp3`, {
-      html5: true,
-      autoplay: true,
-      initialMute: false,
-      onend: () => onEndHandler(nextAudioId),
-    });
-    setAudioId(previousAudioId);
+    if (!isPlayerInitialized) setIsPlayerInitialized(true);
+    let index = currentAudioIndex;
+    if (shuffle) {
+      index = Math.floor(Math.random() * SONG_LIST.length);
+    } else {
+      index = currentAudioIndex - 1;
+    }
+    const audioId = SONG_LIST.at(index)?.id;
+    audioId && setAudioId(audioId);
   };
 
   const next = () => {
-    const nextAudioId = MUSIC_LIST[currentAudioIndex + 1].id;
-    const afterNextAudioId = MUSIC_LIST[currentAudioIndex + 2]?.id;
-    load(`/assets/audio/${nextAudioId}.mp3`, {
-      html5: true,
-      autoplay: true,
-      initialMute: false,
-      onend: () => onEndHandler(afterNextAudioId),
-    });
-    setAudioId(nextAudioId);
+    if (!isPlayerInitialized) setIsPlayerInitialized(true);
+    let index = currentAudioIndex;
+    if (shuffle) {
+      index = Math.floor(Math.random() * SONG_LIST.length);
+    } else {
+      index = currentAudioIndex + 1;
+    }
+    const audioId = SONG_LIST.at(index)?.id;
+    audioId && setAudioId(audioId);
   };
 
-  const onEndHandler = (nextAudioId: string) => {
-    if (!nextAudioId) {
-      return;
+  const onEndHandler = () => {
+    if (!looping) {
+      let index = currentAudioIndex;
+      index = shuffle
+        ? Math.floor(Math.random() * SONG_LIST.length)
+        : currentAudioIndex < SONG_LIST.length - 1
+        ? currentAudioIndex + 1
+        : 0;
+      const audioId = SONG_LIST.at(index)?.id;
+      audioId && setAudioId(audioId);
     }
-    // audio index of next audio index for recursive handling
-    const currentAudioIndex = MUSIC_LIST.findIndex(
-      (music) => music.id === nextAudioId
-    );
-    const nextEndAudioId = MUSIC_LIST[currentAudioIndex + 1]?.id;
-    load(`/assets/audio/${nextAudioId}.mp3`, {
-      html5: true,
-      autoplay: true,
-      initialMute: false,
-      onend: () => onEndHandler(nextEndAudioId),
-    });
-    setAudioId(nextAudioId);
   };
 
   return currentMusicObject ? (
@@ -201,7 +194,7 @@ const AudioPlayer = () => {
                 className="hidden xxxs:flex"
                 variant="ghost"
                 onClick={next}
-                disabled={currentAudioIndex === MUSIC_LIST.length - 1}
+                disabled={currentAudioIndex === SONG_LIST.length - 1}
               >
                 <MdSkipNext className="text-[24px]" />
               </Button>
@@ -227,14 +220,20 @@ const AudioPlayer = () => {
                 />
               </Button>
             </TooltipTrigger>
-            <TooltipContent>Loop</TooltipContent>
+            <TooltipContent>{looping ? "Looping" : "Loop"}</TooltipContent>
           </Tooltip>
         </TooltipProvider>
         <TooltipProvider>
           <Tooltip delayDuration={200}>
             <TooltipTrigger asChild>
-              <Button size="icon" variant="ghost">
-                <TfiControlShuffle className="text-[18px]" />
+              <Button
+                size="icon"
+                variant="ghost"
+                onClick={() => setShuffle(!shuffle)}
+              >
+                <TfiControlShuffle
+                  className={cn("text-[18px]", shuffle && "text-primary")}
+                />
               </Button>
             </TooltipTrigger>
             <TooltipContent>Shuffle</TooltipContent>
@@ -245,18 +244,36 @@ const AudioPlayer = () => {
         <TooltipProvider>
           <Tooltip delayDuration={200}>
             <TooltipTrigger asChild>
-              <Button size="icon" variant="ghost">
-                <HiSpeakerWave className="text-[18px]" />
+              <Button
+                size="icon"
+                variant="ghost"
+                onClick={() => {
+                  mute(!muted);
+                  setMuted(!muted);
+                }}
+              >
+                {muted ? (
+                  <MdVolumeOff className="text-[22px] text-foreground/50" />
+                ) : (
+                  <MdVolumeUp className="text-[22px]" />
+                )}
               </Button>
             </TooltipTrigger>
-            <TooltipContent>Mute</TooltipContent>
+            <TooltipContent>{muted ? "Unmute" : "Mute"}</TooltipContent>
           </Tooltip>
         </TooltipProvider>
         <Slider
-          defaultValue={[50]}
+          value={[audioVolume * 100]}
           max={100}
           step={1}
-          min={50}
+          onValueChange={([values]) => {
+            setVolume(values / 100);
+            setAudioVolume(values / 100);
+            if (muted) {
+              mute(false);
+              setMuted(false);
+            }
+          }}
           className="w-[80px] h-[4px]"
         />
       </div>
@@ -264,7 +281,7 @@ const AudioPlayer = () => {
         <Tooltip delayDuration={200}>
           <TooltipTrigger asChild>
             <Button
-              variant="outline"
+              variant="secondary"
               size="icon"
               onClick={() => {
                 setAudioId(null);

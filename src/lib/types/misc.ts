@@ -59,7 +59,7 @@ export interface FileTreeDataItem {
 
 export type BreadCrumbObj = { label: string; href?: string };
 
-export type Music = {
+export type Song = {
   name: string;
   id: string;
   artists: string[];

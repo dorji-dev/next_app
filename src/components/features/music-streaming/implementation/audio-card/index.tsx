@@ -1,6 +1,6 @@
 "use client";
 
-import { Music } from "@/lib/types/misc";
+import { Song } from "@/lib/types/misc";
 import { IoMdPlay } from "react-icons/io";
 import { IoMdPause } from "react-icons/io";
 import { lightGrayBlurData } from "@/lib/utils/rgb-data-url";
@@ -9,90 +9,30 @@ import { useLocalStorage } from "@uidotdev/usehooks";
 import { useGlobalAudioPlayer } from "react-use-audio-player";
 import { cn } from "@/lib/utils";
 import ActionLoader from "@/components/loaders/action-loader";
-import { useCallback, useEffect, useState } from "react";
-import { MUSIC_LIST } from "@/lib/constants/music-list";
+import { useAudioPlayerInit } from "@/components/providers/audio-player-init-provider";
+import PlayAnimation from "./play-animation";
 
 interface AudioCardProps {
-  music: Music;
+  song: Song;
 }
 
-const AudioCard = ({
-  music: { name, artists, id, poster },
-}: AudioCardProps) => {
-  const [position, setPosition] = useState<number>(0);
+const AudioCard = ({ song: { name, artists, id, poster } }: AudioCardProps) => {
   const [audioId, setAudioId] = useLocalStorage<string | null>(
     "current_audio_id",
     null
   );
-  const {
-    load,
-    playing,
-    togglePlayPause,
-    getPosition,
-    isLoading,
-    duration,
-    loop,
-    looping,
-    mute,
-    muted,
-    volume,
-    setVolume,
-    seek,
-    isReady,
-  } = useGlobalAudioPlayer();
+  const { isPlayerInitialized, setIsPlayerInitialized } = useAudioPlayerInit(
+    (state) => state
+  );
+  const { playing, togglePlayPause, isLoading } = useGlobalAudioPlayer();
 
-  const positionValue = getPosition();
-
-  useEffect(() => {
-    getPosition && setPosition(getPosition());
-  }, [positionValue, getPosition]);
-
-  const handleAudioPlayPause = () => {
-    const audioIndex = MUSIC_LIST.findIndex((music) => music.id === id);
-    const nextAudioId = MUSIC_LIST[audioIndex + 1]?.id;
-    if (id === audioId) {
-      if (playing) {
-        setPosition(getPosition());
-      } else {
-        if (getPosition() === 0) {
-          load(`/assets/audio/${id}.mp3`, {
-            html5: true,
-            autoplay: true,
-            initialMute: false,
-            onend: () => onEndHandler(nextAudioId),
-          });
-        } else {
-          seek(position);
-        }
-      }
-      togglePlayPause();
+  const handlePlayPause = () => {
+    if (isPlayerInitialized) {
+      audioId === id ? togglePlayPause() : setAudioId(id);
     } else {
-      load(`/assets/audio/${id}.mp3`, {
-        html5: true,
-        autoplay: true,
-        initialMute: false,
-        onend: () => onEndHandler(nextAudioId),
-      });
+      setIsPlayerInitialized(true);
       setAudioId(id);
     }
-  };
-
-  const onEndHandler = (nextAudioId: string) => {
-    if (!nextAudioId) {
-      return;
-    }
-    // audio index of next audio index for recursive handling
-    const currentAudioIndex = MUSIC_LIST.findIndex(
-      (music) => music.id === nextAudioId
-    );
-    const nextEndAudioId = MUSIC_LIST[currentAudioIndex + 1]?.id;
-    load(`/assets/audio/${nextAudioId}.mp3`, {
-      html5: true,
-      autoplay: true,
-      initialMute: false,
-      onend: () => onEndHandler(nextEndAudioId),
-    });
-    setAudioId(nextAudioId);
   };
 
   return (
@@ -108,22 +48,25 @@ const AudioCard = ({
           className="object-cover rounded-[10px] group-hover:scale-[1.1] transition-transform duration-500"
         />
         <button
-          onClick={handleAudioPlayPause}
+          onClick={handlePlayPause}
           className={cn(
-            "absolute inset-0 flex justify-center items-center group-hover:bg-black/50 transition-all duration-500",
+            "absolute inset-0 flex flex-col justify-center items-center group-hover:bg-black/50 transition-all duration-500",
             id === audioId ? "" : "opacity-0 group-hover:opacity-100"
           )}
         >
-          {isLoading ? (
+          {id === audioId && isLoading ? (
             <ActionLoader />
           ) : (
-            <span className=" p-[10px] rounded-full bg-foreground/20 border">
+            <span className="p-[10px] rounded-full bg-primary text-white">
               {id === audioId && playing ? (
-                <IoMdPause className="text-[34px] text-background/80" />
+                <IoMdPause className="text-[30px]" />
               ) : (
-                <IoMdPlay className="text-[34px] text-background/80" />
+                <IoMdPlay className="text-[30px] relative left-[2px]" />
               )}
             </span>
+          )}
+          {id === audioId && playing && (
+            <PlayAnimation className="absolute bottom-[4px] xxs:bottom-[16px]" />
           )}
         </button>
       </div>

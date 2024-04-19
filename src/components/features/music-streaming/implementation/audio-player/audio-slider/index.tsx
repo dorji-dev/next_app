@@ -25,11 +25,11 @@ const AudioSlider = () => {
         cancelAnimationFrame(frameRef.current);
       }
     };
-  }, [getPosition]);
+  }, [getPosition, duration]);
 
   return (
     <div className="sm:items-center justify-center sm:space-x-[8px] sm:grow hidden sm:flex">
-      <span className="w-[48px]">
+      <span className="min-w-[48px] text-center text-[12px] text-primary">
         {formatDuration(position, position > 3600 ? "hh:mm:ss" : "mm:ss")}
       </span>
       <Slider
@@ -43,7 +43,7 @@ const AudioSlider = () => {
         }}
         className="w-[80%] h-[4px]"
       />
-      <span className="w-[48px]">
+      <span className="min-w-[48px] text-center text-[12px]">
         {formatDuration(duration, duration > 3600 ? "hh:mm:ss" : "mm:ss")}
       </span>
     </div>
