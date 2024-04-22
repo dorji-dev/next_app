@@ -80,14 +80,14 @@ export const heroFeatures: HeroFeatures = [
     ],
   },
   {
-    title: "Song streaming",
+    title: "Music streaming",
     content: "Implementation of music streaming.",
     subFeatures: [
       {
         hrefText: "Implementation",
         href: "/features/music-streaming" as Route,
         completed: false,
-        description: "Song streaming",
+        description: "Music streaming",
       },
     ],
   },

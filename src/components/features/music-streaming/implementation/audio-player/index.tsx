@@ -66,6 +66,7 @@ const AudioPlayer = () => {
       if (songName) document.title = songName;
       load(`/assets/audio/${audioId}.mp3`, {
         autoplay: true,
+        html5: true,
         initialMute: muted,
         onend: () => setAudioEnded(true),
         initialVolume: audioVolume,
@@ -183,7 +184,9 @@ const AudioPlayer = () => {
                 )}
               </Button>
             </TooltipTrigger>
-            <TooltipContent>{playing ? "Pause" : "Play"}</TooltipContent>
+            <TooltipContent>
+              {isLoading ? "Loading" : playing ? "Pause" : "Play"}
+            </TooltipContent>
           </Tooltip>
         </TooltipProvider>
         <TooltipProvider>
