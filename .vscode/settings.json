@@ -34,5 +34,6 @@
     "xxxs",
     "zipcode",
     "Zustand"
-  ]
+  ],
+  "editor.formatOnSave": true
 }

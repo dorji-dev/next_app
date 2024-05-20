@@ -23,7 +23,6 @@ import {
   Drawer,
   DrawerClose,
   DrawerContent,
-  DrawerDescription,
   DrawerFooter,
   DrawerHeader,
   DrawerTitle,
@@ -32,6 +31,7 @@ import {
 import { Button } from "../ui/button";
 import { useBreadCrumbObjects } from "@/hooks/use-breadcrumb-objects";
 import { Skeleton } from "../ui/skeleton";
+import { MdOutlineChevronRight } from "react-icons/md";
 
 const AppBreadCrumb = () => {
   const [open, setOpen] = useState(false);
@@ -98,9 +98,6 @@ const AppBreadCrumb = () => {
                   <DrawerContent>
                     <DrawerHeader className="text-left">
                       <DrawerTitle>Navigate to</DrawerTitle>
-                      <DrawerDescription>
-                        Select a page to navigate to.
-                      </DrawerDescription>
                     </DrawerHeader>
                     <div className="grid gap-1 px-4">
                       {breadCrumbObjects
@@ -112,9 +109,10 @@ const AppBreadCrumb = () => {
                           <Link
                             key={index}
                             href={item.href ? (item.href as Route) : "#"}
-                            className="py-1 text-[14px] capitalize"
+                            className="py-1 text-[14px] capitalize flex justify-between items-center"
                           >
                             {item.label}
+                            <MdOutlineChevronRight className="text-[20px] text-muted-foreground" />
                           </Link>
                         ))}
                     </div>

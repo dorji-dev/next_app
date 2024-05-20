@@ -2,7 +2,6 @@ import MusicStreamingImplementation from "@/components/features/music-streaming/
 import ContentLoader from "@/components/loaders/content-loader";
 import FeatureImplementationTemplate from "@/components/templates/feature-implementation";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { IoAlertCircleSharp } from "react-icons/io5";
 import { Metadata } from "next";
 import { Suspense } from "react";
 

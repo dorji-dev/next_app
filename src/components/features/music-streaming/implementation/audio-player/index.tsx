@@ -129,7 +129,7 @@ const AudioPlayer = () => {
       ref={containerRef}
       className={cn(
         "flex items-center justify-between space-x-[20px] border-t p-[16px]",
-        "fixed w-[100%] bottom-[0px] mx-auto right-0 left-0 z-[99999] bg-background"
+        "fixed w-[100%] bottom-[0px] mx-auto right-0 left-0 z-10 bg-background"
       )}
     >
       <div className="flex items-center rounded-[8px] space-x-[12px]">
@@ -223,7 +223,7 @@ const AudioPlayer = () => {
                 />
               </Button>
             </TooltipTrigger>
-            <TooltipContent>{looping ? "Looping" : "Loop"}</TooltipContent>
+            <TooltipContent>{looping ? "Looping" : "Loop current song"}</TooltipContent>
           </Tooltip>
         </TooltipProvider>
         <TooltipProvider>
