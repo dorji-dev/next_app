@@ -25,6 +25,7 @@ import AudioSlider from "./audio-slider";
 import { useAudioPlayerInit } from "@/components/providers/audio-player-init-provider";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { Route } from "next";
 
 const AudioPlayer = () => {
   const [shuffle, setShuffle] = useState(false);
@@ -136,7 +137,7 @@ const AudioPlayer = () => {
       )}
     >
       <Link
-        href={`/features/music-streaming#${audioId}`}
+        href={`/features/music-streaming#${audioId}` as Route}
         className="flex items-center rounded-[8px] space-x-[12px] cursor-pointer group"
       >
         <Avatar className="border rounded-[8px]">
