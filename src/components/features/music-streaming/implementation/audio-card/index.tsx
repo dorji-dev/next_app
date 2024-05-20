@@ -36,7 +36,7 @@ const AudioCard = ({ song: { name, artists, id, poster } }: AudioCardProps) => {
   };
 
   return (
-    <div className="space-y-[12px]">
+    <div className="space-y-[12px] scroll-mt-[80px]" id={id} >
       <div className="w-full h-0 pb-[100%] relative group  rounded-[10px] overflow-hidden">
         <Image
           src={poster}
