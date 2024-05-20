@@ -24,9 +24,10 @@ const MusicStreamingImplementationPage = () => {
           </AlertTitle>
           <AlertDescription className="text-muted-foreground">
             All songs and images featured on this page are the artistic property
-            of their respective creators and is for the educational purposes
-            only. And a shout-out to all the talented Bhutanese artists behind
-            the songs and images featured here.
+            of their respective creators and is for the{" "}
+            <span className="font-bold">educational purposes</span> only. And a shout-out to all the
+            talented Bhutanese artists behind the songs and images featured
+            here.
           </AlertDescription>
         </Alert>
         <Suspense

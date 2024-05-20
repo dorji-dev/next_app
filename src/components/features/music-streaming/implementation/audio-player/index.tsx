@@ -23,10 +23,13 @@ import ActionLoader from "@/components/loaders/action-loader";
 import { AvatarImage } from "@radix-ui/react-avatar";
 import AudioSlider from "./audio-slider";
 import { useAudioPlayerInit } from "@/components/providers/audio-player-init-provider";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const AudioPlayer = () => {
   const [shuffle, setShuffle] = useState(false);
   const [audioEnded, setAudioEnded] = useState(false);
+  const router = useRouter();
   const [audioId, setAudioId] = useLocalStorage<string | null>(
     "current_audio_id",
     null
@@ -132,7 +135,10 @@ const AudioPlayer = () => {
         "fixed w-[100%] bottom-[0px] mx-auto right-0 left-0 z-10 bg-background"
       )}
     >
-      <div className="flex items-center rounded-[8px] space-x-[12px]">
+      <Link
+        href={`/features/music-streaming#${audioId}`}
+        className="flex items-center rounded-[8px] space-x-[12px] cursor-pointer group"
+      >
         <Avatar className="border rounded-[8px]">
           <AvatarImage
             src={currentMusicObject.poster}
@@ -141,8 +147,10 @@ const AudioPlayer = () => {
           <AvatarFallback className="rounded-[4px]"></AvatarFallback>
         </Avatar>
         <div className="text-[12px] pr-[6px] max-w-[100px]">
-          <p className="font-medium truncate">{currentMusicObject.name}</p>
-          <p className="text-[10px] text-muted-foreground truncate">
+          <p className="font-medium truncate group-hover:underline">
+            {currentMusicObject.name}
+          </p>
+          <p className="text-[10px] text-muted-foreground truncate group-hover:underline">
             {currentMusicObject.artists.map((artist, index) => (
               <span key={artist}>
                 {artist +
@@ -153,7 +161,7 @@ const AudioPlayer = () => {
             ))}
           </p>
         </div>
-      </div>
+      </Link>
       <div className="space-x-[4px] flex items-center">
         <TooltipProvider>
           <Tooltip delayDuration={200}>
@@ -223,7 +231,9 @@ const AudioPlayer = () => {
                 />
               </Button>
             </TooltipTrigger>
-            <TooltipContent>{looping ? "Looping" : "Loop current song"}</TooltipContent>
+            <TooltipContent>
+              {looping ? "Looping" : "Loop current song"}
+            </TooltipContent>
           </Tooltip>
         </TooltipProvider>
         <TooltipProvider>
@@ -284,7 +294,7 @@ const AudioPlayer = () => {
         <Tooltip delayDuration={200}>
           <TooltipTrigger asChild>
             <Button
-              variant="secondary"
+              variant="ghost"
               size="icon"
               onClick={() => {
                 setAudioId(null);
