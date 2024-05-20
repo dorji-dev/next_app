@@ -40,7 +40,7 @@ const FeatureExplanationTemplate = ({
           )}
         </p>
       </div>
-      <ScrollArea className="h-[86%] md:h-[calc(100dvh-180px)] text-foreground/70 leading-[1.8] pr-[10px]">
+      <ScrollArea id="desktop_explanation" className="h-[86%] md:h-[calc(100dvh-180px)] text-foreground/70 leading-[1.8] pr-[10px]">
         {children}
         <div className="mt-[20px]">
           <p className="text-foreground/45 text-[12px] leading-[18px]">

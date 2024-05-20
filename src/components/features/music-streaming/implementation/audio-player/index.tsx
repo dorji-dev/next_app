@@ -23,14 +23,14 @@ import ActionLoader from "@/components/loaders/action-loader";
 import { AvatarImage } from "@radix-ui/react-avatar";
 import AudioSlider from "./audio-slider";
 import { useAudioPlayerInit } from "@/components/providers/audio-player-init-provider";
-import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Route } from "next";
 
 const AudioPlayer = () => {
   const [shuffle, setShuffle] = useState(false);
   const [audioEnded, setAudioEnded] = useState(false);
-  const router = useRouter();
+  const pathName = usePathname();
   const [audioId, setAudioId] = useLocalStorage<string | null>(
     "current_audio_id",
     null
@@ -62,6 +62,21 @@ const AudioPlayer = () => {
       footerContainer.style.marginBottom = currentMusicObject ? "80px" : "";
     }
   }, [currentMusicObject]);
+
+  // update desktop explanation bottom margin if the audio player is initiated
+  useEffect(() => {
+    const desktopExplanation = document.getElementById("desktop_explanation");
+    if (desktopExplanation && currentMusicObject) {
+      desktopExplanation.setAttribute(
+        "style",
+        `height: ${window.innerHeight - 240}px`
+      );
+    }
+
+    return () => {
+      desktopExplanation?.removeAttribute("style");
+    };
+  }, [currentMusicObject, pathName]);
 
   useEffect(() => {
     const audioExists = SONG_LIST.find((song) => song.id === audioId)?.id;
