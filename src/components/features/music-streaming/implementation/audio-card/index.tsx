@@ -7,10 +7,10 @@ import { lightGrayBlurData } from "@/lib/utils/rgb-data-url";
 import Image from "next/image";
 import { useLocalStorage } from "@uidotdev/usehooks";
 import { useGlobalAudioPlayer } from "react-use-audio-player";
-import { cn } from "@/lib/utils";
 import ActionLoader from "@/components/loaders/action-loader";
 import { useAudioPlayerInit } from "@/components/providers/audio-player-init-provider";
 import PlayAnimation from "./play-animation";
+import clsx from "clsx";
 
 interface AudioCardProps {
   song: Song;
@@ -36,7 +36,7 @@ const AudioCard = ({ song: { name, artists, id, poster } }: AudioCardProps) => {
   };
 
   return (
-    <div className="space-y-[12px] scroll-mt-[80px]" id={id} >
+    <div className="space-y-[12px] scroll-mt-[80px]" id={id}>
       <div className="w-full h-0 pb-[100%] relative group  rounded-[10px] overflow-hidden">
         <Image
           src={poster}
@@ -49,9 +49,10 @@ const AudioCard = ({ song: { name, artists, id, poster } }: AudioCardProps) => {
         />
         <button
           onClick={handlePlayPause}
-          className={cn(
+          className={clsx(
             "absolute inset-0 flex flex-col justify-center items-center group-hover:bg-black/50 transition-all duration-500",
-            id === audioId ? "" : "opacity-0 group-hover:opacity-100"
+            id !== audioId && "opacity-0 group-hover:opacity-100",
+            isLoading && id === audioId && "bg-black/80"
           )}
         >
           {id === audioId && isLoading ? (
