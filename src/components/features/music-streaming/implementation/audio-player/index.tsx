@@ -226,7 +226,7 @@ const AudioPlayer = () => {
 
       <div
         className={clsx(
-          "flex items-center justify-between space-x-[20px] p-[16px] bg-white relative md:border-t",
+          "flex items-center justify-between space-x-[20px] p-[16px] relative md:border-t bg-background",
           !openMobileControls && "border-t"
         )}
       >
