@@ -66,12 +66,8 @@ const AudioPlayer = () => {
   // update footer bottom margin based on whether the audio player needs to be shown
   useEffect(() => {
     const footerContainer = document.getElementById("site_footer");
-    if (footerContainer && currentMusicObject) {
-      if (containerRef.current) {
-        footerContainer.style.marginBottom = currentMusicObject
-          ? `${containerRef.current.clientHeight + 18}px`
-          : "";
-      }
+    if (footerContainer && currentMusicObject && containerRef.current) {
+      footerContainer.style.marginBottom = "90px";
     } else {
       footerContainer?.removeAttribute("style");
     }
@@ -169,7 +165,7 @@ const AudioPlayer = () => {
             <Button
               variant="outline"
               size="icon"
-              className="absolute left-0 right-0 mx-auto top-[-24px] md:hidden z-[1]"
+              className="absolute left-0 right-0 mx-auto top-[-20px] md:hidden z-[1]"
               onClick={() => setOpenMobileControls(!openMobileControls)}
             >
               {openMobileControls ? (
