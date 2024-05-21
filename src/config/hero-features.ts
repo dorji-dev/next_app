@@ -68,6 +68,18 @@ export const heroFeatures: HeroFeatures = [
     ],
   },
   {
+    title: "Music streaming",
+    content: "Implementation of music streaming.",
+    subFeatures: [
+      {
+        hrefText: "Implementation",
+        href: "/features/music-streaming" as Route,
+        completed: true,
+        description: "Music streaming",
+      },
+    ],
+  },
+  {
     title: "Video streaming",
     content: "Implementation of video streaming.",
     subFeatures: [
@@ -79,18 +91,7 @@ export const heroFeatures: HeroFeatures = [
       },
     ],
   },
-  {
-    title: "Music streaming",
-    content: "Implementation of music streaming.",
-    subFeatures: [
-      {
-        hrefText: "Implementation",
-        href: "/features/music-streaming" as Route,
-        completed: false,
-        description: "Music streaming",
-      },
-    ],
-  },
+
   {
     title: "State management",
     content:
