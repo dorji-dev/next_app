@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 import SiteFooter from "@/components/site-footer";
 import { ReactNode } from "react";
 import dynamic from "next/dynamic";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { AudioPlayerInitProvider } from "@/components/providers/audio-player-init-provider";
 
 // 'use client' doesn't make the component fully client side rendered
@@ -25,6 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={GeistSans.className}>
+        <SpeedInsights />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
