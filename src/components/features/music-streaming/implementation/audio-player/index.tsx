@@ -3,13 +3,15 @@
 import { useEffect, useRef, useState } from "react";
 import { IoMdPlay } from "react-icons/io";
 import { IoMdPause } from "react-icons/io";
-import { MdSkipNext, MdSkipPrevious, MdOutlineClose } from "react-icons/md";
-import { MdVolumeUp, MdVolumeOff } from "react-icons/md";
-import { TfiLoop, TfiControlShuffle } from "react-icons/tfi";
+import {
+  MdSkipNext,
+  MdSkipPrevious,
+  MdOutlineClose,
+  MdArrowDropDown,
+} from "react-icons/md";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { CgController } from "react-icons/cg";
 import { Button } from "@/components/ui/button";
-import { Slider } from "@/components/ui/slider";
-import { cn } from "@/lib/utils";
 import { useGlobalAudioPlayer } from "react-use-audio-player";
 import { useLocalStorage } from "@uidotdev/usehooks";
 import { SONG_LIST } from "@/lib/constants/song-list";
@@ -26,10 +28,16 @@ import { useAudioPlayerInit } from "@/components/providers/audio-player-init-pro
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Route } from "next";
+import AudioLoop from "./audio-loop";
+import AudioShuffle from "./audio-shuffle";
+import AudioSound from "./audio-sound";
+import clsx from "clsx";
+import * as Accordion from "@radix-ui/react-accordion";
 
 const AudioPlayer = () => {
   const [shuffle, setShuffle] = useState(false);
   const [audioEnded, setAudioEnded] = useState(false);
+  const [openMobileControls, setOpenMobileControls] = useState(false);
   const pathName = usePathname();
   const [audioId, setAudioId] = useLocalStorage<string | null>(
     "current_audio_id",
@@ -58,8 +66,14 @@ const AudioPlayer = () => {
   // update footer bottom margin based on whether the audio player needs to be shown
   useEffect(() => {
     const footerContainer = document.getElementById("site_footer");
-    if (footerContainer) {
-      footerContainer.style.marginBottom = currentMusicObject ? "80px" : "";
+    if (footerContainer && currentMusicObject) {
+      if (containerRef.current) {
+        footerContainer.style.marginBottom = currentMusicObject
+          ? `${containerRef.current.clientHeight + 18}px`
+          : "";
+      }
+    } else {
+      footerContainer?.removeAttribute("style");
     }
   }, [currentMusicObject]);
 
@@ -72,7 +86,6 @@ const AudioPlayer = () => {
         `height: ${window.innerHeight - 240}px`
       );
     }
-
     return () => {
       desktopExplanation?.removeAttribute("style");
     };
@@ -146,183 +159,218 @@ const AudioPlayer = () => {
   return currentMusicObject ? (
     <div
       ref={containerRef}
-      className={cn(
-        "flex items-center justify-between space-x-[20px] border-t p-[16px]",
-        "fixed w-[100%] bottom-[0px] mx-auto right-0 left-0 z-10 bg-background"
+      className={clsx(
+        "fixed w-[100%] bottom-[0px] mx-auto right-0 left-0 z-20 bg-background"
       )}
     >
-      <Link
-        href={`/features/music-streaming#${audioId}` as Route}
-        className="flex items-center rounded-[8px] space-x-[12px] cursor-pointer group"
+      <Accordion.Root type="single" collapsible>
+        <Accordion.Item value="control">
+          <Accordion.Trigger asChild>
+            <Button
+              variant="outline"
+              size="icon"
+              className="absolute left-0 right-0 mx-auto top-[-24px] md:hidden z-[1]"
+              onClick={() => setOpenMobileControls(!openMobileControls)}
+            >
+              {openMobileControls ? (
+                <MdArrowDropDown className="text-[24px]" />
+              ) : (
+                <CgController className="text-[16px]" />
+              )}
+            </Button>
+          </Accordion.Trigger>
+          <Accordion.Content className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
+            <div className="px-[12px] pb-[4px] pt-[24px] border-t md:hidden">
+              <div className="flex space-x-[10px] items-center mb-[12px] sm:hidden">
+                <AudioSlider key={currentMusicObject.id} />
+              </div>
+              <div className="flex justify-between">
+                <div className="flex items-center">
+                  <AudioLoop
+                    isLooping={looping}
+                    onToggle={() => loop(!looping)}
+                  />
+                  <span className="text-[10px] text-muted-foreground">
+                    Loop
+                  </span>
+                </div>
+                <div className="flex items-center">
+                  <span className="text-[10px] text-muted-foreground">
+                    Shuffle
+                  </span>
+                  <AudioShuffle
+                    onShuffle={() => setShuffle(!shuffle)}
+                    shuffle={shuffle}
+                  />
+                </div>
+              </div>
+              <div className="flex items-center justify-center">
+                <AudioSound
+                  sliderClass="mr-[18px] w-[75%]"
+                  toggleMute={() => {
+                    mute(!muted);
+                    setMuted(!muted);
+                  }}
+                  muted={muted}
+                  audioVolume={audioVolume}
+                  onSliderValueChange={([values]) => {
+                    setVolume(values / 100);
+                    setAudioVolume(values / 100);
+                    if (muted) {
+                      mute(false);
+                      setMuted(false);
+                    }
+                  }}
+                />
+              </div>
+            </div>
+          </Accordion.Content>
+        </Accordion.Item>
+      </Accordion.Root>
+
+      <div
+        className={clsx(
+          "flex items-center justify-between space-x-[20px] p-[16px] bg-white relative md:border-t",
+          !openMobileControls && "border-t"
+        )}
       >
-        <Avatar className="border rounded-[8px]">
-          <AvatarImage
-            src={currentMusicObject.poster}
-            className="object-cover"
-          />
-          <AvatarFallback className="rounded-[4px]"></AvatarFallback>
-        </Avatar>
-        <div className="text-[12px] pr-[6px] max-w-[100px]">
-          <p className="font-medium truncate group-hover:underline">
-            {currentMusicObject.name}
-          </p>
-          <p className="text-[10px] text-muted-foreground truncate group-hover:underline">
-            {currentMusicObject.artists.map((artist, index) => (
-              <span key={artist}>
-                {artist +
-                  (index !== currentMusicObject.artists.length - 1
-                    ? " & "
-                    : "")}
-              </span>
-            ))}
-          </p>
+        <Link
+          href={`/features/music-streaming#${audioId}` as Route}
+          className="flex items-center rounded-[8px] space-x-[12px] cursor-pointer group"
+        >
+          <Avatar className="border rounded-[8px]">
+            <AvatarImage
+              src={currentMusicObject.poster}
+              className="object-cover"
+            />
+            <AvatarFallback className="rounded-[4px]"></AvatarFallback>
+          </Avatar>
+          <div className="text-[12px] pr-[6px] max-w-[100px]">
+            <p className="font-medium truncate group-hover:underline">
+              {currentMusicObject.name}
+            </p>
+            <p className="text-[10px] text-muted-foreground truncate group-hover:underline">
+              {currentMusicObject.artists.map((artist, index) => (
+                <span key={artist}>
+                  {artist +
+                    (index !== currentMusicObject.artists.length - 1
+                      ? " & "
+                      : "")}
+                </span>
+              ))}
+            </p>
+          </div>
+        </Link>
+        <div className="space-x-[4px] flex items-center">
+          <TooltipProvider>
+            <Tooltip delayDuration={200}>
+              <TooltipTrigger asChild>
+                <Button
+                  size="icon"
+                  className="hidden xxxs:flex"
+                  variant="ghost"
+                  onClick={previous}
+                  disabled={currentAudioIndex === 0}
+                  aria-label="Previous song"
+                >
+                  <MdSkipPrevious className="text-[24px]" />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>Previous</TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+          <TooltipProvider>
+            <Tooltip delayDuration={200}>
+              <TooltipTrigger asChild>
+                <Button
+                  size="icon"
+                  variant="ghost"
+                  aria-label={
+                    isLoading ? "Loading" : playing ? "Pause" : "Play"
+                  }
+                  onClick={handlePlayPause}
+                >
+                  {isLoading ? (
+                    <ActionLoader />
+                  ) : playing ? (
+                    <IoMdPause className="text-[18px]" />
+                  ) : (
+                    <IoMdPlay className="text-[18px]" />
+                  )}
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>
+                {isLoading ? "Loading" : playing ? "Pause" : "Play"}
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+          <TooltipProvider>
+            <Tooltip delayDuration={200}>
+              <TooltipTrigger asChild>
+                <Button
+                  size="icon"
+                  className="hidden xxxs:flex"
+                  variant="ghost"
+                  onClick={next}
+                  disabled={currentAudioIndex === SONG_LIST.length - 1}
+                  aria-label="Next song"
+                >
+                  <MdSkipNext className="text-[24px]" />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>Next</TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
         </div>
-      </Link>
-      <div className="space-x-[4px] flex items-center">
-        <TooltipProvider>
-          <Tooltip delayDuration={200}>
-            <TooltipTrigger asChild>
-              <Button
-                size="icon"
-                className="hidden xxxs:flex"
-                variant="ghost"
-                onClick={previous}
-                disabled={currentAudioIndex === 0}
-              >
-                <MdSkipPrevious className="text-[24px]" />
-              </Button>
-            </TooltipTrigger>
-            <TooltipContent>Previous</TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-        <TooltipProvider>
-          <Tooltip delayDuration={200}>
-            <TooltipTrigger asChild>
-              <Button size="icon" variant="ghost" onClick={handlePlayPause}>
-                {isLoading ? (
-                  <ActionLoader />
-                ) : playing ? (
-                  <IoMdPause className="text-[18px]" />
-                ) : (
-                  <IoMdPlay className="text-[18px]" />
-                )}
-              </Button>
-            </TooltipTrigger>
-            <TooltipContent>
-              {isLoading ? "Loading" : playing ? "Pause" : "Play"}
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-        <TooltipProvider>
-          <Tooltip delayDuration={200}>
-            <TooltipTrigger asChild>
-              <Button
-                size="icon"
-                className="hidden xxxs:flex"
-                variant="ghost"
-                onClick={next}
-                disabled={currentAudioIndex === SONG_LIST.length - 1}
-              >
-                <MdSkipNext className="text-[24px]" />
-              </Button>
-            </TooltipTrigger>
-            <TooltipContent>Next</TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-      </div>
 
-      <AudioSlider key={currentMusicObject.id} />
+        <div className="sm:items-center justify-center sm:space-x-[8px] sm:grow hidden sm:flex">
+          <AudioSlider key={currentMusicObject.id} />
+        </div>
 
-      <div className="space-x-[4px] hidden md:flex items-center">
+        <div className="space-x-[4px] hidden md:flex items-center">
+          <AudioLoop isLooping={looping} onToggle={() => loop(!looping)} />
+          <AudioShuffle
+            onShuffle={() => setShuffle(!shuffle)}
+            shuffle={shuffle}
+          />
+        </div>
+        <div className="hidden md:flex items-center space-x-[8px]">
+          <AudioSound
+            toggleMute={() => {
+              mute(!muted);
+              setMuted(!muted);
+            }}
+            muted={muted}
+            audioVolume={audioVolume}
+            onSliderValueChange={([values]) => {
+              setVolume(values / 100);
+              setAudioVolume(values / 100);
+              if (muted) {
+                mute(false);
+                setMuted(false);
+              }
+            }}
+          />
+        </div>
         <TooltipProvider>
           <Tooltip delayDuration={200}>
             <TooltipTrigger asChild>
               <Button
-                size="icon"
+                aria-label="Close audio player"
                 variant="ghost"
-                onClick={() => loop(!looping)}
-              >
-                <TfiLoop
-                  className={cn("text-[18px]", looping && "text-primary")}
-                />
-              </Button>
-            </TooltipTrigger>
-            <TooltipContent>
-              {looping ? "Looping" : "Loop current song"}
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-        <TooltipProvider>
-          <Tooltip delayDuration={200}>
-            <TooltipTrigger asChild>
-              <Button
                 size="icon"
-                variant="ghost"
-                onClick={() => setShuffle(!shuffle)}
-              >
-                <TfiControlShuffle
-                  className={cn("text-[18px]", shuffle && "text-primary")}
-                />
-              </Button>
-            </TooltipTrigger>
-            <TooltipContent>Shuffle</TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-      </div>
-      <div className="hidden md:flex items-center space-x-[8px]">
-        <TooltipProvider>
-          <Tooltip delayDuration={200}>
-            <TooltipTrigger asChild>
-              <Button
-                size="icon"
-                variant="ghost"
                 onClick={() => {
-                  mute(!muted);
-                  setMuted(!muted);
+                  setAudioId(null);
+                  stop();
                 }}
               >
-                {muted ? (
-                  <MdVolumeOff className="text-[22px] text-foreground/50" />
-                ) : (
-                  <MdVolumeUp className="text-[22px]" />
-                )}
+                <MdOutlineClose />
               </Button>
             </TooltipTrigger>
-            <TooltipContent>{muted ? "Unmute" : "Mute"}</TooltipContent>
+            <TooltipContent collisionPadding={28}>Close</TooltipContent>
           </Tooltip>
         </TooltipProvider>
-        <Slider
-          value={[audioVolume * 100]}
-          max={100}
-          step={1}
-          onValueChange={([values]) => {
-            setVolume(values / 100);
-            setAudioVolume(values / 100);
-            if (muted) {
-              mute(false);
-              setMuted(false);
-            }
-          }}
-          className="w-[80px] h-[4px]"
-        />
       </div>
-      <TooltipProvider>
-        <Tooltip delayDuration={200}>
-          <TooltipTrigger asChild>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => {
-                setAudioId(null);
-                stop();
-              }}
-            >
-              <MdOutlineClose />
-            </Button>
-          </TooltipTrigger>
-          <TooltipContent collisionPadding={28}>Close</TooltipContent>
-        </Tooltip>
-      </TooltipProvider>
     </div>
   ) : null;
 };
