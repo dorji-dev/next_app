@@ -1,16 +1,14 @@
 "use client";
 
-import ContentLoader from "@/components/loaders/content-loader";
-import ProductDetails from "@/components/product/product-details";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { useRouter } from "next/navigation";
-import { Suspense } from "react";
+import { ReactNode } from "react";
 
 interface ProductDetailModalProps {
-  productId: string;
+  children: ReactNode;
 }
 
-const ProductDetailModal = ({ productId }: ProductDetailModalProps) => {
+const ProductDetailModal = ({ children }: ProductDetailModalProps) => {
   const router = useRouter();
 
   return (
@@ -18,20 +16,13 @@ const ProductDetailModal = ({ productId }: ProductDetailModalProps) => {
       <DialogContent>
         <div className="py-[10px]">
           <button
-            onClick={router.refresh}
+            // Next router.refresh doesn't cause full browser refresh that's why using browser api here
+            onClick={window.location.reload.bind(window.location)}
             className="text-center text-[12px] text-primary mb-[8px] mx-auto block hover:underline"
           >
             Visit page
           </button>
-          <Suspense
-            fallback={
-              <div className="my-[60px] mb-[20px]">
-                <ContentLoader />
-              </div>
-            }
-          >
-            <ProductDetails productId={productId} usedIn="modal" />
-          </Suspense>
+          {children}
         </div>
       </DialogContent>
     </Dialog>

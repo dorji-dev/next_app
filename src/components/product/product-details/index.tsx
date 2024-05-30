@@ -1,14 +1,17 @@
 import { toTitleCase } from "@/lib/utils/misc";
 import { getProductDetailById } from "@/services/product-service";
 import ProductImageCarousel from "./product-image-carousel";
+import { headers } from "next/headers";
 
 interface ProductDetailsProps {
-  productId: string;
   usedIn?: "page" | "modal";
 }
 
-const ProductDetails = async ({ productId, usedIn }: ProductDetailsProps) => {
-  const product = await getProductDetailById(productId);
+const ProductDetails = async ({ usedIn }: ProductDetailsProps) => {
+  // Since it is not possible to read query params in the server components
+  // directly, we are reading it from the headers which we have modified inside the middleware
+  const productId = headers().get("product_id");
+  const product = await getProductDetailById(productId as string);
 
   if (product === null) {
     return (

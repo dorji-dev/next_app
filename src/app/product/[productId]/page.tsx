@@ -12,7 +12,7 @@ const ProductDetailPage = ({ params }: { params: { productId: string } }) => {
         <BackNavigation />
       </div>
       <div>
-        <ProductDetails productId={params.productId} />
+        <ProductDetails />
       </div>
     </div>
   );
