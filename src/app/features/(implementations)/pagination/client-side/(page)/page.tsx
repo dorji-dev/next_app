@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Pagination with client side data fetching",
   description:
     "Implementation pagination in NextJs app router with client side data fetching",
+  openGraph: {
+    images: ["/api/og?title=Pagination Client Side"],
+  },
 };
 
 const ClientSidePaginationPage = () => {

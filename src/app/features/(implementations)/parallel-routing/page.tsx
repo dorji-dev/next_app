@@ -5,6 +5,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "NextJs parallel routing",
   description: "Demonstration of parallel routing concept in NextJs app router",
+  openGraph: {
+    images: ["/api/og?title=Parallel Routing"],
+  },
 };
 
 const ParallelRoutingImplementationPage = () => {

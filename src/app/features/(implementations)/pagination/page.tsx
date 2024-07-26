@@ -1,6 +1,14 @@
 import AppBreadCrumb from "@/components/app-breadcrumb";
-import { Route } from "next";
+import { Metadata, Route } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Pagination",
+  description: "Pagination with NextJs App Router",
+  openGraph: {
+    images: ["/api/og?title=Pagination"],
+  },
+};
 
 const PaginationPage = () => {
   return (

@@ -7,6 +7,7 @@ import { ReactNode } from "react";
 import dynamic from "next/dynamic";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { AudioPlayerInitProvider } from "@/components/providers/audio-player-init-provider";
+import { Metadata } from "next";
 
 // 'use client' doesn't make the component fully client side rendered
 // so need to disable pre-rendering since we are using local storage hook
@@ -17,6 +18,20 @@ const AudioPlayer = dynamic(
     ssr: false,
   }
 );
+
+export const metadata: Metadata = {
+  title: {
+    default: "Next.js App Router",
+    template: "%s | Next.js App Router",
+  },
+  metadataBase: new URL('https://og.nullnull.dev/c2e4f4e7-cf56-4674-981e-e72f3caa5b42'),
+  openGraph: {
+    title: "Everyday features with Next.js App Router",
+    description:
+      "A demo of every day features and concepts using NextJs app router",
+    images: ["/api/og"],
+  },
+};
 
 export default function RootLayout({
   children,

@@ -8,6 +8,9 @@ import { Suspense } from "react";
 export const metadata: Metadata = {
   title: "Music streaming",
   description: "Music streaming with NextJs App Router",
+  openGraph: {
+    images: ["/api/og?title=Music Streaming"],
+  },
 };
 
 const MusicStreamingImplementationPage = () => {
@@ -25,9 +28,9 @@ const MusicStreamingImplementationPage = () => {
           <AlertDescription className="text-muted-foreground">
             All songs and images featured on this page are the artistic property
             of their respective creators and is for the{" "}
-            <span className="font-bold">educational purposes</span> only. And a shout-out to all the
-            talented Bhutanese artists behind the songs and images featured
-            here.
+            <span className="font-bold">educational purposes</span> only. And a
+            shout-out to all the talented Bhutanese artists behind the songs and
+            images featured here.
           </AlertDescription>
         </Alert>
         <Suspense

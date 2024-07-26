@@ -24,7 +24,7 @@ const SiteHeader = () => {
                   "text-[10px] tracking-[2px]"
                 )}
               >
-                HOME{" "}
+                HOME
                 <TbSlash className="h-[16px] w-[16px] text-foreground/50" />
               </span>
             </Link>

@@ -13,7 +13,7 @@ import { heroFeatures } from "@/config/hero-features";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Every day features",
+  title: "Every day features | Next.js App Router",
   description: "A demo of every day features using NextJs app router",
 };
 

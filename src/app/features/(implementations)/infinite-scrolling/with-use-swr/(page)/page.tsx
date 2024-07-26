@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Infinite scrolling with useSWR",
   description:
     "Implementation of infinite scrolling with useSWR and client side rendering",
+  openGraph: {
+    images: ["/api/og?Infinite Scrolling with useSWR"],
+  },
 };
 
 const InfiniteScrollWithUseSWRPage = () => {

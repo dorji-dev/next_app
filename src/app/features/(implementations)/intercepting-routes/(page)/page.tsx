@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "NextJs intercepting routes",
   description:
     "Implementation of route interception in NextJs app router, also known as modal routing",
+  openGraph: {
+    images: ["/api/og?title=Route Interception"],
+  },
 };
 
 const InterceptingRoutesPage = () => {

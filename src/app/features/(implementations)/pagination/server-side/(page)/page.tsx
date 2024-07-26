@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Pagination with server side data fetching",
   description:
     "Implementation pagination in NextJs with server side data fetching",
+  openGraph: {
+    images: ["/api/og?title=Pagination Server Side"],
+  },
 };
 
 const ServerSidePaginationPage = ({

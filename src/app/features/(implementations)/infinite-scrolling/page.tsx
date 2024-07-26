@@ -1,7 +1,16 @@
 import AppBreadCrumb from "@/components/app-breadcrumb";
 import TextHighlight from "@/components/text-highlight.tsx";
-import { Route } from "next";
+import { Metadata, Route } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Infinite scrolling with server action and useSWR",
+  description:
+    "Implementation of infinite scrolling in Next.js app router with server actions and useSWR hook",
+  openGraph: {
+    images: ["/api/og?title=Infinite Scrolling"],
+  },
+};
 
 const InfiniteScrollingPage = () => {
   return (

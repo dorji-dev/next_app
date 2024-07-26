@@ -9,7 +9,7 @@ const SiteLogo = () => {
           NEXT
           <span className="text-muted-foreground text-[10px] font-[400]">
             .js
-          </span>{" "}
+          </span>
         </span>
         <Separator orientation="vertical" className="h-[16px] mx-[4px]" />
         <span className="text-primary font-medium text-[14px]">APP</span>
