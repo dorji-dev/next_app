@@ -24,6 +24,7 @@ export const metadata: Metadata = {
     default: "Next.js App Router",
     template: "%s | Next.js App Router",
   },
+  metadataBase: new URL("https://next-app-gamma-lovat.vercel.app"),
   openGraph: {
     title: "Everyday features with Next.js App Router",
     description:
