@@ -24,7 +24,6 @@ export const metadata: Metadata = {
     default: "Next.js App Router",
     template: "%s | Next.js App Router",
   },
-  metadataBase: new URL('https://og.nullnull.dev/c2e4f4e7-cf56-4674-981e-e72f3caa5b42'),
   openGraph: {
     title: "Everyday features with Next.js App Router",
     description:
