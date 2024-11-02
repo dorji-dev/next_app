@@ -8,25 +8,37 @@ import { FetchArguments } from "@/lib/types/misc";
 export const fetchHelper = async <ResponseType, BodyType = {}>(
   fetchArgs: FetchArguments<BodyType>
 ): Promise<ResponseType> => {
-  const response = await fetch(fetchArgs.url, {
-    method: fetchArgs.method,
-    body: JSON.stringify(fetchArgs.body),
-    headers: fetchArgs.headers,
-    next: fetchArgs.nextOptions,
-    cache: fetchArgs.cache,
-  });
+  try {
+    const response = await fetch(fetchArgs.url, {
+      method: fetchArgs.method,
+      body: JSON.stringify(fetchArgs.body),
+      headers: fetchArgs.headers,
+      next: fetchArgs.nextOptions,
+      cache: fetchArgs.cache,
+    });
 
-  if (response.status === 200) {
-    return response.json();
-  } else {
-    let errorObject;
-    try {
-      // if errored response is JSON parsable, return the object as it is
-      errorObject = await response.json();
-    } catch (_) {
-      // else return null
-      errorObject = null;
+    if (!response.ok) {
+      let errorDetails;
+      try {
+        errorDetails = await response.json();
+      } catch (_) {
+        errorDetails = {
+          status: response.status,
+          statusText: response.statusText,
+          message: "An unexpected error occurred",
+        };
+      }
+
+      const error = new Error("Fetch Error");
+      error.name = "FetchError";
+      (error as any).details = errorDetails;
+      throw error;
     }
-    return Promise.reject(errorObject);
+
+    return response.json();
+  } catch (error) {
+    // Handle network errors, CORS issues, etc.
+    console.error("Fetch error:", error);
+    throw error;
   }
 };
