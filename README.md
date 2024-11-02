@@ -1,27 +1,32 @@
-Implementation of everyday features with [NextJS App Router](https://nextjs.org/docs) with [shadcn](https://ui.shadcn.com/).
+# Next.js App Router Demo
 
-## Run Locally
+Welcome to the Next.js App Router Demo! This project showcases various features and concepts implemented using the Next.js App Router. The application demonstrates real-world examples of infinite scrolling, pagination, parallel routing, and more.
 
-First run `npm install` or `yarn install` to install all the dependencies.
+## Features
 
-Then, run the development server:
+- **Infinite Scrolling**: Implemented using server actions and `useSWR`.
+- **Pagination**: Server-side and client-side data fetching with `tanstack/react-table`.
+- **Parallel Routing**: Render multiple pages simultaneously.
+- **Intercepting Routes**: Modal routing without losing context.
+- **Music & Video Streaming**: Real-time media streaming examples.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Tech Stack
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Next.js**
+- **TailwindCSS**
+- **React Icons**
+- **Radix UI**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Getting Started
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Noto_Sans, a custom Google Font.
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Run the development server: `npm run dev`
 
-To add extra components from **shadcn** run the command `npx shadcn-ui@latest add ${component_name}` or refer the [shadcn](https://ui.shadcn.com/) docs.
+## License
 
-The repo and deployed site will be updated every time there is changes in NextJs features and version.
+This project is open-source and available under the [MIT License](LICENSE).
+
+---
+
+Built with ❤️ by [dorji-dev](https://github.com/dorji-dev)
