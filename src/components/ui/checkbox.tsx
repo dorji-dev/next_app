@@ -6,10 +6,13 @@ import { IoCheckmark } from "react-icons/io5";
 
 import { cn } from "@/lib/utils";
 
-const Checkbox = React.forwardRef<
-  React.ElementRef<typeof CheckboxPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>
->(({ className, ...props }, ref) => (
+const Checkbox = ({
+  ref,
+  className,
+  ...props
+}: React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root> & {
+  ref: React.RefObject<React.ComponentRef<typeof CheckboxPrimitive.Root>>;
+}) => (
   <CheckboxPrimitive.Root
     ref={ref}
     className={cn(
@@ -19,12 +22,14 @@ const Checkbox = React.forwardRef<
     {...props}
   >
     <CheckboxPrimitive.Indicator
-      className={cn("flex items-center justify-center text-current [&_svg]:h-auto")}
+      className={cn(
+        "flex items-center justify-center text-current [&_svg]:h-auto"
+      )}
     >
       <IoCheckmark className="h-[16px] w-16px" />
     </CheckboxPrimitive.Indicator>
   </CheckboxPrimitive.Root>
-));
+);
 Checkbox.displayName = CheckboxPrimitive.Root.displayName;
 
 export { Checkbox };
