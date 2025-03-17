@@ -165,7 +165,7 @@ const AudioPlayer = () => {
             <Button
               variant="outline"
               size="icon"
-              className="absolute left-0 right-0 mx-auto top-[-20px] md:hidden z-[1]"
+              className="absolute left-0 right-0 mx-auto top-[-20px] md:hidden z-1"
               onClick={() => setOpenMobileControls(!openMobileControls)}
             >
               {openMobileControls ? (

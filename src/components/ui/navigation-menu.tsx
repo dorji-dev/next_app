@@ -54,7 +54,7 @@ NavigationMenuList.displayName = NavigationMenuPrimitive.List.displayName;
 const NavigationMenuItem = NavigationMenuPrimitive.Item;
 
 const navigationMenuTriggerStyle = cva(
-  "group inline-flex w-max items-center justify-center text-foreground/60 hover:text-foreground/80 hover:text-foreground/80 focus:text-foreground/80 disabled:pointer-events-none disabled:opacity-50 data-[active]:text-foreground/80 data-[state=open]:text-foreground/80"
+  "group inline-flex w-max items-center justify-center text-foreground/60 hover:text-foreground/80 hover:text-foreground/80 focus:text-foreground/80 disabled:pointer-events-none disabled:opacity-50 data-active:text-foreground/80 data-[state=open]:text-foreground/80"
 );
 
 const NavigationMenuTrigger = ({
@@ -115,7 +115,7 @@ const NavigationMenuViewport = ({
   <div className={cn("absolute left-0 top-full flex justify-center")}>
     <NavigationMenuPrimitive.Viewport
       className={cn(
-        "origin-top-center relative mt-[6px] h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border bg-popover text-popover-foreground shadow data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)]",
+        "origin-top-center relative mt-[6px] h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border bg-popover text-popover-foreground shadow-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)]",
         className
       )}
       ref={ref}
@@ -138,7 +138,7 @@ const NavigationMenuIndicator = ({
   <NavigationMenuPrimitive.Indicator
     ref={ref}
     className={cn(
-      "top-full z-[1] flex h-[6px] items-end justify-center overflow-hidden data-[state=visible]:animate-in data-[state=hidden]:animate-out data-[state=hidden]:fade-out data-[state=visible]:fade-in",
+      "top-full z-1 flex h-[6px] items-end justify-center overflow-hidden data-[state=visible]:animate-in data-[state=hidden]:animate-out data-[state=hidden]:fade-out data-[state=visible]:fade-in",
       className
     )}
     {...props}
@@ -166,7 +166,7 @@ const NavigationMenuContentItem = ({
           ref={ref}
           href={href as Route}
           className={cn(
-            "block select-none space-y-[4px] rounded-md p-[12px] leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            "block select-none space-y-[4px] rounded-md p-[12px] leading-none no-underline outline-hidden transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
             className
           )}
           {...props}

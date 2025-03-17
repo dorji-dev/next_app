@@ -55,7 +55,7 @@ const Carousel = ({
   children,
   ...props
 }: CarouselProps & {
-  ref: React.RefObject<HTMLDivElement>;
+  ref?: React.RefObject<HTMLDivElement>;
   className?: string;
   children?: React.ReactNode;
 }) => {
@@ -155,7 +155,7 @@ const CarouselContent = ({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement> & {
-  ref: React.RefObject<HTMLDivElement>;
+  ref?: React.RefObject<HTMLDivElement>;
 }) => {
   const { carouselRef, orientation } = useCarousel();
 
@@ -180,7 +180,7 @@ const CarouselItem = ({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement> & {
-  ref: React.RefObject<HTMLDivElement>;
+  ref?: React.RefObject<HTMLDivElement>;
 }) => {
   const { orientation } = useCarousel();
 
@@ -207,7 +207,7 @@ const CarouselPrevious = ({
   size = "icon",
   ...props
 }: React.ComponentProps<typeof Button> & {
-  ref: React.RefObject<HTMLButtonElement>;
+  ref?: React.RefObject<HTMLButtonElement>;
 }) => {
   const { orientation, scrollPrev, canScrollPrev } = useCarousel();
 
@@ -241,7 +241,7 @@ const CarouselNext = ({
   size = "icon",
   ...props
 }: React.ComponentProps<typeof Button> & {
-  ref: React.RefObject<HTMLButtonElement>;
+  ref?: React.RefObject<HTMLButtonElement>;
 }) => {
   const { orientation, scrollNext, canScrollNext } = useCarousel();
 

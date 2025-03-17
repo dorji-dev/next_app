@@ -29,7 +29,7 @@ const Tree = ({
   className,
   ...props
 }: TreeProps & {
-  ref: React.RefObject<HTMLDivElement>;
+  ref?: React.RefObject<HTMLDivElement>;
 }) => {
   const [selectedItemId, setSelectedItemId] = React.useState<
     string | undefined
@@ -230,7 +230,7 @@ const Leaf = ({
           aria-hidden="true"
         />
       )}
-      <span className="flex-grow text-sm truncate">{item.name}</span>
+      <span className="grow text-sm truncate">{item.name}</span>
     </div>
   );
 };
@@ -249,7 +249,7 @@ const AccordionTrigger = ({
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
-        "flex flex-1 w-full items-center py-2 transition-all last:[&[data-state=open]>svg]:rotate-90",
+        "flex flex-1 w-full items-center py-2 transition-all [&[data-state=open]>svg]:last:rotate-90",
         className
       )}
       {...props}

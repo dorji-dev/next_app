@@ -4,7 +4,7 @@ const config = {
   future: {
     hoverOnlyWhenSupported: true,
   },
-  darkMode: ["class"],
+  darkMode: "class",
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",

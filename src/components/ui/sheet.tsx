@@ -73,7 +73,7 @@ const SheetContent = ({
       {...props}
     >
       {children}
-      <SheetPrimitive.Close className="absolute right-[16px] top-[16px] rounded-[4px] opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-[2px] focus:ring-ring focus:ring-offset-[2px] disabled:pointer-events-none data-[state=open]:bg-secondary">
+      <SheetPrimitive.Close className="absolute right-[16px] top-[16px] rounded-[4px] opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-hidden focus:ring-[2px] focus:ring-ring focus:ring-offset-[2px] disabled:pointer-events-none data-[state=open]:bg-secondary">
         <MdOutlineClose className="h-[16px] w-[16px]" />
         <span className="sr-only">Close</span>
       </SheetPrimitive.Close>

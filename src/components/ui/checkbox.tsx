@@ -11,12 +11,12 @@ const Checkbox = ({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root> & {
-  ref: React.RefObject<React.ComponentRef<typeof CheckboxPrimitive.Root>>;
+  ref?: React.RefObject<React.ComponentRef<typeof CheckboxPrimitive.Root>>;
 }) => (
   <CheckboxPrimitive.Root
     ref={ref}
     className={cn(
-      "peer h-[16px] w-[16px] shrink-0 rounded-[4px] border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground",
+      "peer h-[16px] w-[16px] shrink-0 rounded-[4px] border border-primary shadow-sm focus-visible:outline-hidden focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground",
       className
     )}
     {...props}

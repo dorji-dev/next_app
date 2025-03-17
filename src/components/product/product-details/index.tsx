@@ -29,7 +29,7 @@ const ProductDetails = async ({ usedIn }: ProductDetailsProps) => {
         enableCarouselNav={usedIn === "modal" ? false : true}
         images={product.images}
       />
-      <div className="space-y-[12px] !mt-[30px]">
+      <div className="space-y-[12px] mt-[30px]!">
         <p>
           <span className="text-[18px] font-bold">${product.price}</span>{" "}
           <span className="text-[12px] text-muted-foreground">

@@ -35,7 +35,7 @@ const DropdownMenuSubTrigger = ({
   <DropdownMenuPrimitive.SubTrigger
     ref={ref}
     className={cn(
-      "flex cursor-default select-none items-center rounded-sm px-[8px] py-[6px] outline-none focus:bg-accent data-[state=open]:bg-accent",
+      "flex cursor-default select-none items-center rounded-sm px-[8px] py-[6px] outline-hidden focus:bg-accent data-[state=open]:bg-accent",
       inset && "pl-[32px]",
       className
     )}
@@ -75,7 +75,7 @@ const DropdownMenuContent = ({
   sideOffset = 4,
   ...props
 }: React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Content> & {
-  ref: React.RefObject<
+  ref?: React.RefObject<
     React.ComponentRef<typeof DropdownMenuPrimitive.Content>
   >;
 }) => (
@@ -106,7 +106,7 @@ const DropdownMenuItem = ({
   <DropdownMenuPrimitive.Item
     ref={ref}
     className={cn(
-      "relative flex cursor-default select-none items-center rounded-sm px-[12px] py-[6px] outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      "relative flex cursor-default select-none items-center rounded-sm px-[12px] py-[6px] outline-hidden transition-colors focus:bg-accent focus:text-accent-foreground data-disabled:pointer-events-none data-disabled:opacity-50",
       inset && "pl-[32px]",
       className
     )}
@@ -122,14 +122,14 @@ const DropdownMenuCheckboxItem = ({
   checked,
   ...props
 }: React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.CheckboxItem> & {
-  ref: React.RefObject<
+  ref?: React.RefObject<
     React.ComponentRef<typeof DropdownMenuPrimitive.CheckboxItem>
   >;
 }) => (
   <DropdownMenuPrimitive.CheckboxItem
     ref={ref}
     className={cn(
-      "relative flex cursor-default select-none items-center rounded-sm py-[6px] pl-[32px] pr-[8px] outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      "relative flex cursor-default select-none items-center rounded-sm py-[6px] pl-[32px] pr-[8px] outline-hidden transition-colors focus:bg-accent focus:text-accent-foreground data-disabled:pointer-events-none data-disabled:opacity-50",
       className
     )}
     checked={checked}
@@ -152,14 +152,14 @@ const DropdownMenuRadioItem = ({
   children,
   ...props
 }: React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.RadioItem> & {
-  ref: React.RefObject<
+  ref?: React.RefObject<
     React.ComponentRef<typeof DropdownMenuPrimitive.RadioItem>
   >;
 }) => (
   <DropdownMenuPrimitive.RadioItem
     ref={ref}
     className={cn(
-      "relative flex cursor-default select-none items-center rounded-sm py-[6px] pl-[32px] pr-[8px] outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      "relative flex cursor-default select-none items-center rounded-sm py-[6px] pl-[32px] pr-[8px] outline-hidden transition-colors focus:bg-accent focus:text-accent-foreground data-disabled:pointer-events-none data-disabled:opacity-50",
       className
     )}
     {...props}
@@ -200,7 +200,7 @@ const DropdownMenuSeparator = ({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Separator> & {
-  ref: React.RefObject<
+  ref?: React.RefObject<
     React.ComponentRef<typeof DropdownMenuPrimitive.Separator>
   >;
 }) => (

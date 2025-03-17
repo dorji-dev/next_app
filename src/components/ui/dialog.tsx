@@ -38,7 +38,7 @@ const DialogContent = ({
   children,
   ...props
 }: React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content> & {
-  ref: React.RefObject<React.ComponentRef<typeof DialogPrimitive.Content>>;
+  ref?: React.RefObject<React.ComponentRef<typeof DialogPrimitive.Content>>;
 }) => (
   <DialogPortal>
     <DialogOverlay />
@@ -51,7 +51,7 @@ const DialogContent = ({
       {...props}
     >
       {children}
-      <DialogPrimitive.Close className="absolute right-[16px] top-[16px] rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
+      <DialogPrimitive.Close className="absolute right-[16px] top-[16px] rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-hidden focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
         <MdOutlineClose className="h-[16px] w-[16px]" />
         <span className="sr-only">Close</span>
       </DialogPrimitive.Close>
@@ -93,7 +93,7 @@ const DialogTitle = ({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title> & {
-  ref: React.RefObject<React.ComponentRef<typeof DialogPrimitive.Title>>;
+  ref?: React.RefObject<React.ComponentRef<typeof DialogPrimitive.Title>>;
 }) => (
   <DialogPrimitive.Title
     ref={ref}
@@ -111,7 +111,7 @@ const DialogDescription = ({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description> & {
-  ref: React.RefObject<React.ComponentRef<typeof DialogPrimitive.Description>>;
+  ref?: React.RefObject<React.ComponentRef<typeof DialogPrimitive.Description>>;
 }) => (
   <DialogPrimitive.Description
     ref={ref}

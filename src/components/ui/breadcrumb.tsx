@@ -10,7 +10,7 @@ const Breadcrumb = (
     ref,
     ...props
   }: React.ComponentPropsWithoutRef<"nav"> & {
-    ref: React.RefObject<HTMLElement>;
+    ref?: React.RefObject<HTMLElement>;
   }
 ) => <nav ref={ref} aria-label="breadcrumb" {...props} />;
 Breadcrumb.displayName = "Breadcrumb";
@@ -21,7 +21,7 @@ const BreadcrumbList = (
     className,
     ...props
   }: React.ComponentPropsWithoutRef<"ol"> & {
-    ref: React.RefObject<HTMLOListElement>;
+    ref?: React.RefObject<HTMLOListElement>;
   }
 ) => (<ol
   ref={ref}
@@ -39,7 +39,7 @@ const BreadcrumbItem = (
     className,
     ...props
   }: React.ComponentPropsWithoutRef<"li"> & {
-    ref: React.RefObject<HTMLLIElement>;
+    ref?: React.RefObject<HTMLLIElement>;
   }
 ) => (<li
   ref={ref}
@@ -55,7 +55,7 @@ const BreadcrumbLink = (
     className,
     ...props
   }: React.ComponentPropsWithoutRef<"a"> & {
-    ref: React.RefObject<HTMLAnchorElement>;
+    ref?: React.RefObject<HTMLAnchorElement>;
     asChild?: boolean;
   }
 ) => {
@@ -77,7 +77,7 @@ const BreadcrumbPage = (
     className,
     ...props
   }: React.ComponentPropsWithoutRef<"span"> & {
-    ref: React.RefObject<HTMLSpanElement>;
+    ref?: React.RefObject<HTMLSpanElement>;
   }
 ) => (<span
   ref={ref}

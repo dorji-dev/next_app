@@ -33,7 +33,7 @@ const CommandDialog = ({
   children,
   ...props
 }: CommandDialogProps & {
-  ref: React.RefObject<React.ComponentRef<typeof Dialog>>;
+  ref?: React.RefObject<React.ComponentRef<typeof Dialog>>;
 }) => {
   return (
     <Dialog {...props}>
@@ -51,14 +51,14 @@ const CommandInput = ({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input> & {
-  ref: React.RefObject<React.ComponentRef<typeof CommandPrimitive.Input>>;
+  ref?: React.RefObject<React.ComponentRef<typeof CommandPrimitive.Input>>;
 }) => (
   <div className="flex items-center border-b px-3" cmdk-input-wrapper="">
     <RiSearch2Line className="mr-2 h-4 w-4 shrink-0 opacity-50" />
     <CommandPrimitive.Input
       ref={ref}
       className={cn(
-        "flex h-10 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50",
+        "flex h-10 w-full rounded-md bg-transparent py-3 text-sm outline-hidden placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50",
         className
       )}
       {...props}
@@ -73,7 +73,7 @@ const CommandList = ({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<typeof CommandPrimitive.List> & {
-  ref: React.RefObject<React.ComponentRef<typeof CommandPrimitive.List>>;
+  ref?: React.RefObject<React.ComponentRef<typeof CommandPrimitive.List>>;
 }) => (
   <CommandPrimitive.List
     ref={ref}
@@ -88,7 +88,7 @@ const CommandEmpty = ({
   ref,
   ...props
 }: React.ComponentPropsWithoutRef<typeof CommandPrimitive.Empty> & {
-  ref: React.RefObject<React.ComponentRef<typeof CommandPrimitive.Empty>>;
+  ref?: React.RefObject<React.ComponentRef<typeof CommandPrimitive.Empty>>;
 }) => (
   <CommandPrimitive.Empty
     ref={ref}
@@ -104,7 +104,7 @@ const CommandGroup = ({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<typeof CommandPrimitive.Group> & {
-  ref: React.RefObject<React.ComponentRef<typeof CommandPrimitive.Group>>;
+  ref?: React.RefObject<React.ComponentRef<typeof CommandPrimitive.Group>>;
 }) => (
   <CommandPrimitive.Group
     ref={ref}
@@ -123,7 +123,7 @@ const CommandSeparator = ({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<typeof CommandPrimitive.Separator> & {
-  ref: React.RefObject<React.ComponentRef<typeof CommandPrimitive.Separator>>;
+  ref?: React.RefObject<React.ComponentRef<typeof CommandPrimitive.Separator>>;
 }) => (
   <CommandPrimitive.Separator
     ref={ref}
@@ -138,12 +138,12 @@ const CommandItem = ({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<typeof CommandPrimitive.Item> & {
-  ref: React.RefObject<React.ComponentRef<typeof CommandPrimitive.Item>>;
+  ref?: React.RefObject<React.ComponentRef<typeof CommandPrimitive.Item>>;
 }) => (
   <CommandPrimitive.Item
     ref={ref}
     className={cn(
-      "relative flex select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled='true']:pointer-events-none data-[disabled='true']:opacity-50",
+      "relative flex select-none items-center rounded-sm px-2 py-1.5 text-sm outline-hidden aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled='true']:pointer-events-none data-[disabled='true']:opacity-50",
       className
     )}
     {...props}

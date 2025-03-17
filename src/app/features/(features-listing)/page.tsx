@@ -10,7 +10,7 @@ const FeaturesPage = () => {
         <AppBreadCrumb />
       </div>
       <h4 className="text-center font-bold">Features and Demos</h4>
-      <div className="!my-[30px]">
+      <div className="my-[30px]!">
         <SearchFeatures />
       </div>
       <main>

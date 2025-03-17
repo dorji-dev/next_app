@@ -23,7 +23,7 @@ export default function Home() {
   return (
     <main className="space-y-[50px]">
       <section>
-        <h1 className="bg-gradient-to-b from-foreground to-foreground/50 bg-clip-text text-transparent text-center px-[20px] md:px-[60px] lg:px-[100px] mt-[40px] md:mt-[50px] lg:mt-[60px] font-bold">
+        <h1 className="bg-linear-to-b from-foreground to-foreground/50 bg-clip-text text-transparent text-center px-[20px] md:px-[60px] lg:px-[100px] mt-[40px] md:mt-[50px] lg:mt-[60px] font-bold">
           Everyday features with Next App Router
           <span className="block text-[12px] font-bold italic text-muted-foreground tracking-wider mt-[12px]">
             & concept demos
@@ -81,7 +81,7 @@ export default function Home() {
       <div className="space-y-[3px] flex flex-col items-center">
         <HeroFeatureSeparator />
       </div>
-      <div className="!my-[30px]">
+      <div className="my-[30px]!">
         <SearchFeatures />
       </div>
       <FeaturesListing features={homeFeatures} />
