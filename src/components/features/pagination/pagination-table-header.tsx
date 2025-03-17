@@ -10,7 +10,7 @@ import { RxCaretSort } from "react-icons/rx";
 interface PaginationTableHeaderProps {
   headerValue: string;
   tooltipValue: string;
-  tableRef: React.RefObject<HTMLTableElement>;
+  tableRef: React.RefObject<HTMLTableElement | null>;
   column?: Column<any, unknown>;
 }
 

@@ -6,7 +6,7 @@ import TextHighlight from "@/components/text-highlight.tsx";
 import { buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import clsx from "clsx";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { FaCircle, FaGithub } from "react-icons/fa";
 import { heroFeatures } from "@/config/hero-features";

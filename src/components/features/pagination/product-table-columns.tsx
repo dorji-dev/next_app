@@ -27,7 +27,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export const getProductColumns = (
-  tableRef: React.RefObject<HTMLTableElement>
+  tableRef: React.RefObject<HTMLTableElement | null>
 ): ColumnDef<Product>[] => {
   return [
     {

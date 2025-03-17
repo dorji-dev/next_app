@@ -6,7 +6,7 @@ import { useGlobalAudioPlayer } from "react-use-audio-player";
 const AudioSlider = () => {
   const [position, setPosition] = useState<number>(0);
   const { getPosition, duration, seek, playing } = useGlobalAudioPlayer();
-  const frameRef = useRef<number>();
+  const frameRef = useRef<number>(undefined);
 
   useEffect(() => {
     getPosition && setPosition(getPosition());

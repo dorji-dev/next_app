@@ -11,7 +11,7 @@ export const AudioPlayerInitContext =
   createContext<StoreApi<AudioPlayerInitStore> | null>(null);
 
 export const AudioPlayerInitProvider = ({ children }: PropsWithChildren) => {
-  const storeRef = useRef<StoreApi<AudioPlayerInitStore>>();
+  const storeRef = useRef<StoreApi<AudioPlayerInitStore>>(undefined);
   if (!storeRef.current) {
     storeRef.current = createAudioPlayerStore();
   }

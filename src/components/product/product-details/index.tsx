@@ -10,7 +10,7 @@ interface ProductDetailsProps {
 const ProductDetails = async ({ usedIn }: ProductDetailsProps) => {
   // Since it is not possible to read query params in the server components
   // directly, we are reading it from the headers which we have modified inside the middleware
-  const productId = headers().get("product_id");
+  const productId = (await headers()).get("product_id");
   const product = await getProductDetailById(productId as string);
 
   if (product === null) {

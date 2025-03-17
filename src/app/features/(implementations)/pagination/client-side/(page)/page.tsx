@@ -1,6 +1,6 @@
 import ClientSidePaginationImplementation from "@/components/features/pagination/client-side/implementation";
 import FeatureImplementationTemplate from "@/components/templates/feature-implementation";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Pagination with client side data fetching",

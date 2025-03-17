@@ -1,7 +1,7 @@
 import InterceptingRoutesImplementation from "@/components/features/intercepting-routes/implementation/indext";
 import ContentLoader from "@/components/loaders/content-loader";
 import FeatureImplementationTemplate from "@/components/templates/feature-implementation";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import { Suspense } from "react";
 
 export const metadata: Metadata = {

@@ -1,6 +1,6 @@
 import ParallelRoutingImplementation from "@/components/features/parallel-routing/implementation";
 import FeatureImplementationTemplate from "@/components/templates/feature-implementation";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "NextJs parallel routing",

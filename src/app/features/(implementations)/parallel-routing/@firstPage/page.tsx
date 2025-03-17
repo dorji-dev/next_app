@@ -6,11 +6,12 @@ import ParallelRoutePageContent from "@/components/features/parallel-routing/par
 // https://nextjs.org/docs/app/building-your-application/rendering/server-components#switching-to-dynamic-rendering
 // This is just for the demo, so you can refresh the page and see how
 // page streaming works.
-const FirstPage = async ({
-  searchParams,
-}: {
-  searchParams: { value: string };
-}) => {
+const FirstPage = async (
+  props: {
+    searchParams: Promise<{ value: string }>;
+  }
+) => {
+  const searchParams = await props.searchParams;
   await fakeAPI(2000, searchParams.value);
   return <ParallelRoutePageContent pageName="One" timeToLoad={2} />;
 };

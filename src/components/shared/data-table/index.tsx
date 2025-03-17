@@ -14,7 +14,7 @@ import { cn } from "@/lib/utils";
 interface DataTableProps<TData> {
   table: ReactTable<TData>;
   columnLength: number;
-  tableRef: RefObject<HTMLTableElement>;
+  tableRef: RefObject<HTMLTableElement | null>;
   containerClass?: string;
 }
 

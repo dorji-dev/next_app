@@ -4,20 +4,10 @@ import SiteHeader from "@/components/site-header";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import SiteFooter from "@/components/site-footer";
 import { ReactNode } from "react";
-import dynamic from "next/dynamic";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { AudioPlayerInitProvider } from "@/components/providers/audio-player-init-provider";
-import { Metadata } from "next";
-
-// 'use client' doesn't make the component fully client side rendered
-// so need to disable pre-rendering since we are using local storage hook
-const AudioPlayer = dynamic(
-  () =>
-    import("@/components/features/music-streaming/implementation/audio-player"),
-  {
-    ssr: false,
-  }
-);
+import type { Metadata } from "next";
+import { AudioPlayerWrapper } from "@/components/features/music-streaming/implementation/audio-player-wrapper";
 
 export const metadata: Metadata = {
   title: {
@@ -53,7 +43,7 @@ export default function RootLayout({
               <SiteHeader />
               <main className="container flex-1">{children}</main>
               <SiteFooter />
-              <AudioPlayer />
+              <AudioPlayerWrapper />
             </div>
           </AudioPlayerInitProvider>
         </ThemeProvider>

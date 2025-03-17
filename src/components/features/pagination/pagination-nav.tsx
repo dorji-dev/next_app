@@ -63,57 +63,47 @@ const PaginationNav = ({
       <Pagination className="text-[13px]">
         <PaginationContent>
           <PaginationItem>
-            <PaginationPrevious asChild>
-              <Button
-                variant="ghost"
-                disabled={activePage === 1}
-                className={clsx(
-                  activePage === 1
-                    ? "text-foreground/45"
-                    : "text-primary hover:text-primary",
-                  "gap-[4px]"
-                )}
-                onClick={() => setPage((activePage - 1).toString())}
-              >
-                <LuChevronLeft className="h-[16px] w-[16px]" />
-                <span className="hidden xxs:block">Previous</span>
-              </Button>
+            <PaginationPrevious
+              disabled={activePage === 1}
+              className={clsx(
+                activePage === 1
+                  ? "text-foreground/45"
+                  : "text-primary hover:text-primary",
+                "gap-[4px]"
+              )}
+              onClick={() => setPage((activePage - 1).toString())}
+            >
+              <LuChevronLeft className="h-[16px] w-[16px]" />
+              <span className="hidden xxs:block">Previous</span>
             </PaginationPrevious>
           </PaginationItem>
           {pagesToShow.map((value) => (
             <PaginationItem key={value}>
-              <PaginationLink asChild>
-                <Button
-                  disabled={value > maximumSizePossible ? true : false}
-                  aria-current={activePage === value ? "page" : undefined}
-                  onClick={() => setPage(value.toString())}
-                  variant={activePage === value ? "outline" : "ghost"}
-                  size="icon"
-                  className={clsx(
-                    value > maximumSizePossible && "text-foreground/45"
-                  )}
-                >
-                  {value}
-                </Button>
+              <PaginationLink
+                disabled={value > maximumSizePossible ? true : false}
+                aria-current={activePage === value ? "page" : undefined}
+                onClick={() => setPage(value.toString())}
+                className={clsx(
+                  value > maximumSizePossible && "text-foreground/45"
+                )}
+              >
+                {value}
               </PaginationLink>
             </PaginationItem>
           ))}
           <PaginationItem>
-            <PaginationNext asChild>
-              <Button
-                variant="ghost"
-                disabled={activePage === maximumSizePossible}
-                className={clsx(
-                  activePage === maximumSizePossible
-                    ? "text-foreground/45"
-                    : "text-primary hover:text-primary",
-                  "gap-[4px]"
-                )}
-                onClick={() => setPage((activePage + 1).toString())}
-              >
-                <span className="hidden xxs:block">Next</span>
-                <LuChevronRight className="h-[16px] w-[16px]" />
-              </Button>
+            <PaginationNext
+              disabled={activePage === maximumSizePossible}
+              className={clsx(
+                activePage === maximumSizePossible
+                  ? "text-foreground/45"
+                  : "text-primary hover:text-primary",
+                "gap-[4px]"
+              )}
+              onClick={() => setPage((activePage + 1).toString())}
+            >
+              <span className="hidden xxs:block">Next</span>
+              <LuChevronRight className="h-[16px] w-[16px]" />
             </PaginationNext>
           </PaginationItem>
         </PaginationContent>

@@ -2,7 +2,7 @@ import MusicStreamingImplementation from "@/components/features/music-streaming/
 import ContentLoader from "@/components/loaders/content-loader";
 import FeatureImplementationTemplate from "@/components/templates/feature-implementation";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import { Suspense } from "react";
 
 export const metadata: Metadata = {

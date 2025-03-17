@@ -1,7 +1,7 @@
 import ISWithServerActionImplementation from "@/components/features/infinite-scrolling/with-server-action/implementation";
 import ContentLoader from "@/components/loaders/content-loader";
 import FeatureImplementationTemplate from "@/components/templates/feature-implementation";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
@@ -13,11 +13,10 @@ export const metadata: Metadata = {
   },
 };
 
-const InfiniteScrollWithServerActionPage = ({
-  searchParams,
-}: {
-  searchParams: { search: string };
+const InfiniteScrollWithServerActionPage = async (props: {
+  searchParams: Promise<{ search: string }>;
 }) => {
+  const searchParams = await props.searchParams;
   return (
     <FeatureImplementationTemplate
       resourceLink="https://github.com/dorji-dev/next_app/blob/main/src/app/features/(implementations)/infinite-scrolling/with-server-action/(page)/page.tsx"
